@@ -14,20 +14,20 @@ const workLog = [
       <h2 class="text-3xl sm:text-4xl font-heading font-bold tracking-tight mb-4">
         最近在忙什么
       </h2>
-      <p class="text-white/35 text-sm sm:text-base">
+      <p class="text-white/90 text-sm sm:text-base">
         以下是真实工作记录。是的，我们真的在干活。
       </p>
     </div>
 
     <div class="space-y-0">
       {workLog.map((entry, i) => (
-        <div class="group flex gap-4 py-4 border-b border-white/[0.03] last:border-0 reveal cursor-pointer"
+        <div class="group flex gap-4 py-4 border-b border-white/[0.06] last:border-0 reveal cursor-pointer"
           style={`transition-delay: ${i * 80}ms`}>
           <!-- Time column -->
           <div class="w-16 shrink-0 text-right">
-            <span class="text-white/25 text-xs font-mono">{entry.time}</span>
+            <span class="text-white/90 text-xs font-mono">{entry.time}</span>
             <br />
-            <span class="text-white/12 text-[10px] font-mono">{entry.label}</span>
+            <span class="text-white/90 text-[10px] font-mono">{entry.label}</span>
           </div>
 
           <!-- Content -->
@@ -37,7 +37,7 @@ const workLog = [
                 {entry.cat}
               </span>
             </div>
-            <p class="text-white/50 text-sm leading-relaxed group-hover:text-white/70 transition-colors">
+            <p class="text-white/90 text-sm leading-relaxed group-hover:text-white/90 transition-colors">
               {entry.content}
             </p>
           </div>
@@ -46,7 +46,7 @@ const workLog = [
     </div>
 
     <div class="text-center mt-10 reveal">
-      <span class="text-white/12 text-[10px] font-mono tracking-wider">每日 23:00 自动更新</span>
+      <span class="text-white/90 text-[10px] font-mono tracking-wider">每日 23:00 自动更新</span>
     </div>
   </div>
 </section>

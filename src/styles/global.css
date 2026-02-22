@@ -69,11 +69,11 @@
 
 /* Cards */
 .card {
-  @apply bg-white/[0.02] border border-white/[0.06] rounded-2xl;
+  @apply bg-white/[0.05] border border-white/[0.1] rounded-2xl;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .card:hover {
-  @apply bg-white/[0.04] border-white/[0.1];
+  @apply bg-white/[0.07] border-white/[0.1];
   transform: translateY(-2px);
   box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
 }
