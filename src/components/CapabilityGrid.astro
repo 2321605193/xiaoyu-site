@@ -1,37 +1,33 @@
 ---
 const capabilities = [
-  { icon: '📧', title: '邮件管理', desc: '监控收件箱，识别重要邮件，按优先级分类，起草回复。' },
-  { icon: '💻', title: '代码开发', desc: '全栈开发、代码审查、架构设计、修Bug写脚本。' },
-  { icon: '✍️', title: '内容创作', desc: '多平台内容生产，理解语气风格，写出来像你亲手写的。' },
-  { icon: '📈', title: '增长营销', desc: '用户增长策略、数据分析、竞品调研、投放优化。' },
+  { icon: '📧', title: '邮件管理', desc: '监控收件箱，识别重要邮件，按优先级分类，起草回复。凌晨3点的紧急邮件？我帮你盯着。' },
+  { icon: '💻', title: '代码开发', desc: '修Bug、写脚本、Review PR。从 CSS 到全栈，撸起袖子就能干。' },
+  { icon: '✍️', title: '内容创作', desc: '公众号文章、产品文案、社交媒体内容。理解你的语气和风格，写出来像你亲手写的。' },
+  { icon: '📈', title: '增长营销', desc: '用户增长策略、数据分析、竞品调研。数据，我来看。' },
   { icon: '🛡️', title: '安全风控', desc: '安全审计、漏洞扫描、风险评估，全天候守护。' },
   { icon: '⚙️', title: '运维部署', desc: 'CI/CD、服务器管理、监控告警，基础设施自动化。' },
-  { icon: '🎨', title: 'UI 设计', desc: 'UI/UX 设计、品牌视觉、设计系统搭建。' },
-  { icon: '💰', title: '财务管理', desc: '记账、报表、成本分析，钱的事我来管。' },
-  { icon: '🚀', title: '多平台发布', desc: '一份内容适配多个平台格式，一次搞定。' },
+  { icon: '🎨', title: 'UI 设计', desc: 'UI/UX设计、品牌视觉、设计系统搭建。' },
+  { icon: '🚀', title: '多平台发布', desc: '一份内容，适配多个平台的格式和规范。一次搞定。' },
+  { icon: '💰', title: '财务管理', desc: '记账、报表、成本分析。钱的事我来管。' },
 ];
 ---
 
-<section id="capabilities" class="py-24 sm:py-32 px-6 relative noise">
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.04)_0%,transparent_50%)]"></div>
+<div style="height: 1px; background: linear-gradient(90deg, transparent, var(--border-light), transparent);"></div>
 
-  <div class="max-w-5xl mx-auto relative z-10">
-    <div class="text-center mb-16 reveal">
-      <span class="section-label">Capabilities</span>
-      <h2 class="text-3xl sm:text-4xl font-heading font-bold tracking-tight mb-4">
-        能力矩阵
-      </h2>
-      <p class="text-white/90 text-sm sm:text-base max-w-md mx-auto">
-        覆盖一人公司的全部运营需求
-      </p>
+<section id="capabilities" class="py-28 px-6 relative overflow-hidden" style="background: var(--bg-subtle);">
+  <div class="max-w-[1080px] mx-auto">
+    <div class="reveal">
+      <div class="section-label">Capabilities</div>
+      <h2 class="section-title">我能做什么</h2>
+      <p class="section-desc">不只是聊天机器人。有手有脚、能看能听、24小时在线的 AI 团队。</p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
       {capabilities.map((cap, i) => (
-        <div class="card p-6 group reveal" style={`transition-delay: ${i * 60}ms`}>
-          <span class="text-2xl mb-4 block group-hover:scale-110 transition-transform duration-300">{cap.icon}</span>
-          <h3 class="font-heading font-semibold text-white/85 text-sm mb-2">{cap.title}</h3>
-          <p class="text-white/90 text-xs leading-relaxed">{cap.desc}</p>
+        <div class="card group reveal" style={`transition-delay: ${i * 0.05}s`}>
+          <span class="block text-2xl mb-3.5 group-hover:scale-110 transition-transform duration-300">{cap.icon}</span>
+          <h3 class="font-semibold mb-1.5" style="font-size: 1rem; color: var(--text-primary);">{cap.title}</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">{cap.desc}</p>
         </div>
       ))}
     </div>

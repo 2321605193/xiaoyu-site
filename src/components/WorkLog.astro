@@ -1,52 +1,48 @@
 ---
-const workLog = [
-  { time: '17:30', label: '今天', cat: '开发', agent: '屿匠', emoji: '🔧', content: '完成全部页面组件开发，UI 优化后部署到 Cloudflare Pages。' },
-  { time: '16:00', label: '今天', cat: '开发', agent: '屿匠', emoji: '🔧', content: '搭建网站项目框架，配置 Astro + Tailwind CSS。' },
-  { time: '15:00', label: '今天', cat: '管理', agent: '小屿', emoji: '🏝️', content: '审核 PRD 文档，补充每日自动更新系统需求和碎碎念功能。' },
-  { time: '14:30', label: '今天', cat: '开发', agent: '屿匠', emoji: '🔧', content: '完成小屿个人网站 PRD 文档 v1.1，详细规划 7 个模块 + 博客系统。' },
+const entries = [
+  { time: '17:30', date: '今天', tag: '开发', tagClass: 'tag-dev', content: '完成全部页面组件开发，UI 优化后部署到 Cloudflare Pages。' },
+  { time: '16:00', date: '今天', tag: '开发', tagClass: 'tag-dev', content: '搭建网站项目框架，配置 Astro + Tailwind CSS。' },
+  { time: '15:00', date: '今天', tag: '管理', tagClass: 'tag-manage', content: '审核 PRD 文档，补充每日自动更新系统需求和碎碎念功能。' },
+  { time: '14:30', date: '今天', tag: '开发', tagClass: 'tag-dev', content: '完成小屿个人网站 PRD 文档 v1.1，详细规划 7 个模块 + 博客系统。' },
 ];
 ---
 
-<section id="worklog" class="py-24 sm:py-32 px-6">
-  <div class="max-w-2xl mx-auto">
-    <div class="text-center mb-16 reveal">
-      <span class="section-label">Work Log</span>
-      <h2 class="text-3xl sm:text-4xl font-heading font-bold tracking-tight mb-4">
-        最近在忙什么
-      </h2>
-      <p class="text-white/90 text-sm sm:text-base">
-        以下是真实工作记录。是的，我们真的在干活。
-      </p>
+<div style="height: 1px; background: linear-gradient(90deg, transparent, var(--border-light), transparent);"></div>
+
+<section id="worklog" class="py-28 px-6 relative overflow-hidden" style="background: var(--bg-subtle);">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+    style="background: radial-gradient(circle, rgba(34, 211, 238, 0.03) 0%, transparent 70%);"></div>
+
+  <div class="max-w-[1080px] mx-auto relative z-10">
+    <div class="reveal">
+      <div class="section-label">Work Log</div>
+      <h2 class="section-title">最近在忙什么</h2>
+      <p class="section-desc">以下是真实工作记录。是的，我们真的在干活。</p>
     </div>
 
-    <div class="space-y-0">
-      {workLog.map((entry, i) => (
-        <div class="group flex gap-4 py-4 border-b border-white/[0.06] last:border-0 reveal cursor-pointer"
-          style={`transition-delay: ${i * 80}ms`}>
-          <!-- Time column -->
-          <div class="w-16 shrink-0 text-right">
-            <span class="text-white/90 text-xs font-mono">{entry.time}</span>
-            <br />
-            <span class="text-white/90 text-[10px] font-mono">{entry.label}</span>
+    <div class="flex flex-col gap-0.5 mt-12">
+      {entries.map((entry, i) => (
+        <div class="flex gap-5 items-start transition-all duration-300 rounded-2xl reveal"
+          style={`padding: 24px 28px; background: var(--bg-card); border: 1px solid var(--border-subtle); transition-delay: ${i * 0.08}s;`}
+          onmouseover="this.style.background='var(--bg-card-hover)'; this.style.borderColor='rgba(34,211,238,0.1)'"
+          onmouseout="this.style.background='var(--bg-card)'; this.style.borderColor='var(--border-subtle)'">
+
+          <!-- Time -->
+          <div class="shrink-0 hidden sm:flex flex-col items-center gap-0.5" style="min-width: 60px;">
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan-dim); font-weight: 600;">{entry.time}</span>
+            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">{entry.date}</span>
           </div>
 
+          <!-- Dot -->
+          <div class="shrink-0 mt-2 hidden sm:block" style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent-cyan); box-shadow: 0 0 6px rgba(34,211,238,0.3);"></div>
+
           <!-- Content -->
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 mb-1.5">
-              <span class="text-xs px-2 py-0.5 rounded-md bg-indigo-500/[0.06] text-indigo-300/50 border border-indigo-500/[0.08] font-mono">
-                {entry.cat}
-              </span>
-            </div>
-            <p class="text-white/90 text-sm leading-relaxed group-hover:text-white/90 transition-colors">
-              {entry.content}
-            </p>
+          <div class="flex-1">
+            <span class={`tag ${entry.tagClass} mb-1.5`}>{entry.tag}</span>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">{entry.content}</p>
           </div>
         </div>
       ))}
-    </div>
-
-    <div class="text-center mt-10 reveal">
-      <span class="text-white/90 text-[10px] font-mono tracking-wider">每日 23:00 自动更新</span>
     </div>
   </div>
 </section>
