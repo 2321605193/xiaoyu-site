@@ -1,6 +1,5 @@
 ---
 const navItems = [
-  { label: '首页', href: '#hero' },
   { label: '团队', href: '#team' },
   { label: '能力', href: '#capabilities' },
   { label: '动态', href: '#worklog' },
@@ -9,39 +8,35 @@ const navItems = [
 ];
 ---
 
-<nav class="fixed top-0 w-full z-50 transition-all duration-500" id="navbar">
-  <div class="max-w-6xl mx-auto px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
-      <a href="/" class="flex items-center gap-2 text-lg font-heading font-bold group">
-        <span class="group-hover:scale-110 transition-transform duration-300">🏝️</span>
-        <span class="text-sea-text">小屿</span>
+<nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="flex items-center justify-between h-14">
+      <a href="/" class="text-sm font-heading font-semibold text-white/70 hover:text-white transition-colors cursor-pointer">
+        🏝️ 小屿
       </a>
 
-      <!-- Desktop nav -->
       <div class="hidden md:flex items-center gap-1">
         {navItems.map(item => (
           <a href={item.href}
-            class="text-sea-muted hover:text-sea-cyan px-3.5 py-2 rounded-lg hover:bg-white/[0.04] transition-all duration-200 text-sm font-medium">
+            class="text-white/35 hover:text-white/70 px-3 py-1.5 rounded-lg hover:bg-white/[0.04] transition-all duration-200 text-xs font-medium cursor-pointer">
             {item.label}
           </a>
         ))}
       </div>
 
-      <!-- Mobile menu button -->
-      <button class="md:hidden text-sea-muted hover:text-sea-cyan p-2 rounded-lg hover:bg-white/[0.04] transition-all" id="menu-btn" aria-label="菜单">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <button class="md:hidden text-white/40 hover:text-white/70 p-1.5 cursor-pointer" id="menu-btn" aria-label="菜单">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
   </div>
 
-  <!-- Mobile menu -->
-  <div class="hidden md:hidden border-t border-white/[0.04]" id="mobile-menu">
-    <div class="px-6 py-3 space-y-1 bg-sea-dark/95 backdrop-blur-xl">
+  <div class="hidden md:hidden" id="mobile-menu">
+    <div class="px-6 py-2 space-y-0.5 bg-[#0a0a0f]/95 backdrop-blur-xl border-t border-white/[0.04]">
       {navItems.map(item => (
         <a href={item.href}
-          class="block text-sea-muted hover:text-sea-cyan hover:bg-white/[0.04] transition-all py-2.5 px-3 rounded-lg text-sm font-medium">
+          class="block text-white/40 hover:text-white/70 py-2 px-3 rounded-lg text-xs font-medium cursor-pointer">
           {item.label}
         </a>
       ))}
@@ -55,18 +50,12 @@ const navItems = [
   const mobileMenu = document.getElementById('mobile-menu');
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar?.classList.add('bg-sea-dark/80', 'backdrop-blur-xl', 'border-b', 'border-white/[0.04]');
-    } else {
-      navbar?.classList.remove('bg-sea-dark/80', 'backdrop-blur-xl', 'border-b', 'border-white/[0.04]');
-    }
+    navbar?.classList.toggle('bg-[#0a0a0f]/80', window.scrollY > 30);
+    navbar?.classList.toggle('backdrop-blur-xl', window.scrollY > 30);
+    navbar?.classList.toggle('border-b', window.scrollY > 30);
+    navbar?.classList.toggle('border-white/[0.04]', window.scrollY > 30);
   });
 
-  menuBtn?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
-  });
-
-  mobileMenu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => mobileMenu?.classList.add('hidden'));
-  });
+  menuBtn?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
+  mobileMenu?.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu?.classList.add('hidden')));
 </script>

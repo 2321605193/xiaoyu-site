@@ -5,121 +5,104 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   body {
-    @apply bg-sea-dark text-sea-text antialiased;
+    @apply bg-[#0a0a0f] text-[#e2e8f0] antialiased;
     font-family: 'DM Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   }
 
   ::selection {
-    @apply bg-sea-cyan/30 text-white;
+    background: rgba(99, 102, 241, 0.3);
+    color: #fff;
   }
 
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
   }
-
   ::-webkit-scrollbar-track {
-    @apply bg-sea-dark;
+    background: transparent;
   }
-
   ::-webkit-scrollbar-thumb {
-    @apply bg-sea-gray/50 rounded-full;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-sea-gray/70;
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
   }
 }
 
-/* Status pulse animation */
-@keyframes pulse-glow {
-  0%, 100% {
-    opacity: 1;
-    box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
-  }
-  50% {
-    opacity: 0.5;
-    box-shadow: 0 0 12px rgba(34, 197, 94, 0.3);
-  }
+/* === Animations === */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { opacity: 0.6; box-shadow: 0 0 0 4px rgba(34, 197, 94, 0); }
 }
 
-.status-online {
-  @apply bg-sea-green;
-  animation: pulse-glow 2s ease-in-out infinite;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
-/* Fade in on scroll */
-.fade-in {
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.status-dot {
+  @apply w-2 h-2 rounded-full bg-emerald-400;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Scroll reveal */
+.reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-.fade-in.visible {
+.reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Card hover effect */
-.card-hover {
-  @apply transition-all duration-300 ease-out;
+/* Cards */
+.card {
+  @apply bg-white/[0.02] border border-white/[0.06] rounded-2xl;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card:hover {
+  @apply bg-white/[0.04] border-white/[0.1];
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
 }
 
-.card-hover:hover {
-  @apply -translate-y-1.5;
-  box-shadow: 0 12px 40px rgba(34, 211, 238, 0.08), 0 4px 12px rgba(0, 0, 0, 0.3);
-  border-color: rgba(34, 211, 238, 0.15);
+/* Section label */
+.section-label {
+  @apply text-xs font-mono tracking-[0.25em] uppercase text-indigo-400/80 mb-4 inline-block;
 }
 
 /* Gradient text */
-.gradient-text {
+.text-gradient {
   @apply bg-clip-text text-transparent;
-  background-image: linear-gradient(135deg, #22d3ee 0%, #d4a853 100%);
+  background-image: linear-gradient(135deg, #818cf8 0%, #22d3ee 50%, #a78bfa 100%);
 }
 
-/* Glass morphism card */
-.glass-card {
-  @apply bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl;
+/* Noise texture overlay */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
 }
 
-/* Glow effect for CTAs */
-.glow-cyan {
-  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
-}
-
-.glow-cyan:hover {
-  box-shadow: 0 0 30px rgba(34, 211, 238, 0.25);
-}
-
-.glow-gold {
-  box-shadow: 0 0 20px rgba(212, 168, 83, 0.15);
-}
-
-.glow-gold:hover {
-  box-shadow: 0 0 30px rgba(212, 168, 83, 0.25);
-}
-
-/* Section divider */
-.section-divider {
-  @apply h-px w-full;
-  background: linear-gradient(90deg, transparent 0%, rgba(34, 211, 238, 0.15) 50%, transparent 100%);
-}
-
-/* Prefers reduced motion */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .fade-in {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  .status-online {
-    animation: none;
-  }
-
-  .card-hover:hover {
-    transform: none;
-  }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .status-dot { animation: none; }
+  .float { animation: none; }
+  .card:hover { transform: none; }
 }

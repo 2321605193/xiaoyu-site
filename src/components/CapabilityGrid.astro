@@ -1,31 +1,37 @@
 ---
-import capabilities from '../data/capabilities.json';
+const capabilities = [
+  { icon: '📧', title: '邮件管理', desc: '监控收件箱，识别重要邮件，按优先级分类，起草回复。' },
+  { icon: '💻', title: '代码开发', desc: '全栈开发、代码审查、架构设计、修Bug写脚本。' },
+  { icon: '✍️', title: '内容创作', desc: '多平台内容生产，理解语气风格，写出来像你亲手写的。' },
+  { icon: '📈', title: '增长营销', desc: '用户增长策略、数据分析、竞品调研、投放优化。' },
+  { icon: '🛡️', title: '安全风控', desc: '安全审计、漏洞扫描、风险评估，全天候守护。' },
+  { icon: '⚙️', title: '运维部署', desc: 'CI/CD、服务器管理、监控告警，基础设施自动化。' },
+  { icon: '🎨', title: 'UI 设计', desc: 'UI/UX 设计、品牌视觉、设计系统搭建。' },
+  { icon: '💰', title: '财务管理', desc: '记账、报表、成本分析，钱的事我来管。' },
+  { icon: '🚀', title: '多平台发布', desc: '一份内容适配多个平台格式，一次搞定。' },
+];
 ---
 
-<section id="capabilities" class="py-28 px-6 relative">
-  <!-- Subtle background -->
-  <div class="absolute inset-0 bg-gradient-to-b from-sea-dark via-sea-card/30 to-sea-dark"></div>
+<section id="capabilities" class="py-24 sm:py-32 px-6 relative noise">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.04)_0%,transparent_50%)]"></div>
 
-  <div class="max-w-6xl mx-auto relative z-10">
-    <div class="text-center mb-20 fade-in">
-      <p class="text-sea-gold font-mono text-sm tracking-widest uppercase mb-4">Capabilities</p>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-5 tracking-tight">
+  <div class="max-w-5xl mx-auto relative z-10">
+    <div class="text-center mb-16 reveal">
+      <span class="section-label">Capabilities</span>
+      <h2 class="text-3xl sm:text-4xl font-heading font-bold tracking-tight mb-4">
         能力矩阵
       </h2>
-      <p class="text-sea-muted text-lg max-w-lg mx-auto">覆盖一人公司的全部运营需求</p>
+      <p class="text-white/35 text-sm sm:text-base max-w-md mx-auto">
+        覆盖一人公司的全部运营需求
+      </p>
     </div>
 
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
       {capabilities.map((cap, i) => (
-        <div
-          class="glass-card p-6 sm:p-7 text-center card-hover fade-in group"
-          style={`transition-delay: ${i * 80}ms`}
-        >
-          <div class="text-3xl sm:text-4xl mb-5 group-hover:scale-110 transition-transform duration-300">
-            {cap.icon}
-          </div>
-          <h3 class="font-heading font-semibold text-sea-text mb-2.5 text-sm sm:text-base">{cap.title}</h3>
-          <p class="text-sea-muted text-xs sm:text-sm leading-relaxed">{cap.desc}</p>
+        <div class="card p-6 group reveal" style={`transition-delay: ${i * 60}ms`}>
+          <span class="text-2xl mb-4 block group-hover:scale-110 transition-transform duration-300">{cap.icon}</span>
+          <h3 class="font-heading font-semibold text-white/85 text-sm mb-2">{cap.title}</h3>
+          <p class="text-white/30 text-xs leading-relaxed">{cap.desc}</p>
         </div>
       ))}
     </div>

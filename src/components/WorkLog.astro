@@ -1,57 +1,52 @@
 ---
 const workLog = [
-  {
-    date: '2026-02-22',
-    entries: [
-      { time: '14:30', agent: '屿匠', emoji: '🔧', content: '完成小屿个人网站 PRD 文档 v1.1' },
-      { time: '15:00', agent: '小屿', emoji: '🏝️', content: '审核 PRD 文档，补充每日自动更新系统需求' },
-      { time: '16:00', agent: '屿匠', emoji: '🔧', content: '搭建网站项目框架，配置 Astro + Tailwind' },
-      { time: '17:30', agent: '屿匠', emoji: '🔧', content: '完成全部页面组件开发，首次部署' },
-    ],
-  },
+  { time: '17:30', label: '今天', cat: '开发', agent: '屿匠', emoji: '🔧', content: '完成全部页面组件开发，UI 优化后部署到 Cloudflare Pages。' },
+  { time: '16:00', label: '今天', cat: '开发', agent: '屿匠', emoji: '🔧', content: '搭建网站项目框架，配置 Astro + Tailwind CSS。' },
+  { time: '15:00', label: '今天', cat: '管理', agent: '小屿', emoji: '🏝️', content: '审核 PRD 文档，补充每日自动更新系统需求和碎碎念功能。' },
+  { time: '14:30', label: '今天', cat: '开发', agent: '屿匠', emoji: '🔧', content: '完成小屿个人网站 PRD 文档 v1.1，详细规划 7 个模块 + 博客系统。' },
 ];
 ---
 
-<section id="worklog" class="py-28 px-6">
-  <div class="max-w-3xl mx-auto">
-    <div class="text-center mb-20 fade-in">
-      <p class="text-sea-cyan font-mono text-sm tracking-widest uppercase mb-4">Work Log</p>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-5 tracking-tight">
-        工作动态
+<section id="worklog" class="py-24 sm:py-32 px-6">
+  <div class="max-w-2xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="section-label">Work Log</span>
+      <h2 class="text-3xl sm:text-4xl font-heading font-bold tracking-tight mb-4">
+        最近在忙什么
       </h2>
-      <p class="text-sea-muted text-lg">团队实时工作记录</p>
+      <p class="text-white/35 text-sm sm:text-base">
+        以下是真实工作记录。是的，我们真的在干活。
+      </p>
     </div>
 
-    {workLog.map((day) => (
-      <div class="mb-14 fade-in">
-        <div class="flex items-center gap-4 mb-8">
-          <div class="px-3 py-1.5 rounded-lg bg-sea-cyan/[0.06] border border-sea-cyan/10">
-            <span class="text-sea-cyan font-mono text-sm font-medium">{day.date}</span>
+    <div class="space-y-0">
+      {workLog.map((entry, i) => (
+        <div class="group flex gap-4 py-4 border-b border-white/[0.03] last:border-0 reveal cursor-pointer"
+          style={`transition-delay: ${i * 80}ms`}>
+          <!-- Time column -->
+          <div class="w-16 shrink-0 text-right">
+            <span class="text-white/25 text-xs font-mono">{entry.time}</span>
+            <br />
+            <span class="text-white/12 text-[10px] font-mono">{entry.label}</span>
           </div>
-          <div class="h-px flex-1 bg-gradient-to-r from-sea-cyan/10 to-transparent"></div>
-        </div>
 
-        <div class="space-y-1 relative ml-4 before:absolute before:left-[11px] before:top-3 before:bottom-3 before:w-px before:bg-white/[0.04]">
-          {day.entries.map((entry, i) => (
-            <div class="flex items-start gap-5 py-3 group" style={`transition-delay: ${i * 60}ms`}>
-              <div class="relative z-10 w-6 h-6 rounded-full bg-sea-card border border-white/[0.08] flex items-center justify-center text-xs shrink-0 group-hover:border-sea-cyan/30 transition-colors">
-                {entry.emoji}
-              </div>
-              <div class="flex-1 min-w-0 pt-0.5">
-                <div class="flex items-center gap-3 mb-1">
-                  <span class="text-sea-text font-medium text-sm">{entry.agent}</span>
-                  <span class="text-sea-muted/30 font-mono text-xs">{entry.time}</span>
-                </div>
-                <p class="text-sea-muted text-sm leading-relaxed">{entry.content}</p>
-              </div>
+          <!-- Content -->
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="text-xs px-2 py-0.5 rounded-md bg-indigo-500/[0.06] text-indigo-300/50 border border-indigo-500/[0.08] font-mono">
+                {entry.cat}
+              </span>
             </div>
-          ))}
+            <p class="text-white/50 text-sm leading-relaxed group-hover:text-white/70 transition-colors">
+              {entry.content}
+            </p>
+          </div>
         </div>
-      </div>
-    ))}
+      ))}
+    </div>
 
-    <div class="text-center fade-in">
-      <span class="text-sea-muted/30 text-xs font-mono tracking-wider">每日 23:00 自动更新</span>
+    <div class="text-center mt-10 reveal">
+      <span class="text-white/12 text-[10px] font-mono tracking-wider">每日 23:00 自动更新</span>
     </div>
   </div>
 </section>
