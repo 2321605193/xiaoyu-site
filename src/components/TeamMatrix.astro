@@ -1,0 +1,76 @@
+---
+import agents from '../data/agents.json';
+
+const statusColors: Record<string, string> = {
+  online: 'bg-sea-green',
+  idle: 'bg-sea-yellow',
+  offline: 'bg-sea-gray',
+};
+
+const statusLabels: Record<string, string> = {
+  online: '在线',
+  idle: '待命',
+  offline: '离线',
+};
+---
+
+<section id="team" class="py-24 px-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-heading font-bold mb-4">
+        团队矩阵
+      </h2>
+      <p class="text-sea-muted text-lg">三层架构，各司其职</p>
+    </div>
+
+    {agents.levels.map((level, levelIndex) => (
+      <div class="mb-16 fade-in">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="h-px flex-1 bg-gradient-to-r from-transparent via-sea-cyan/20 to-transparent"></div>
+          <h3 class="text-sea-cyan font-heading font-semibold text-sm tracking-wider uppercase">
+            {level.name}
+          </h3>
+          <div class="h-px flex-1 bg-gradient-to-r from-transparent via-sea-cyan/20 to-transparent"></div>
+        </div>
+
+        <div class={`grid gap-4 ${
+          levelIndex === 0
+            ? 'grid-cols-1 max-w-md mx-auto'
+            : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+        }`}>
+          {level.agents.map((agent) => (
+            <div class={`group relative bg-sea-card border border-white/5 rounded-xl p-5 card-hover cursor-pointer ${
+              levelIndex === 0 ? 'border-sea-cyan/20' : ''
+            }`}>
+              <div class="flex items-start gap-3">
+                <span class={`text-2xl ${levelIndex === 0 ? 'text-4xl' : ''}`}>{agent.emoji}</span>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2">
+                    <h4 class="font-semibold text-sea-text">{agent.name}</h4>
+                    <span class={`w-2 h-2 rounded-full ${statusColors[agent.status]} ${agent.status === 'online' ? 'status-online' : ''}`}
+                      title={statusLabels[agent.status]}></span>
+                  </div>
+                  <p class="text-sea-muted text-sm mt-1">{agent.role}</p>
+                </div>
+              </div>
+
+              <!-- Tags on hover -->
+              <div class="mt-3 flex flex-wrap gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {agent.tags.map((tag: string) => (
+                  <span class="text-xs px-2 py-0.5 rounded-full bg-sea-cyan/10 text-sea-cyan/80 border border-sea-cyan/10">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    <!-- Architecture diagram hint -->
+    <div class="text-center text-sea-muted/50 text-sm mt-8 fade-in">
+      <p>🏝️ 小屿 → 职能层(7人) + 屿墨 → 平台层(8人)</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+{
+  "levels": [
+    {
+      "name": "总管层",
+      "agents": [
+        { "id": "main", "name": "小屿", "emoji": "🏝️", "role": "统筹全局", "status": "online", "tags": ["管理", "调度", "决策"] }
+      ]
+    },
+    {
+      "name": "职能层",
+      "agents": [
+        { "id": "coder", "name": "屿匠", "emoji": "🔧", "role": "开发、架构、写代码", "status": "online", "tags": ["全栈", "架构", "代码审查"] },
+        { "id": "writer", "name": "屿墨", "emoji": "✒️", "role": "内容总监，管理平台 Agent", "status": "online", "tags": ["内容策略", "多平台", "SEO"] },
+        { "id": "designer", "name": "屿绘", "emoji": "🎨", "role": "设计、UI/UX", "status": "idle", "tags": ["UI设计", "品牌", "视觉"] },
+        { "id": "growth", "name": "屿潮", "emoji": "📈", "role": "增长、营销、推广", "status": "idle", "tags": ["用户增长", "数据分析", "营销"] },
+        { "id": "finance", "name": "屿算", "emoji": "💰", "role": "财务、账目", "status": "idle", "tags": ["记账", "报表", "成本"] },
+        { "id": "security", "name": "屿盾", "emoji": "🛡️", "role": "安全、风控", "status": "idle", "tags": ["安全审计", "漏洞扫描", "风控"] },
+        { "id": "ops", "name": "屿舵", "emoji": "⚙️", "role": "运维、部署、CI/CD", "status": "idle", "tags": ["部署", "监控", "CI/CD"] }
+      ]
+    },
+    {
+      "name": "平台层",
+      "parent": "writer",
+      "agents": [
+        { "id": "wechat-mp", "name": "屿微", "emoji": "📱", "role": "微信公众号", "status": "idle", "tags": ["公众号", "微信"] },
+        { "id": "zhihu", "name": "屿知", "emoji": "💡", "role": "知乎", "status": "idle", "tags": ["知乎", "问答"] },
+        { "id": "xiaohongshu", "name": "屿薯", "emoji": "📕", "role": "小红书", "status": "idle", "tags": ["小红书", "种草"] },
+        { "id": "twitter", "name": "屿推", "emoji": "🐦", "role": "X/Twitter", "status": "idle", "tags": ["Twitter", "出海"] },
+        { "id": "short-video", "name": "屿映", "emoji": "🎬", "role": "短视频（抖音/快手）", "status": "idle", "tags": ["短视频", "抖音"] },
+        { "id": "juejin", "name": "屿掘", "emoji": "⛏️", "role": "掘金", "status": "idle", "tags": ["掘金", "技术"] },
+        { "id": "bilibili-yt", "name": "屿播", "emoji": "📺", "role": "B站/YouTube", "status": "idle", "tags": ["B站", "YouTube"] },
+        { "id": "weibo", "name": "屿风", "emoji": "🌊", "role": "微博", "status": "idle", "tags": ["微博", "热点"] }
+      ]
+    }
+  ]
+}

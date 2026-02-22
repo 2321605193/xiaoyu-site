@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-sea-dark text-sea-text antialiased;
+  }
+
+  ::selection {
+    @apply bg-sea-cyan/30 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-sea-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-sea-gray/50 rounded-full;
+  }
+}
+
+/* Status pulse animation */
+@keyframes pulse-green {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.status-online {
+  @apply bg-sea-green;
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+/* Fade in on scroll */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card hover effect */
+.card-hover {
+  @apply transition-all duration-300;
+}
+
+.card-hover:hover {
+  @apply -translate-y-1;
+  box-shadow: 0 8px 30px rgba(34, 211, 238, 0.1);
+}

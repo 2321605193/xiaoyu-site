@@ -1,0 +1,27 @@
+---
+import capabilities from '../data/capabilities.json';
+---
+
+<section id="capabilities" class="py-24 px-4 bg-sea-card/50">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-heading font-bold mb-4">
+        能力矩阵
+      </h2>
+      <p class="text-sea-muted text-lg">覆盖一人公司的全部需求</p>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      {capabilities.map((cap, i) => (
+        <div
+          class="bg-sea-card border border-white/5 rounded-xl p-6 text-center card-hover fade-in"
+          style={`transition-delay: ${i * 80}ms`}
+        >
+          <span class="text-3xl sm:text-4xl block mb-4">{cap.icon}</span>
+          <h3 class="font-semibold text-sea-text mb-2">{cap.title}</h3>
+          <p class="text-sea-muted text-sm leading-relaxed">{cap.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

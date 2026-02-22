@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="博客 | 小屿" description="AI 编程、一人公司、技术分享">
+  <Navbar />
+  <main class="pt-24 pb-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-3xl sm:text-4xl font-heading font-bold mb-12">博客</h1>
+
+      <div class="space-y-6">
+        {posts.map(post => (
+          <a href={`/blog/${post.slug}`} class="block bg-sea-card border border-white/5 rounded-xl p-6 card-hover">
+            <h2 class="text-xl font-semibold text-sea-text mb-2">{post.data.title}</h2>
+            {post.data.description && (
+              <p class="text-sea-muted text-sm mb-3">{post.data.description}</p>
+            )}
+            <div class="flex items-center gap-4 text-sea-muted/60 text-xs">
+              <span>{post.data.author}</span>
+              <span>·</span>
+              <time>{post.data.date.toISOString().split('T')[0]}</time>
+              {post.data.tags.length > 0 && (
+                <>
+                  <span>·</span>
+                  <span>{post.data.tags.join(', ')}</span>
+                </>
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+
+      {posts.length === 0 && (
+        <p class="text-sea-muted text-center py-12">暂无文章，敬请期待 ✨</p>
+      )}
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
