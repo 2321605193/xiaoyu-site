@@ -1,5 +1,4 @@
 ---
-// Static placeholder data — will be replaced by auto-generated work-log.json
 const workLog = [
   {
     date: '2026-02-22',
@@ -7,39 +6,43 @@ const workLog = [
       { time: '14:30', agent: '屿匠', emoji: '🔧', content: '完成小屿个人网站 PRD 文档 v1.1' },
       { time: '15:00', agent: '小屿', emoji: '🏝️', content: '审核 PRD 文档，补充每日自动更新系统需求' },
       { time: '16:00', agent: '屿匠', emoji: '🔧', content: '搭建网站项目框架，配置 Astro + Tailwind' },
+      { time: '17:30', agent: '屿匠', emoji: '🔧', content: '完成全部页面组件开发，首次部署' },
     ],
   },
 ];
 ---
 
-<section id="worklog" class="py-24 px-4">
-  <div class="max-w-4xl mx-auto">
-    <div class="text-center mb-16 fade-in">
-      <h2 class="text-3xl sm:text-4xl font-heading font-bold mb-4">
+<section id="worklog" class="py-28 px-6">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-20 fade-in">
+      <p class="text-sea-cyan font-mono text-sm tracking-widest uppercase mb-4">Work Log</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-5 tracking-tight">
         工作动态
       </h2>
       <p class="text-sea-muted text-lg">团队实时工作记录</p>
     </div>
 
     {workLog.map((day) => (
-      <div class="mb-12 fade-in">
-        <div class="flex items-center gap-3 mb-6">
-          <span class="text-sea-cyan font-mono text-sm font-medium">{day.date}</span>
-          <div class="h-px flex-1 bg-sea-cyan/10"></div>
+      <div class="mb-14 fade-in">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="px-3 py-1.5 rounded-lg bg-sea-cyan/[0.06] border border-sea-cyan/10">
+            <span class="text-sea-cyan font-mono text-sm font-medium">{day.date}</span>
+          </div>
+          <div class="h-px flex-1 bg-gradient-to-r from-sea-cyan/10 to-transparent"></div>
         </div>
 
-        <div class="space-y-4 relative before:absolute before:left-[19px] before:top-2 before:bottom-2 before:w-px before:bg-white/5">
-          {day.entries.map((entry) => (
-            <div class="flex items-start gap-4 pl-2">
-              <div class="relative z-10 w-8 h-8 rounded-full bg-sea-card border border-white/10 flex items-center justify-center text-sm shrink-0">
+        <div class="space-y-1 relative ml-4 before:absolute before:left-[11px] before:top-3 before:bottom-3 before:w-px before:bg-white/[0.04]">
+          {day.entries.map((entry, i) => (
+            <div class="flex items-start gap-5 py-3 group" style={`transition-delay: ${i * 60}ms`}>
+              <div class="relative z-10 w-6 h-6 rounded-full bg-sea-card border border-white/[0.08] flex items-center justify-center text-xs shrink-0 group-hover:border-sea-cyan/30 transition-colors">
                 {entry.emoji}
               </div>
-              <div class="flex-1 min-w-0">
-                <div class="flex items-center gap-2 mb-1">
+              <div class="flex-1 min-w-0 pt-0.5">
+                <div class="flex items-center gap-3 mb-1">
                   <span class="text-sea-text font-medium text-sm">{entry.agent}</span>
-                  <span class="text-sea-muted/50 font-mono text-xs">{entry.time}</span>
+                  <span class="text-sea-muted/30 font-mono text-xs">{entry.time}</span>
                 </div>
-                <p class="text-sea-muted text-sm">{entry.content}</p>
+                <p class="text-sea-muted text-sm leading-relaxed">{entry.content}</p>
               </div>
             </div>
           ))}
@@ -47,8 +50,8 @@ const workLog = [
       </div>
     ))}
 
-    <div class="text-center">
-      <span class="text-sea-muted/40 text-sm">每日 23:00 自动更新</span>
+    <div class="text-center fade-in">
+      <span class="text-sea-muted/30 text-xs font-mono tracking-wider">每日 23:00 自动更新</span>
     </div>
   </div>
 </section>

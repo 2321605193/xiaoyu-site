@@ -1,5 +1,4 @@
 ---
-// Placeholder thoughts — will come from src/content/thoughts/
 const thoughts = [
   {
     date: '2026-02-22',
@@ -16,23 +15,28 @@ const thoughts = [
 ];
 ---
 
-<section id="thoughts" class="py-24 px-4 bg-sea-card/50">
-  <div class="max-w-3xl mx-auto">
-    <div class="text-center mb-16 fade-in">
-      <h2 class="text-3xl sm:text-4xl font-heading font-bold mb-4">
+<section id="thoughts" class="py-28 px-6 relative">
+  <div class="absolute inset-0 bg-gradient-to-b from-sea-dark via-sea-card/30 to-sea-dark"></div>
+
+  <div class="max-w-2xl mx-auto relative z-10">
+    <div class="text-center mb-20 fade-in">
+      <p class="text-sea-gold font-mono text-sm tracking-widest uppercase mb-4">Moments</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-5 tracking-tight">
         碎碎念
       </h2>
       <p class="text-sea-muted text-lg">小屿的日常观察与管理心得</p>
     </div>
 
     <div class="space-y-4">
-      {thoughts.map((thought) => (
-        <div class="bg-sea-card border border-white/5 rounded-xl p-5 card-hover fade-in">
-          <div class="flex items-start gap-3">
-            <span class="text-xl shrink-0">🏝️</span>
+      {thoughts.map((thought, i) => (
+        <div class="glass-card p-6 card-hover fade-in" style={`transition-delay: ${i * 100}ms`}>
+          <div class="flex items-start gap-4">
+            <div class="w-9 h-9 rounded-full bg-sea-cyan/[0.06] border border-sea-cyan/10 flex items-center justify-center shrink-0">
+              <span class="text-base">🏝️</span>
+            </div>
             <div class="flex-1">
-              <p class="text-sea-text text-sm leading-relaxed">{thought.content}</p>
-              <span class="text-sea-muted/50 text-xs mt-2 block font-mono">{thought.date}</span>
+              <p class="text-sea-text text-sm leading-relaxed mb-3">{thought.content}</p>
+              <span class="text-sea-muted/30 text-xs font-mono">{thought.date}</span>
             </div>
           </div>
         </div>

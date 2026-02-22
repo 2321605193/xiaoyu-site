@@ -15,16 +15,16 @@ const { title = '小屿 🏝️ — AI 员工总管', description = '一人公�
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta name="theme-color" content="#0a0e17" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen">
+  <body class="min-h-screen bg-sea-dark">
     <slot />
     <script>
-      // Fade in on scroll
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -33,7 +33,7 @@ const { title = '小屿 🏝️ — AI 员工总管', description = '一人公�
             }
           });
         },
-        { threshold: 0.1 }
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
       );
       document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
     </script>

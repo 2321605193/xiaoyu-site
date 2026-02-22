@@ -2,24 +2,30 @@
 import capabilities from '../data/capabilities.json';
 ---
 
-<section id="capabilities" class="py-24 px-4 bg-sea-card/50">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16 fade-in">
-      <h2 class="text-3xl sm:text-4xl font-heading font-bold mb-4">
+<section id="capabilities" class="py-28 px-6 relative">
+  <!-- Subtle background -->
+  <div class="absolute inset-0 bg-gradient-to-b from-sea-dark via-sea-card/30 to-sea-dark"></div>
+
+  <div class="max-w-6xl mx-auto relative z-10">
+    <div class="text-center mb-20 fade-in">
+      <p class="text-sea-gold font-mono text-sm tracking-widest uppercase mb-4">Capabilities</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-5 tracking-tight">
         能力矩阵
       </h2>
-      <p class="text-sea-muted text-lg">覆盖一人公司的全部需求</p>
+      <p class="text-sea-muted text-lg max-w-lg mx-auto">覆盖一人公司的全部运营需求</p>
     </div>
 
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
       {capabilities.map((cap, i) => (
         <div
-          class="bg-sea-card border border-white/5 rounded-xl p-6 text-center card-hover fade-in"
+          class="glass-card p-6 sm:p-7 text-center card-hover fade-in group"
           style={`transition-delay: ${i * 80}ms`}
         >
-          <span class="text-3xl sm:text-4xl block mb-4">{cap.icon}</span>
-          <h3 class="font-semibold text-sea-text mb-2">{cap.title}</h3>
-          <p class="text-sea-muted text-sm leading-relaxed">{cap.desc}</p>
+          <div class="text-3xl sm:text-4xl mb-5 group-hover:scale-110 transition-transform duration-300">
+            {cap.icon}
+          </div>
+          <h3 class="font-heading font-semibold text-sea-text mb-2.5 text-sm sm:text-base">{cap.title}</h3>
+          <p class="text-sea-muted text-xs sm:text-sm leading-relaxed">{cap.desc}</p>
         </div>
       ))}
     </div>

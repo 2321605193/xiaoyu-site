@@ -2,52 +2,58 @@
 ---
 
 <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Background gradient -->
-  <div class="absolute inset-0 bg-gradient-to-b from-sea-dark via-sea-dark to-sea-card"></div>
+  <!-- Layered background -->
+  <div class="absolute inset-0 bg-sea-deeper"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-sea-dark/0 via-sea-dark to-sea-card/80"></div>
 
-  <!-- Subtle grid pattern -->
-  <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%2322d3ee%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+  <!-- Radial glow -->
+  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full opacity-[0.07]"
+    style="background: radial-gradient(ellipse, #22d3ee 0%, transparent 70%)"></div>
 
-  <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-    <!-- Status indicator -->
-    <div class="flex items-center justify-center gap-2 mb-8">
-      <span class="w-2.5 h-2.5 rounded-full status-online"></span>
-      <span class="text-sea-muted text-sm font-mono">在线运行中</span>
+  <!-- Grid pattern -->
+  <div class="absolute inset-0 opacity-[0.02]"
+    style="background-image: url('data:image/svg+xml,%3Csvg width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M0 0h40v40H0z%22 fill=%22none%22 stroke=%22%2322d3ee%22 stroke-width=%220.5%22/%3E%3C/svg%3E');"></div>
+
+  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+    <!-- Status badge -->
+    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] mb-10">
+      <span class="w-2 h-2 rounded-full status-online"></span>
+      <span class="text-sea-muted text-sm font-mono tracking-wide">在线运行中</span>
     </div>
 
     <!-- Main title -->
-    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-heading font-bold mb-6">
+    <h1 class="text-5xl sm:text-6xl lg:text-8xl font-heading font-bold mb-6 tracking-tight">
       <span class="text-sea-text">小屿</span>
-      <span class="ml-3">🏝️</span>
+      <span class="ml-2 sm:ml-4 inline-block">🏝️</span>
     </h1>
 
-    <p class="text-xl sm:text-2xl text-sea-cyan font-medium mb-4">AI 员工总管</p>
+    <p class="text-xl sm:text-2xl lg:text-3xl font-heading font-semibold gradient-text mb-5">
+      AI 员工总管
+    </p>
 
-    <p class="text-lg text-sea-muted max-w-2xl mx-auto mb-12">
-      一人公司的 AI 管理层，统筹 <span class="text-sea-gold font-semibold">16</span> 位专精助手
+    <p class="text-base sm:text-lg text-sea-muted max-w-xl mx-auto mb-14 leading-relaxed">
+      一人公司的 AI 管理层<br class="sm:hidden" />
+      统筹 <span class="text-sea-gold font-semibold">16</span> 位专精助手
     </p>
 
     <!-- CTA buttons -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a
-        href="#team"
-        class="px-8 py-3 bg-sea-cyan/10 border border-sea-cyan/30 text-sea-cyan rounded-lg hover:bg-sea-cyan/20 hover:border-sea-cyan/50 transition-all duration-300 font-medium"
-      >
-        了解更多 ↓
+      <a href="#team"
+        class="group px-8 py-3.5 bg-sea-cyan/10 border border-sea-cyan/25 text-sea-cyan rounded-xl hover:bg-sea-cyan/15 hover:border-sea-cyan/40 transition-all duration-300 font-medium glow-cyan">
+        了解更多
+        <span class="inline-block ml-1 group-hover:translate-y-0.5 transition-transform">↓</span>
       </a>
-      <a
-        href="#cta"
-        class="px-8 py-3 bg-sea-gold/10 border border-sea-gold/30 text-sea-gold rounded-lg hover:bg-sea-gold/20 hover:border-sea-gold/50 transition-all duration-300 font-medium"
-      >
+      <a href="#cta"
+        class="px-8 py-3.5 bg-sea-gold/10 border border-sea-gold/25 text-sea-gold rounded-xl hover:bg-sea-gold/15 hover:border-sea-gold/40 transition-all duration-300 font-medium glow-gold">
         关注公众号
       </a>
     </div>
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-    <svg class="w-5 h-5 text-sea-muted/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-    </svg>
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2">
+    <div class="w-5 h-8 rounded-full border-2 border-sea-muted/20 flex justify-center pt-1.5">
+      <div class="w-1 h-2 rounded-full bg-sea-muted/40 animate-bounce"></div>
+    </div>
   </div>
 </section>
