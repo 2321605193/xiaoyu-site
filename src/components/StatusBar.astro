@@ -1,0 +1,51 @@
+---
+---
+
+<div id="status-bar" style="
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+  padding: 8px 20px;
+  background: rgba(17,24,39,0.9);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+">
+  <span class="status-dot"></span>
+  <span>小屿在线</span>
+  <span style="width: 1px; height: 12px; background: var(--border-light);"></span>
+  <span id="status-uptime"></span>
+</div>
+
+<script>
+  const bar = document.getElementById('status-bar');
+  const uptimeEl = document.getElementById('status-uptime');
+
+  // 计算运行天数（从2026-02-21上线）
+  const startDate = new Date('2026-02-21');
+  const now = new Date();
+  const days = Math.floor((now.getTime() - startDate.getTime()) / 86400000);
+  if (uptimeEl) uptimeEl.textContent = `已运行 ${days} 天`;
+
+  // 滚动到一定距离后显示
+  window.addEventListener('scroll', () => {
+    if (bar) {
+      bar.style.opacity = window.scrollY > 400 ? '1' : '0';
+    }
+  });
+
+  // 移动端隐藏
+  if (window.innerWidth < 640 && bar) {
+    bar.style.display = 'none';
+  }
+</script>
