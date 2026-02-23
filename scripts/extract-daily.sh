@@ -49,7 +49,7 @@ declare -A AGENT_EMOJIS=(
 )
 
 # 敏感词过滤列表
-SENSITIVE_PATTERNS="token|password|passwd|secret|api_key|apikey|private_key|ssh_key|credential|auth_token|bearer|access_key"
+SENSITIVE_PATTERNS="token|password|passwd|secret|api_key|apikey|private_key|ssh_key|credential|auth_token|bearer|access_key|gmail|oauth|client_id|project_id|fj2321|fanjun|email=|git config|git init.*remote|copper-vertex|serpapi|keyring|密码|密钥|私钥|凭据|授权"
 
 echo "[$(date)] 开始提取每日工作记录..."
 
