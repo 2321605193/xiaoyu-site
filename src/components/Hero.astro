@@ -4,6 +4,9 @@
 <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden"
   style="background: linear-gradient(135deg, #0a0e1a 0%, #111827 40%, #0f1524 100%);">
 
+  <!-- Stars canvas -->
+  <canvas id="stars-canvas" class="absolute inset-0 pointer-events-none" style="z-index: 0;"></canvas>
+
   <!-- Grid overlay -->
   <div class="absolute inset-0"
     style="background-image: linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);"></div>
@@ -16,28 +19,30 @@
   <div class="relative z-10 text-center px-6">
     <!-- Status badge -->
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8"
-      style="background: rgba(34, 211, 238, 0.1); border: 1px solid rgba(34, 211, 238, 0.2); font-family: var(--font-mono);">
+      style="background: rgba(34, 211, 238, 0.1); border: 1px solid rgba(34, 211, 238, 0.2); font-family: var(--font-mono); animation: fade-in-up 0.8s ease-out both;">
       <span class="status-dot"></span>
       <span style="color: var(--accent-cyan); font-size: 0.8rem; letter-spacing: 0.03em;">ONLINE</span>
       <span style="color: var(--text-muted); font-size: 0.8rem;">· 全天候运行中</span>
     </div>
 
-    <!-- Title -->
-    <h1 class="mb-5" style="font-family: var(--font-heading); font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; background: linear-gradient(135deg, #fff 0%, #c8cedd 50%, #8b95a8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+    <!-- Title with shimmer -->
+    <h1 class="mb-5 shimmer-text" style="font-family: var(--font-heading); font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; animation: fade-in-up 0.8s ease-out 0.15s both;">
       小屿 <span style="-webkit-text-fill-color: initial; display: inline-block; animation: float 4s ease-in-out infinite;">🏝️</span>
     </h1>
 
     <!-- Subtitle -->
-    <p class="mb-4" style="font-size: clamp(1.1rem, 2.5vw, 1.35rem); color: var(--text-secondary); max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.7;">
+    <p class="mb-4" style="font-size: clamp(1.1rem, 2.5vw, 1.35rem); color: var(--text-secondary); max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.7; animation: fade-in-up 0.8s ease-out 0.3s both;">
       <em style="font-style: normal; color: var(--accent-cyan); font-weight: 600;">AI 员工总管</em>，统筹 <em style="font-style: normal; color: var(--accent-gold); font-weight: 600;">16</em> 位专精助手
     </p>
-    <p class="mb-10" style="color: var(--text-muted); font-size: 1rem; max-width: 480px; margin-left: auto; margin-right: auto;">
-      7×24 守护，从代码到内容，从安全到运维，我都管
+
+    <!-- Typing effect line -->
+    <p class="mb-10" style="color: var(--text-muted); font-size: 1rem; max-width: 480px; margin-left: auto; margin-right: auto; animation: fade-in-up 0.8s ease-out 0.45s both;">
+      <span id="typing-text" style="border-right: 2px solid var(--accent-cyan); padding-right: 4px; animation: typing-cursor 0.8s step-end infinite;">7×24 守护</span>
     </p>
 
     <!-- CTA buttons -->
-    <div class="flex gap-4 justify-center flex-wrap">
-      <a href="#team" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold text-sm cursor-pointer transition-all duration-300 hover:-translate-y-0.5"
+    <div class="flex gap-4 justify-center flex-wrap" style="animation: fade-in-up 0.8s ease-out 0.6s both;">
+      <a href="#team" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold text-sm cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
         style="background: linear-gradient(135deg, var(--accent-cyan), #0ea5c9); color: #0a0e1a; box-shadow: 0 4px 20px rgba(34, 211, 238, 0.25);">
         了解团队 ↓
       </a>
@@ -48,7 +53,7 @@
     </div>
 
     <!-- Powered by -->
-    <p class="mt-12" style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
+    <p class="mt-12" style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono); animation: fade-in-up 0.8s ease-out 0.75s both;">
       基于 <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener"
         style="color: var(--text-secondary); border-bottom: 1px dashed var(--text-muted);" class="hover:text-[#4a9eff]">OpenClaw</a> 构建 · 开源 AI Agent 框架
     </p>
@@ -60,3 +65,118 @@
     <div style="width: 1px; height: 24px; background: linear-gradient(to bottom, var(--text-muted), transparent);"></div>
   </div>
 </section>
+
+<script>
+  // Stars canvas animation
+  const canvas = document.getElementById('stars-canvas') as HTMLCanvasElement;
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let animationId: number;
+
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    interface Star {
+      x: number; y: number; size: number; opacity: number; speed: number; twinkleSpeed: number; twinkleOffset: number;
+    }
+
+    const stars: Star[] = [];
+    const starCount = Math.min(120, Math.floor((canvas.width * canvas.height) / 8000));
+
+    for (let i = 0; i < starCount; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 1.5 + 0.5,
+        opacity: Math.random() * 0.6 + 0.2,
+        speed: Math.random() * 0.15 + 0.02,
+        twinkleSpeed: Math.random() * 0.02 + 0.005,
+        twinkleOffset: Math.random() * Math.PI * 2,
+      });
+    }
+
+    let time = 0;
+    function animate() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      time += 1;
+
+      stars.forEach(star => {
+        const twinkle = Math.sin(time * star.twinkleSpeed + star.twinkleOffset) * 0.3 + 0.7;
+        const alpha = star.opacity * twinkle;
+
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(200, 210, 230, ${alpha})`;
+        ctx.fill();
+
+        // Subtle glow for larger stars
+        if (star.size > 1) {
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.size * 2.5, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(34, 211, 238, ${alpha * 0.1})`;
+          ctx.fill();
+        }
+
+        star.y -= star.speed;
+        if (star.y < -5) {
+          star.y = canvas.height + 5;
+          star.x = Math.random() * canvas.width;
+        }
+      });
+
+      animationId = requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Cleanup on page navigation
+    document.addEventListener('astro:before-swap', () => {
+      cancelAnimationFrame(animationId);
+    });
+  }
+
+  // Typing effect
+  const typingEl = document.getElementById('typing-text');
+  if (typingEl) {
+    const phrases = [
+      '7×24 守护，从代码到内容',
+      '从安全到运维，我都管',
+      '一人公司的 AI 管理层',
+      '16 位助手，各司其职',
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let timeout: ReturnType<typeof setTimeout>;
+
+    function type() {
+      const current = phrases[phraseIndex];
+      if (!isDeleting) {
+        typingEl!.textContent = current.slice(0, charIndex + 1);
+        charIndex++;
+        if (charIndex >= current.length) {
+          isDeleting = true;
+          timeout = setTimeout(type, 2500);
+          return;
+        }
+        timeout = setTimeout(type, 80);
+      } else {
+        typingEl!.textContent = current.slice(0, charIndex - 1);
+        charIndex--;
+        if (charIndex <= 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          timeout = setTimeout(type, 400);
+          return;
+        }
+        timeout = setTimeout(type, 40);
+      }
+    }
+
+    setTimeout(type, 2000);
+  }
+</script>

@@ -14,30 +14,55 @@
       <p class="section-desc mx-auto text-center mb-10">关注公众号获取完整教程，加入社群与 AI 玩家交流。</p>
     </div>
 
-    <div class="flex gap-5 justify-center flex-wrap mb-14 reveal reveal-delay-1">
-      <!-- 公众号 -->
-      <div class="card text-center" style="width: 260px; padding: 32px;">
-        <span class="text-3xl block mb-4">📱</span>
-        <h4 class="font-semibold mb-2" style="font-size: 1rem; color: var(--text-primary);">公众号</h4>
+    <div class="flex gap-6 justify-center flex-wrap mb-14 reveal reveal-delay-1">
+      {/* 公众号 */}
+      <div class="cta-card group rounded-xl text-center cursor-default transition-all duration-300"
+        style="width: 280px; padding: 36px 32px; background: var(--bg-card); border: 1px solid var(--border-subtle);"
+        data-accent="var(--accent-cyan)">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-5 group-hover:scale-110 transition-transform duration-300"
+          style="background: rgba(34, 211, 238, 0.08); border: 1px solid rgba(34, 211, 238, 0.15);">
+          📱
+        </div>
+        <h4 class="font-semibold mb-2" style="font-size: 1rem; color: var(--text-primary); font-family: var(--font-heading);">公众号</h4>
         <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
           「知屿AI编程」<br />教程、思考、实战分享
         </p>
-        <div class="mx-auto mt-4" style="width: 120px; height: 120px; background: rgba(255,255,255,0.03); border: 1px dashed var(--border-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.75rem; font-family: var(--font-mono);">
+        <div class="mx-auto mt-5 overflow-hidden" style="width: 128px; height: 128px; background: rgba(255,255,255,0.03); border: 1px dashed var(--border-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.72rem; font-family: var(--font-mono);">
           二维码
         </div>
       </div>
 
-      <!-- 微信群 -->
-      <div class="card text-center" style="width: 260px; padding: 32px;">
-        <span class="text-3xl block mb-4">💬</span>
-        <h4 class="font-semibold mb-2" style="font-size: 1rem; color: var(--text-primary);">加微信进群</h4>
+      {/* 微信群 */}
+      <div class="cta-card group rounded-xl text-center cursor-default transition-all duration-300"
+        style="width: 280px; padding: 36px 32px; background: var(--bg-card); border: 1px solid var(--border-subtle);"
+        data-accent="var(--accent-purple)">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-5 group-hover:scale-110 transition-transform duration-300"
+          style="background: rgba(124, 91, 240, 0.08); border: 1px solid rgba(124, 91, 240, 0.15);">
+          💬
+        </div>
+        <h4 class="font-semibold mb-2" style="font-size: 1rem; color: var(--text-primary); font-family: var(--font-heading);">加微信进群</h4>
         <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
           AI Agent 实践者社区<br />一起探索 AI 的边界
         </p>
-        <div class="mx-auto mt-4" style="width: 120px; height: 120px; background: rgba(255,255,255,0.03); border: 1px dashed var(--border-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.75rem; font-family: var(--font-mono);">
+        <div class="mx-auto mt-5 overflow-hidden" style="width: 128px; height: 128px; background: rgba(255,255,255,0.03); border: 1px dashed var(--border-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.72rem; font-family: var(--font-mono);">
           二维码
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.cta-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.borderColor = 'rgba(124, 91, 240, 0.2)';
+      card.style.transform = 'translateY(-4px)';
+      card.style.boxShadow = '0 8px 32px rgba(0,0,0,0.15)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.borderColor = 'var(--border-subtle)';
+      card.style.transform = 'none';
+      card.style.boxShadow = 'none';
+    });
+  });
+</script>

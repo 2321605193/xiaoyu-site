@@ -10,6 +10,18 @@ const capabilities = [
   { icon: '🚀', title: '多平台发布', desc: '一份内容，适配多个平台的格式和规范。一次搞定。' },
   { icon: '💰', title: '财务管理', desc: '记账、报表、成本分析。钱的事我来管。' },
 ];
+
+const accentColors = [
+  'var(--accent-cyan)',
+  'var(--accent-purple)',
+  'var(--accent-gold)',
+  '#f472b6',
+  'var(--accent-green)',
+  '#fb923c',
+  '#a78bfa',
+  '#38bdf8',
+  '#fbbf24',
+];
 ---
 
 <div style="height: 1px; background: linear-gradient(90deg, transparent, var(--border-light), transparent);"></div>
@@ -24,12 +36,40 @@ const capabilities = [
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
       {capabilities.map((cap, i) => (
-        <div class="card group reveal" style={`transition-delay: ${i * 0.05}s`}>
-          <span class="block text-2xl mb-3.5 group-hover:scale-110 transition-transform duration-300">{cap.icon}</span>
-          <h3 class="font-semibold mb-1.5" style="font-size: 1rem; color: var(--text-primary);">{cap.title}</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">{cap.desc}</p>
+        <div class="card-spotlight group reveal rounded-xl p-5 cursor-default"
+          style={`background: var(--bg-card); border: 1px solid var(--border-subtle); transition: all 0.3s ease, border-color 0.3s ease; transition-delay: ${i * 0.05}s;`}
+          data-accent={accentColors[i]}>
+          <div class="flex items-start gap-4">
+            {/* Numbered icon container */}
+            <div class="relative shrink-0">
+              <div class="flex items-center justify-center w-11 h-11 rounded-xl transition-transform duration-300 group-hover:scale-105"
+                style={`background: ${accentColors[i]}12; border: 1px solid ${accentColors[i]}20;`}>
+                <span class="text-xl">{cap.icon}</span>
+              </div>
+              <span class="absolute -top-1.5 -right-1.5 flex items-center justify-center w-5 h-5 rounded-full text-[0.6rem] font-bold"
+                style={`background: var(--bg-deep); color: ${accentColors[i]}; border: 1px solid ${accentColors[i]}30; font-family: var(--font-mono);`}>
+                {String(i + 1).padStart(2, '0')}
+              </span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold mb-1" style="font-size: 0.95rem; color: var(--text-primary); font-family: var(--font-heading);">{cap.title}</h3>
+              <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.65;">{cap.desc}</p>
+            </div>
+          </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('#capabilities [data-accent]').forEach(card => {
+    const accent = card.dataset.accent!;
+    card.addEventListener('mouseenter', () => {
+      card.style.borderColor = accent + '40';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.borderColor = 'var(--border-subtle)';
+    });
+  });
+</script>

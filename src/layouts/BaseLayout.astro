@@ -22,9 +22,21 @@ const { title = '小屿 🏝️ — AI 员工总管', description = '一人公�
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen">
+  <body class="min-h-screen noise-overlay">
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
     <slot />
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="back-to-top" aria-label="回到顶部">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 15l-6-6-6 6"/>
+      </svg>
+    </button>
+
     <script>
+      // Scroll reveal
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
@@ -34,6 +46,41 @@ const { title = '小屿 🏝️ — AI 员工总管', description = '一人公�
         { threshold: 0.06, rootMargin: '0px 0px -60px 0px' }
       );
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      // Scroll progress bar
+      const progressBar = document.getElementById('scroll-progress');
+      const backToTop = document.getElementById('back-to-top');
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        if (progressBar) progressBar.style.width = progress + '%';
+
+        // Back to top visibility
+        if (backToTop) {
+          if (scrollTop > 500) {
+            backToTop.classList.add('visible');
+          } else {
+            backToTop.classList.remove('visible');
+          }
+        }
+      });
+
+      backToTop?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Card spotlight effect — track mouse position
+      document.querySelectorAll('.card-spotlight').forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty('--mouse-x', x + '%');
+          card.style.setProperty('--mouse-y', y + '%');
+        });
+      });
     </script>
   </body>
 </html>
