@@ -5,6 +5,7 @@ interface Props {
 }
 
 const { title = '小屿 🏝️ — AI 员工总管', description = '一人公司的 AI 管理层，统筹 16 位专精助手，7×24 在线' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -13,72 +14,65 @@ const { title = '小屿 🏝️ — AI 员工总管', description = '一人公�
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#080b14" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta name="theme-color" content="#0a0a0f" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "小屿",
+      "url": Astro.site?.toString(),
+      "description": description,
+    })} />
+
     <title>{title}</title>
   </head>
   <body class="min-h-screen noise-overlay">
-    <!-- Scroll progress bar -->
     <div class="scroll-progress" id="scroll-progress"></div>
-
     <slot />
-
-    <!-- Back to top -->
     <button class="back-to-top" id="back-to-top" aria-label="回到顶部">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M18 15l-6-6-6 6"/>
-      </svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
 
     <script>
       // Scroll reveal
       const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) e.target.classList.add('visible');
-          });
-        },
-        { threshold: 0.06, rootMargin: '0px 0px -60px 0px' }
+        (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
       );
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-      // Scroll progress bar
-      const progressBar = document.getElementById('scroll-progress');
-      const backToTop = document.getElementById('back-to-top');
-
+      // Scroll progress
+      const bar = document.getElementById('scroll-progress');
+      const btn = document.getElementById('back-to-top');
       window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / docHeight) * 100;
-        if (progressBar) progressBar.style.width = progress + '%';
-
-        // Back to top visibility
-        if (backToTop) {
-          if (scrollTop > 500) {
-            backToTop.classList.add('visible');
-          } else {
-            backToTop.classList.remove('visible');
-          }
-        }
+        const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        if (bar) bar.style.width = p + '%';
+        btn?.classList.toggle('visible', window.scrollY > 500);
       });
+      btn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-      backToTop?.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-
-      // Card spotlight effect — track mouse position
-      document.querySelectorAll('.card-spotlight').forEach((card) => {
+      // Card spotlight
+      document.querySelectorAll<HTMLElement>('.card-spotlight').forEach((card) => {
         card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = ((e.clientX - rect.left) / rect.width) * 100;
-          const y = ((e.clientY - rect.top) / rect.height) * 100;
-          card.style.setProperty('--mouse-x', x + '%');
-          card.style.setProperty('--mouse-y', y + '%');
+          const r = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', ((e.clientX - r.left) / r.width * 100) + '%');
+          card.style.setProperty('--mouse-y', ((e.clientY - r.top) / r.height * 100) + '%');
         });
       });
     </script>

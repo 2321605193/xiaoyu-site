@@ -1,75 +1,66 @@
 ---
 const capabilities = [
-  { icon: '📧', title: '邮件管理', desc: '监控收件箱，识别重要邮件，按优先级分类，起草回复。凌晨3点的紧急邮件？我帮你盯着。' },
-  { icon: '💻', title: '代码开发', desc: '修Bug、写脚本、Review PR。从 CSS 到全栈，撸起袖子就能干。' },
-  { icon: '✍️', title: '内容创作', desc: '公众号文章、产品文案、社交媒体内容。理解你的语气和风格，写出来像你亲手写的。' },
-  { icon: '📈', title: '增长营销', desc: '用户增长策略、数据分析、竞品调研。数据，我来看。' },
+  { icon: '📧', title: '邮件管理', desc: '监控收件箱，识别重要邮件，起草回复。凌晨3点的紧急邮件？我帮你盯着。' },
+  { icon: '💻', title: '代码开发', desc: '修Bug、写脚本、Review PR。从前端到后端，撸起袖子就能干。' },
+  { icon: '✍️', title: '内容创作', desc: '公众号文章、产品文案、社交媒体。理解你的语气，写出来像你亲手写的。' },
+  { icon: '📈', title: '增长营销', desc: '用户增长策略、数据分析、竞品调研。用数据说话。' },
   { icon: '🛡️', title: '安全风控', desc: '安全审计、漏洞扫描、风险评估，全天候守护。' },
-  { icon: '⚙️', title: '运维部署', desc: 'CI/CD、服务器管理、监控告警，基础设施自动化。' },
-  { icon: '🎨', title: 'UI 设计', desc: 'UI/UX设计、品牌视觉、设计系统搭建。' },
-  { icon: '🚀', title: '多平台发布', desc: '一份内容，适配多个平台的格式和规范。一次搞定。' },
+  { icon: '⚙️', title: '运维部署', desc: 'CI/CD、服务器管理、监控告警。基础设施自动化。' },
+  { icon: '🎨', title: 'UI 设计', desc: 'UI/UX 设计、品牌视觉、设计系统搭建。' },
+  { icon: '🚀', title: '多平台发布', desc: '一份内容适配多平台格式和规范。一次搞定。' },
   { icon: '💰', title: '财务管理', desc: '记账、报表、成本分析。钱的事我来管。' },
 ];
 
-const accentColors = [
-  'var(--accent-cyan)',
-  'var(--accent-purple)',
-  'var(--accent-gold)',
-  '#f472b6',
-  'var(--accent-green)',
-  '#fb923c',
-  '#a78bfa',
-  '#38bdf8',
-  '#fbbf24',
-];
+const colors = ['#22d3ee','#a78bfa','#fbbf24','#f472b6','#34d399','#fb923c','#60a5fa','#38bdf8','#f87171'];
 ---
 
-<div style="height: 1px; background: linear-gradient(90deg, transparent, var(--border-light), transparent);"></div>
+<div class="section-divider"></div>
 
-<section id="capabilities" class="py-28 px-6 relative overflow-hidden" style="background: var(--bg-subtle);">
-  <div class="max-w-[1080px] mx-auto">
+<section id="capabilities" class="py-24 md:py-28 px-6 relative overflow-hidden" style="background: var(--bg-deep);">
+  <!-- Glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] pointer-events-none" style="background: radial-gradient(ellipse, rgba(34,211,238,0.03), transparent 70%);"></div>
+
+  <div class="max-w-6xl mx-auto relative z-10">
     <div class="reveal">
       <div class="section-label">Capabilities</div>
       <h2 class="section-title">我能做什么</h2>
-      <p class="section-desc">不只是聊天机器人。有手有脚、能看能听、24小时在线的 AI 团队。</p>
+      <p class="section-desc">不只是聊天机器人。有手有脚、能看能听、24 小时在线的 AI 团队。</p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
-      {capabilities.map((cap, i) => (
-        <div class="card-spotlight group reveal rounded-xl p-5 cursor-default"
-          style={`background: var(--bg-card); border: 1px solid var(--border-subtle); transition: all 0.3s ease, border-color 0.3s ease; transition-delay: ${i * 0.05}s;`}
-          data-accent={accentColors[i]}>
-          <div class="flex items-start gap-4">
-            {/* Numbered icon container */}
-            <div class="relative shrink-0">
-              <div class="flex items-center justify-center w-11 h-11 rounded-xl transition-transform duration-300 group-hover:scale-105"
-                style={`background: ${accentColors[i]}12; border: 1px solid ${accentColors[i]}20;`}>
-                <span class="text-xl">{cap.icon}</span>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-12">
+      {capabilities.map((cap, i) => {
+        const c = colors[i];
+        return (
+          <div class="card-spotlight group reveal rounded-xl p-5 cursor-default transition-all duration-300"
+            style={`background: var(--bg-card); border: 1px solid var(--border-subtle); transition-delay: ${i * 0.04}s;`}
+            data-accent={c}>
+            <div class="flex items-start gap-4">
+              <div class="relative shrink-0">
+                <div class="flex items-center justify-center w-11 h-11 rounded-xl group-hover:scale-105 transition-transform duration-300"
+                  style={`background: ${c}10; border: 1px solid ${c}20;`}>
+                  <span class="text-xl">{cap.icon}</span>
+                </div>
+                <span class="absolute -top-1.5 -right-1.5 flex items-center justify-center w-5 h-5 rounded-full text-[0.6rem] font-bold"
+                  style={`background: var(--bg-deep); color: ${c}; border: 1px solid ${c}25; font-family: var(--font-mono);`}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
               </div>
-              <span class="absolute -top-1.5 -right-1.5 flex items-center justify-center w-5 h-5 rounded-full text-[0.6rem] font-bold"
-                style={`background: var(--bg-deep); color: ${accentColors[i]}; border: 1px solid ${accentColors[i]}30; font-family: var(--font-mono);`}>
-                {String(i + 1).padStart(2, '0')}
-              </span>
-            </div>
-            <div class="flex-1 min-w-0">
-              <h3 class="font-semibold mb-1" style="font-size: 0.95rem; color: var(--text-primary); font-family: var(--font-heading);">{cap.title}</h3>
-              <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.65;">{cap.desc}</p>
+              <div class="flex-1 min-w-0">
+                <h3 class="font-semibold mb-1 text-[0.92rem]" style="color: var(--text-primary); font-family: var(--font-heading);">{cap.title}</h3>
+                <p class="text-[0.82rem] leading-relaxed" style="color: var(--text-secondary);">{cap.desc}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   </div>
 </section>
 
 <script>
   document.querySelectorAll<HTMLElement>('#capabilities [data-accent]').forEach(card => {
-    const accent = card.dataset.accent!;
-    card.addEventListener('mouseenter', () => {
-      card.style.borderColor = accent + '40';
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.borderColor = 'var(--border-subtle)';
-    });
+    const c = card.dataset.accent!;
+    card.addEventListener('mouseenter', () => { card.style.borderColor = c + '30'; card.style.background = 'var(--bg-card-hover)'; card.style.transform = 'translateY(-2px)'; });
+    card.addEventListener('mouseleave', () => { card.style.borderColor = ''; card.style.background = ''; card.style.transform = ''; });
   });
 </script>

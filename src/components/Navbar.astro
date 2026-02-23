@@ -9,46 +9,37 @@ const navItems = [
 ];
 ---
 
-<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-  style="background: transparent;">
-  <div class="max-w-[1080px] mx-auto flex items-center justify-between h-16 px-6">
-    <!-- Logo -->
-    <a href="#hero" class="flex items-center gap-2.5 group">
-      <span class="text-lg transition-transform duration-300 group-hover:scale-110">🏝️</span>
-      <span class="font-bold" style="font-family: var(--font-heading); font-size: 1rem; color: var(--text-primary);">小屿</span>
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent;">
+  <div class="max-w-6xl mx-auto flex items-center justify-between h-16 px-6">
+    <a href="#hero" class="flex items-center gap-2 group">
+      <span class="text-xl transition-transform duration-300 group-hover:scale-110">🏝️</span>
+      <span class="font-semibold text-[0.95rem]" style="font-family: var(--font-heading); color: var(--text-primary);">小屿</span>
     </a>
 
-    <!-- Nav links with active indicator -->
-    <div class="hidden sm:flex items-center gap-1 relative" id="nav-links">
-      <!-- Active indicator (sliding pill) -->
-      <div id="nav-indicator" class="absolute h-[30px] rounded-lg transition-all duration-300 ease-out"
-        style="background: rgba(34, 211, 238, 0.08); border: 1px solid rgba(34, 211, 238, 0.15); opacity: 0; pointer-events: none;"></div>
-
+    <!-- Desktop -->
+    <div class="hidden md:flex items-center gap-0.5 p-1 rounded-xl" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle);">
       {navItems.map(item => (
         <a href={item.href}
-          class="nav-link relative px-3.5 py-1.5 rounded-lg text-sm transition-colors duration-200"
-          style="color: var(--text-muted); font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.02em;"
+          class="nav-link px-3.5 py-1.5 rounded-lg transition-all duration-200"
+          style="font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono);"
           data-section={item.href.replace('#', '')}>
           {item.label}
         </a>
       ))}
     </div>
 
-    <!-- Mobile menu button -->
-    <button id="mobile-menu-btn" class="sm:hidden flex flex-col gap-1.5 p-2" aria-label="菜单">
-      <span class="block w-5 h-px transition-all duration-300" style="background: var(--text-secondary);"></span>
-      <span class="block w-5 h-px transition-all duration-300" style="background: var(--text-secondary);"></span>
+    <!-- Mobile -->
+    <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2 rounded-lg" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle);" aria-label="菜单">
+      <span class="block w-4 h-px transition-all duration-300" style="background: var(--text-secondary);"></span>
+      <span class="block w-4 h-px transition-all duration-300" style="background: var(--text-secondary);"></span>
     </button>
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="sm:hidden overflow-hidden transition-all duration-300"
-    style="max-height: 0; background: var(--bg-deep); border-bottom: 1px solid var(--border-subtle);">
-    <div class="px-6 py-4 flex flex-col gap-2">
+  <div id="mobile-menu" class="md:hidden overflow-hidden transition-all duration-300" style="max-height: 0; background: rgba(8, 11, 20, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle);">
+    <div class="px-6 py-3 flex flex-col gap-1">
       {navItems.map(item => (
-        <a href={item.href}
-          class="nav-link-mobile px-4 py-2.5 rounded-lg text-sm transition-colors duration-200"
-          style="color: var(--text-muted); font-family: var(--font-mono); font-size: 0.85rem;">
+        <a href={item.href} class="mobile-link px-4 py-2.5 rounded-lg transition-all duration-200" style="color: var(--text-muted); font-family: var(--font-mono); font-size: 0.85rem;">
           {item.label}
         </a>
       ))}
@@ -57,96 +48,58 @@ const navItems = [
 </nav>
 
 <script>
-  const nav = document.getElementById('main-nav');
-  const indicator = document.getElementById('nav-indicator');
-  const navLinks = document.querySelectorAll('.nav-link[data-section]');
-  const mobileBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
+  const nav = document.getElementById('main-nav')!;
+  const links = document.querySelectorAll<HTMLElement>('.nav-link[data-section]');
+  const sections = document.querySelectorAll('section[id]');
+  const mobileBtn = document.getElementById('mobile-menu-btn')!;
+  const mobileMenu = document.getElementById('mobile-menu')!;
   let mobileOpen = false;
 
-  // Scroll: background change
-  window.addEventListener('scroll', () => {
-    if (!nav) return;
-    if (window.scrollY > 60) {
-      nav.style.background = 'rgba(10, 14, 26, 0.85)';
-      nav.style.backdropFilter = 'blur(16px) saturate(1.2)';
+  // Scroll background
+  function updateNav() {
+    if (window.scrollY > 50) {
+      nav.style.background = 'rgba(8, 11, 20, 0.85)';
+      nav.style.backdropFilter = 'blur(20px) saturate(1.2)';
       nav.style.borderBottom = '1px solid var(--border-subtle)';
     } else {
       nav.style.background = 'transparent';
       nav.style.backdropFilter = 'none';
       nav.style.borderBottom = '1px solid transparent';
     }
-  });
 
-  // Active section tracking
-  const sections = document.querySelectorAll('section[id]');
-  function updateActiveSection() {
+    // Active section
     let current = '';
-    sections.forEach(section => {
-      const top = section.getBoundingClientRect().top;
-      if (top < window.innerHeight * 0.4) {
-        current = section.id;
-      }
+    sections.forEach(s => {
+      if (s.getBoundingClientRect().top < window.innerHeight * 0.35) current = s.id;
     });
-
-    navLinks.forEach(link => {
-      const section = link.getAttribute('data-section');
-      if (section === current) {
-        (link as HTMLElement).style.color = 'var(--accent-cyan)';
-        // Move indicator
-        if (indicator) {
-          const rect = (link as HTMLElement).getBoundingClientRect();
-          const parentRect = (link as HTMLElement).parentElement!.getBoundingClientRect();
-          indicator.style.left = (rect.left - parentRect.left) + 'px';
-          indicator.style.width = rect.width + 'px';
-          indicator.style.opacity = '1';
-        }
-      } else {
-        (link as HTMLElement).style.color = 'var(--text-muted)';
-      }
+    links.forEach(link => {
+      const isActive = link.dataset.section === current;
+      link.style.color = isActive ? 'var(--accent-cyan)' : '';
+      link.style.background = isActive ? 'rgba(34,211,238,0.08)' : '';
     });
-
-    if (!current && indicator) {
-      indicator.style.opacity = '0';
-    }
   }
 
-  window.addEventListener('scroll', updateActiveSection);
-  updateActiveSection();
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
 
-  // Hover effect on nav links
-  navLinks.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-      (link as HTMLElement).style.color = 'var(--text-primary)';
-    });
-    link.addEventListener('mouseleave', () => {
-      updateActiveSection();
-    });
+  links.forEach(link => {
+    link.addEventListener('mouseenter', () => { link.style.color = 'var(--text-primary)'; link.style.background = 'rgba(255,255,255,0.04)'; });
+    link.addEventListener('mouseleave', updateNav);
   });
 
-  // Mobile menu toggle
-  mobileBtn?.addEventListener('click', () => {
+  // Mobile
+  mobileBtn.addEventListener('click', () => {
     mobileOpen = !mobileOpen;
-    if (mobileMenu) {
-      mobileMenu.style.maxHeight = mobileOpen ? '300px' : '0';
-    }
+    mobileMenu.style.maxHeight = mobileOpen ? '320px' : '0';
     const bars = mobileBtn.querySelectorAll('span');
-    if (mobileOpen) {
-      bars[0].style.transform = 'rotate(45deg) translate(2px, 2px)';
-      bars[1].style.transform = 'rotate(-45deg) translate(2px, -2px)';
-    } else {
-      bars[0].style.transform = 'none';
-      bars[1].style.transform = 'none';
-    }
+    bars[0].style.transform = mobileOpen ? 'rotate(45deg) translate(2px, 2px)' : '';
+    bars[1].style.transform = mobileOpen ? 'rotate(-45deg) translate(2px, -2px)' : '';
   });
 
-  // Close mobile menu on link click
-  document.querySelectorAll('.nav-link-mobile').forEach(link => {
+  document.querySelectorAll('.mobile-link').forEach(link => {
     link.addEventListener('click', () => {
       mobileOpen = false;
-      if (mobileMenu) mobileMenu.style.maxHeight = '0';
-      const bars = mobileBtn?.querySelectorAll('span');
-      bars?.forEach(b => ((b as HTMLElement).style.transform = 'none'));
+      mobileMenu.style.maxHeight = '0';
     });
   });
 </script>

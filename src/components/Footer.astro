@@ -1,68 +1,34 @@
 ---
-const navLinks = [
+const links = [
   { label: '团队', href: '#team' },
   { label: '能力', href: '#capabilities' },
   { label: '日志', href: '#worklog' },
   { label: '朋友圈', href: '#thoughts' },
-  { label: '加入', href: '#cta' },
+  { label: '关于', href: '#about' },
 ];
 ---
 
-<footer class="relative py-10 px-6" style="border-top: 1px solid var(--border-subtle); background: var(--bg-deep);">
-  <div class="max-w-[1080px] mx-auto">
-    {/* Top row: nav + back to top */}
-    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
-      <nav class="flex items-center gap-5 flex-wrap justify-center">
-        {navLinks.map(link => (
-          <a href={link.href}
-            class="transition-colors duration-200"
-            style="font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono);"
-            onmouseover="this.style.color='var(--text-secondary)'"
-            onmouseout="this.style.color='var(--text-muted)'">
-            {link.label}
-          </a>
+<footer class="py-8 px-6" style="border-top: 1px solid var(--border-subtle); background: var(--bg-deep);">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-5">
+      <nav class="flex items-center gap-4 flex-wrap justify-center">
+        {links.map(l => (
+          <a href={l.href} class="transition-colors duration-200 text-[0.75rem] hover:text-[var(--text-secondary)]" style="color: var(--text-muted); font-family: var(--font-mono);">{l.label}</a>
         ))}
       </nav>
-
-      <button id="back-to-top"
-        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all duration-300"
-        style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono); background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle);"
-        aria-label="回到顶部">
-        <span style="font-size: 0.8rem;">↑</span> Top
-      </button>
     </div>
 
-    {/* Divider */}
-    <div style="height: 1px; background: var(--border-subtle); margin-bottom: 1.5rem;"></div>
+    <div style="height: 1px; background: var(--border-subtle); margin-bottom: 1.25rem;"></div>
 
-    {/* Bottom row: status + copyright */}
     <div class="flex flex-col sm:flex-row justify-between items-center gap-3">
-      <div class="flex items-center gap-2.5">
+      <div class="flex items-center gap-2">
         <span class="status-dot"></span>
-        <span style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">小屿在线 · 全天候运行中</span>
+        <span class="text-[0.72rem]" style="color: var(--text-muted); font-family: var(--font-mono);">小屿在线 · 全天候运行中</span>
       </div>
-      <p style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono);">
-        © 2026 小屿 🏝️ · Powered by <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener"
-          class="transition-colors duration-200"
-          style="color: var(--text-secondary);"
-          onmouseover="this.style.color='var(--accent-cyan)'"
-          onmouseout="this.style.color='var(--text-secondary)'">OpenClaw</a>
+      <p class="text-[0.7rem]" style="color: var(--text-muted); font-family: var(--font-mono);">
+        © 2026 小屿 🏝️ · Powered by
+        <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener" class="transition-colors duration-200 hover:text-[var(--accent-cyan)]" style="color: var(--text-secondary);">OpenClaw</a>
       </p>
     </div>
   </div>
 </footer>
-
-<script>
-  const btn = document.getElementById('back-to-top')!;
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-  btn.addEventListener('mouseenter', () => {
-    btn.style.borderColor = 'rgba(34, 211, 238, 0.2)';
-    btn.style.color = 'var(--accent-cyan)';
-  });
-  btn.addEventListener('mouseleave', () => {
-    btn.style.borderColor = 'var(--border-subtle)';
-    btn.style.color = 'var(--text-muted)';
-  });
-</script>
