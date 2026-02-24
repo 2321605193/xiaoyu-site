@@ -9,14 +9,14 @@
   <div class="max-w-6xl mx-auto relative z-10">
     <div class="reveal">
       <div class="section-label justify-center">Join Us</div>
-      <h2 class="section-title" style="max-width: 460px; margin: 0 auto 12px;">想拥有自己的 AI 团队？</h2>
+      <h2 class="section-title neon-glow-pink" style="max-width: 460px; margin: 0 auto 12px;">想拥有自己的 AI 团队？</h2>
       <p class="section-desc mx-auto text-center mb-12">关注公众号获取完整教程，加入社群与 AI 玩家交流。</p>
     </div>
 
     <div class="flex gap-5 justify-center flex-wrap reveal reveal-delay-1">
       <!-- 公众号 -->
-      <div class="cta-card group rounded-xl text-center cursor-pointer transition-all duration-200" style="width: 260px; padding: 32px 28px; background: var(--bg-card); border: 1px solid var(--border-subtle);">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-200" style="background: rgba(34,211,238,0.06); border: 1px solid rgba(34,211,238,0.12);">
+      <div class="cta-card glass-card group rounded-xl text-center cursor-pointer transition-all duration-300" style="width: 260px; padding: 32px 28px;">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300" style="background: rgba(1,205,254,0.1); border: 1px solid rgba(1,205,254,0.2); box-shadow: 0 0 15px rgba(1,205,254,0.2);">
           <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
             <line x1="12" y1="18" x2="12.01" y2="18"></line>
@@ -30,8 +30,8 @@
       </div>
 
       <!-- 微信群 -->
-      <div class="cta-card group rounded-xl text-center cursor-pointer transition-all duration-200" style="width: 260px; padding: 32px 28px; background: var(--bg-card); border: 1px solid var(--border-subtle);">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-200" style="background: rgba(167,139,250,0.06); border: 1px solid rgba(167,139,250,0.12);">
+      <div class="cta-card glass-card group rounded-xl text-center cursor-pointer transition-all duration-300" style="width: 260px; padding: 32px 28px;">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300" style="background: rgba(185,103,255,0.1); border: 1px solid rgba(185,103,255,0.2); box-shadow: 0 0 15px rgba(185,103,255,0.2);">
           <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="var(--accent-purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
           </svg>
@@ -49,9 +49,9 @@
 <script>
   document.querySelectorAll<HTMLElement>('.cta-card').forEach(card => {
     card.addEventListener('mouseenter', () => {
-      card.style.borderColor = 'rgba(167,139,250,0.2)';
-      card.style.transform = 'translateY(-4px)';
-      card.style.boxShadow = '0 12px 40px rgba(167,139,250,0.15)';
+      card.style.borderColor = 'rgba(1,205,254,0.4)';
+      card.style.transform = 'translateY(-6px)';
+      card.style.boxShadow = '0 0 30px rgba(1,205,254,0.3), 0 12px 40px rgba(0,0,0,0.6)';
     });
     card.addEventListener('mouseleave', () => {
       card.style.borderColor = '';

@@ -1,66 +1,69 @@
 ---
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background: var(--bg-deep);">
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden scanlines" style="background: var(--bg-deep);">
 
-  <!-- Grid -->
-  <div class="absolute inset-0" style="background-image: linear-gradient(rgba(34,211,238,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.02) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 10%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 10%, transparent 70%);"></div>
+  <!-- Aurora Background -->
+  <div class="aurora-bg absolute inset-0"></div>
 
-  <!-- Glow orbs -->
-  <div class="absolute pointer-events-none" style="width: 600px; height: 600px; background: radial-gradient(circle, rgba(34,211,238,0.08), transparent 70%); top: -200px; right: -150px;"></div>
-  <div class="absolute pointer-events-none" style="width: 500px; height: 500px; background: radial-gradient(circle, rgba(167,139,250,0.06), transparent 70%); bottom: -150px; left: -100px;"></div>
-  <div class="absolute pointer-events-none" style="width: 300px; height: 300px; background: radial-gradient(circle, rgba(251,191,36,0.04), transparent 70%); top: 40%; left: 15%;"></div>
+  <!-- Neon Grid -->
+  <div class="absolute inset-0" style="background-image: linear-gradient(rgba(1,205,254,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(1,205,254,0.08) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 10%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 10%, transparent 70%);"></div>
+
+  <!-- Neon Glow Orbs -->
+  <div class="absolute pointer-events-none" style="width: 700px; height: 700px; background: radial-gradient(circle, rgba(1,205,254,0.15), transparent 70%); top: -250px; right: -200px; filter: blur(80px); animation: pulse-glow 4s ease-in-out infinite;"></div>
+  <div class="absolute pointer-events-none" style="width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,0,110,0.12), transparent 70%); bottom: -200px; left: -150px; filter: blur(80px); animation: pulse-glow 5s ease-in-out infinite;"></div>
+  <div class="absolute pointer-events-none" style="width: 400px; height: 400px; background: radial-gradient(circle, rgba(185,103,255,0.1), transparent 70%); top: 40%; left: 15%; filter: blur(60px); animation: pulse-glow 6s ease-in-out infinite;"></div>
 
   <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
-    <!-- Online badge -->
-    <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full mb-10" style="background: rgba(34,211,238,0.06); border: 1px solid rgba(34,211,238,0.15); animation: fade-in-up 0.6s ease-out both;">
+    <!-- Online badge with neon glow -->
+    <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full mb-10 neon-border" style="background: rgba(1,205,254,0.08); animation: fade-in-up 0.6s ease-out both;">
       <span class="status-dot"></span>
-      <span style="color: var(--accent-cyan); font-size: 0.78rem; font-family: var(--font-mono); font-weight: 500; letter-spacing: 0.08em;">ONLINE</span>
+      <span class="neon-glow-cyan" style="font-size: 0.78rem; font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.08em;">ONLINE</span>
       <span style="color: var(--text-muted); font-size: 0.78rem; font-family: var(--font-mono);">·</span>
-      <span style="color: var(--text-muted); font-size: 0.78rem; font-family: var(--font-mono);">全天候运行中</span>
+      <span style="color: var(--text-secondary); font-size: 0.78rem; font-family: var(--font-mono);">全天候运行中</span>
     </div>
 
-    <!-- Title -->
+    <!-- Title with holographic effect -->
     <h1 class="mb-6" style="animation: fade-in-up 0.6s ease-out 0.12s both;">
-      <span class="shimmer-text" style="font-family: var(--font-heading); font-size: clamp(3rem, 8vw, 5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1;">小屿</span>
-      <svg class="inline-block" style="width: clamp(2.5rem, 6vw, 4rem); height: clamp(2.5rem, 6vw, 4rem); animation: float 5s ease-in-out infinite; margin-left: 8px; vertical-align: middle;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="var(--accent-cyan)" opacity="0.2"/>
-        <circle cx="12" cy="9" r="2.5" fill="var(--accent-cyan)"/>
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="var(--accent-cyan)" stroke-width="1.5" fill="none"/>
+      <span class="holographic" style="font-family: var(--font-heading); font-size: clamp(3rem, 8vw, 5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1;">小屿</span>
+      <svg class="inline-block" style="width: clamp(2.5rem, 6vw, 4rem); height: clamp(2.5rem, 6vw, 4rem); animation: float 5s ease-in-out infinite; margin-left: 8px; vertical-align: middle; filter: drop-shadow(0 0 10px var(--neon-cyan));" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="var(--neon-cyan)" opacity="0.3"/>
+        <circle cx="12" cy="9" r="2.5" fill="var(--neon-cyan)"/>
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="var(--neon-cyan)" stroke-width="1.5" fill="none"/>
       </svg>
     </h1>
 
-    <!-- Subtitle -->
+    <!-- Subtitle with neon accents -->
     <p class="mb-5" style="font-size: clamp(1rem, 2.5vw, 1.25rem); color: var(--text-secondary); max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; animation: fade-in-up 0.6s ease-out 0.24s both;">
-      <span style="color: var(--accent-cyan); font-weight: 600;">AI 员工总管</span>，统筹
-      <span style="color: var(--accent-gold); font-weight: 600;">16</span> 位专精助手
+      <span class="neon-glow-cyan" style="font-weight: 600;">AI 员工总管</span>，统筹
+      <span class="neon-glow-pink" style="font-weight: 600;">16</span> 位专精助手
     </p>
 
-    <!-- Typing -->
+    <!-- Typing with neon cursor -->
     <p class="mb-12" style="color: var(--text-muted); font-size: 0.95rem; animation: fade-in-up 0.6s ease-out 0.36s both;">
-      <span id="typing-text" style="border-right: 2px solid var(--accent-cyan); padding-right: 3px; animation: typing-cursor 0.8s step-end infinite;">7×24 守护</span>
+      <span id="typing-text" class="neon-glow-cyan" style="border-right: 2px solid var(--neon-cyan); padding-right: 3px; animation: typing-cursor 0.8s step-end infinite;">7×24 守护</span>
     </p>
 
-    <!-- CTA -->
+    <!-- CTA Buttons with neon effects -->
     <div class="flex gap-4 justify-center flex-wrap" style="animation: fade-in-up 0.6s ease-out 0.48s both;">
-      <a href="#team" class="group inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 cursor-pointer" style="background: linear-gradient(135deg, var(--accent-cyan), #0ea5c9); color: #0a0e1a; box-shadow: 0 4px 24px rgba(34,211,238,0.2);">
+      <a href="#team" class="group inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:-translate-y-1 cursor-pointer" style="background: linear-gradient(135deg, var(--neon-cyan), var(--accent-cyan-dim)); color: #000000; box-shadow: 0 0 20px rgba(1,205,254,0.4), 0 4px 24px rgba(1,205,254,0.3); font-weight: 700;">
         了解团队
         <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
       </a>
-      <a href="#cta" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 cursor-pointer" style="background: rgba(255,255,255,0.04); color: var(--text-primary); border: 1px solid var(--border-light);">
+      <a href="#cta" class="glass-card inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:-translate-y-1 cursor-pointer" style="color: var(--text-primary);">
         关注公众号
       </a>
     </div>
 
-    <!-- Powered by -->
+    <!-- Powered by with neon link -->
     <p class="mt-14" style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); animation: fade-in-up 0.6s ease-out 0.6s both;">
-      基于 <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener" style="color: var(--text-secondary); text-decoration-line: underline; text-decoration-style: dashed; text-underline-offset: 3px;" class="hover:text-[var(--accent-cyan)] transition-colors">OpenClaw</a> 构建 · 开源 AI Agent 框架
+      基于 <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener" style="color: var(--accent-cyan); text-decoration-line: underline; text-decoration-style: dashed; text-underline-offset: 3px; text-shadow: 0 0 10px rgba(1,205,254,0.3);" class="hover:text-[var(--neon-cyan)] transition-colors">OpenClaw</a> 构建 · 开源 AI Agent 框架
     </p>
   </div>
 
-  <!-- Scroll hint -->
+  <!-- Scroll hint with neon glow -->
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style="animation: fade-in-up 0.6s ease-out 0.8s both;">
-    <div style="width: 1px; height: 28px; background: linear-gradient(to bottom, var(--text-muted), transparent);"></div>
+    <div style="width: 1px; height: 28px; background: linear-gradient(to bottom, var(--neon-cyan), transparent); box-shadow: 0 0 10px var(--neon-cyan);"></div>
   </div>
 </section>
 

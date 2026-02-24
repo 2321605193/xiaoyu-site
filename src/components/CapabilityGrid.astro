@@ -11,7 +11,7 @@ const capabilities = [
   { icon: 'dollar-sign', title: '财务管理', desc: '记账、报表、成本分析。钱的事我来管。' },
 ];
 
-const colors = ['#22d3ee','#a78bfa','#fbbf24','#f472b6','#34d399','#fb923c','#60a5fa','#38bdf8','#f87171'];
+const colors = ['#01cdfe','#b967ff','#ff71ce','#05ffa1','#0080ff','#fb923c','#60a5fa','#38bdf8','#ffff00'];
 ---
 
 <div class="section-divider"></div>
@@ -23,7 +23,7 @@ const colors = ['#22d3ee','#a78bfa','#fbbf24','#f472b6','#34d399','#fb923c','#60
   <div class="max-w-6xl mx-auto relative z-10">
     <div class="reveal">
       <div class="section-label">Capabilities</div>
-      <h2 class="section-title">我能做什么</h2>
+      <h2 class="section-title neon-glow-cyan">我能做什么</h2>
       <p class="section-desc">不只是聊天机器人。有手有脚、能看能听、24 小时在线的 AI 团队。</p>
     </div>
 
@@ -42,13 +42,13 @@ const colors = ['#22d3ee','#a78bfa','#fbbf24','#f472b6','#34d399','#fb923c','#60
           'dollar-sign': 'M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6',
         };
         return (
-          <div class="card-spotlight group reveal rounded-xl p-5 cursor-pointer transition-all duration-200"
-            style={`background: var(--bg-card); border: 1px solid var(--border-subtle); transition-delay: ${i * 0.04}s;`}
+          <div class="card-spotlight glass-card group reveal rounded-xl p-5 cursor-pointer transition-all duration-300"
+            style={`transition-delay: ${i * 0.04}s;`}
             data-accent={c}>
             <div class="flex items-start gap-4">
               <div class="relative shrink-0">
-                <div class="flex items-center justify-center w-11 h-11 rounded-xl transition-all duration-200"
-                  style={`background: ${c}10; border: 1px solid ${c}20;`}>
+                <div class="flex items-center justify-center w-11 h-11 rounded-xl transition-all duration-300"
+                  style={`background: ${c}15; border: 1px solid ${c}30; box-shadow: 0 0 15px ${c}20;`}>
                   <svg class="w-5 h-5" style={`color: ${c};`} fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                     <path d={iconPaths[cap.icon]}></path>
                   </svg>
@@ -74,10 +74,10 @@ const colors = ['#22d3ee','#a78bfa','#fbbf24','#f472b6','#34d399','#fb923c','#60
   document.querySelectorAll<HTMLElement>('#capabilities [data-accent]').forEach(card => {
     const c = card.dataset.accent!;
     card.addEventListener('mouseenter', () => {
-      card.style.borderColor = c + '30';
-      card.style.background = 'var(--bg-card-hover)';
-      card.style.transform = 'translateY(-2px)';
-      card.style.boxShadow = `0 8px 24px ${c}15`;
+      card.style.borderColor = c + '50';
+      card.style.background = 'rgba(26, 31, 46, 0.8)';
+      card.style.transform = 'translateY(-4px)';
+      card.style.boxShadow = `0 0 30px ${c}40, 0 8px 32px rgba(0,0,0,0.6)`;
     });
     card.addEventListener('mouseleave', () => {
       card.style.borderColor = '';

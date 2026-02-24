@@ -3,37 +3,64 @@
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════
-   Design System — 小屿 (adapted from xiaomo.dev)
+   Design System — 小屿 Cyberpunk Edition
    ═══════════════════════════════════════════ */
 :root {
-  --bg-deep: #080b14;
+  /* Deep Black Backgrounds */
+  --bg-deep: #000000;
   --bg-primary: #0a0e1a;
-  --bg-card: #111827;
-  --bg-card-hover: #1a2332;
-  --bg-subtle: #0d1117;
-  --text-primary: #e2e8f0;
+  --bg-card: #0f1419;
+  --bg-card-hover: #1a1f2e;
+  --bg-subtle: #050810;
+
+  /* Text Colors */
+  --text-primary: #ffffff;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
-  --accent-cyan: #22d3ee;
+
+  /* Neon Accent Colors */
+  --neon-cyan: #00ffff;
+  --neon-pink: #ff006e;
+  --neon-purple: #b967ff;
+  --neon-green: #05ffa1;
+  --neon-blue: #0080ff;
+  --neon-yellow: #ffff00;
+
+  /* Primary Accents (slightly dimmed for usability) */
+  --accent-cyan: #01cdfe;
   --accent-cyan-dim: #0ea5c9;
-  --accent-purple: #a78bfa;
+  --accent-purple: #b967ff;
   --accent-gold: #fbbf24;
-  --accent-green: #34d399;
-  --accent-pink: #f472b6;
+  --accent-green: #22c55e;
+  --accent-pink: #ff71ce;
   --accent-blue: #60a5fa;
   --accent-orange: #fb923c;
   --accent-red: #f87171;
-  --border-subtle: rgba(255, 255, 255, 0.06);
-  --border-light: rgba(255, 255, 255, 0.1);
-  --border-medium: rgba(255, 255, 255, 0.15);
+
+  /* Borders with Glow */
+  --border-subtle: rgba(1, 205, 254, 0.1);
+  --border-light: rgba(1, 205, 254, 0.2);
+  --border-medium: rgba(1, 205, 254, 0.3);
+  --border-glow: rgba(0, 255, 255, 0.4);
+
+  /* Radius */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 20px;
-  --font-sans: 'Inter', 'DM Sans', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+
+  /* Fonts */
+  --font-sans: 'Fira Sans', 'Inter', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
   --font-heading: 'Space Grotesk', 'PingFang SC', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Menlo', monospace;
+  --font-mono: 'Fira Code', 'JetBrains Mono', 'Menlo', monospace;
+
+  /* Easing */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Glow Intensity */
+  --glow-sm: 0 0 10px;
+  --glow-md: 0 0 20px;
+  --glow-lg: 0 0 30px;
 }
 
 @layer base {
@@ -91,7 +118,9 @@
   margin-bottom: 16px;
   letter-spacing: -0.03em;
   color: var(--text-primary);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 20px rgba(1, 205, 254, 0.5),
+               0 0 40px rgba(1, 205, 254, 0.3),
+               0 2px 8px rgba(0, 0, 0, 0.8);
 }
 .section-desc {
   color: var(--text-secondary);
@@ -101,14 +130,14 @@
 }
 
 /* ═══════════════════════════════════════════
-   Cards
+   Cards with Neon Glow
    ═══════════════════════════════════════════ */
 .card {
   padding: 24px;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  transition: all 0.2s var(--ease-out-expo);
+  transition: all 0.3s var(--ease-out-expo);
   position: relative;
   overflow: hidden;
 }
@@ -116,36 +145,52 @@
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.4), transparent);
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--neon-cyan),
+    var(--neon-pink),
+    transparent
+  );
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.3s;
+  filter: blur(2px);
 }
 .card:hover {
   background: var(--bg-card-hover);
-  border-color: rgba(34, 211, 238, 0.12);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-color: var(--border-glow);
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(1, 205, 254, 0.3),
+              0 0 40px rgba(1, 205, 254, 0.1),
+              0 8px 32px rgba(0, 0, 0, 0.6);
 }
 .card:hover::before { opacity: 1; }
 
 /* ═══════════════════════════════════════════
-   Animations
+   Animations with Neon Effects
    ═══════════════════════════════════════════ */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 8px var(--accent-green), 0 0 20px rgba(52, 211, 153, 0.3); }
-  50% { box-shadow: 0 0 12px var(--accent-green), 0 0 28px rgba(52, 211, 153, 0.5); }
+  0%, 100% {
+    box-shadow: 0 0 10px var(--neon-green),
+                0 0 20px rgba(5, 255, 161, 0.4),
+                0 0 30px rgba(5, 255, 161, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 15px var(--neon-green),
+                0 0 30px rgba(5, 255, 161, 0.6),
+                0 0 45px rgba(5, 255, 161, 0.3);
+  }
 }
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-12px); }
 }
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes typing-cursor {
-  0%, 100% { border-color: var(--accent-cyan); }
+  0%, 100% { border-color: var(--neon-cyan); }
   50% { border-color: transparent; }
 }
 @keyframes shimmer {
@@ -161,6 +206,26 @@
   from { transform: translateX(100%); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
 }
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+  75% { opacity: 1; }
+  80% { opacity: 0.9; }
+}
+@keyframes aurora-flow {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(30deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+}
 
 .status-dot {
   width: 6px;
@@ -173,12 +238,18 @@
 }
 
 .shimmer-text {
-  background: linear-gradient(90deg, #e2e8f0, var(--accent-cyan), #e2e8f0);
+  background: linear-gradient(90deg,
+    var(--neon-cyan),
+    var(--neon-pink),
+    var(--neon-purple),
+    var(--neon-cyan)
+  );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shimmer 4s linear infinite;
+  animation: shimmer 3s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(1, 205, 254, 0.5));
 }
 
 /* ═══════════════════════════════════════════
@@ -333,3 +404,99 @@
   .status-dot { animation: none; }
   .shimmer-text { animation: none; }
 }
+
+/* ═══════════════════════════════════════════
+   Neon Glow Utilities
+   ═══════════════════════════════════════════ */
+.neon-glow-cyan {
+  text-shadow: 0 0 10px var(--neon-cyan),
+               0 0 20px rgba(1, 205, 254, 0.5),
+               0 0 30px rgba(1, 205, 254, 0.3);
+}
+.neon-glow-pink {
+  text-shadow: 0 0 10px var(--neon-pink),
+               0 0 20px rgba(255, 0, 110, 0.5),
+               0 0 30px rgba(255, 0, 110, 0.3);
+}
+.neon-glow-purple {
+  text-shadow: 0 0 10px var(--neon-purple),
+               0 0 20px rgba(185, 103, 255, 0.5),
+               0 0 30px rgba(185, 103, 255, 0.3);
+}
+.neon-border {
+  border: 1px solid var(--border-glow);
+  box-shadow: 0 0 10px rgba(1, 205, 254, 0.3),
+              inset 0 0 10px rgba(1, 205, 254, 0.1);
+}
+
+/* ═══════════════════════════════════════════
+   Glassmorphism with Neon
+   ═══════════════════════════════════════════ */
+.glass-card {
+  background: rgba(15, 20, 25, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(1, 205, 254, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+              0 0 20px rgba(1, 205, 254, 0.1);
+}
+.glass-card:hover {
+  background: rgba(26, 31, 46, 0.7);
+  border-color: rgba(1, 205, 254, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6),
+              0 0 30px rgba(1, 205, 254, 0.2);
+}
+
+/* ═══════════════════════════════════════════
+   Aurora Background
+   ═══════════════════════════════════════════ */
+.aurora-bg {
+  background: linear-gradient(135deg,
+    var(--neon-cyan),
+    var(--neon-purple),
+    var(--neon-pink),
+    var(--neon-cyan)
+  );
+  background-size: 400% 400%;
+  animation: aurora-flow 15s ease infinite;
+  opacity: 0.15;
+  filter: blur(60px);
+}
+
+/* ═══════════════════════════════════════════
+   Scanline Effect (CRT)
+   ═══════════════════════════════════════════ */
+.scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.3;
+}
+
+/* ═══════════════════════════════════════════
+   Holographic Effect
+   ═══════════════════════════════════════════ */
+.holographic {
+  background: linear-gradient(135deg,
+    var(--neon-cyan) 0%,
+    var(--neon-purple) 25%,
+    var(--neon-pink) 50%,
+    var(--neon-purple) 75%,
+    var(--neon-cyan) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
