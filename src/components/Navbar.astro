@@ -11,8 +11,12 @@ const navItems = [
 
 <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent;">
   <div class="max-w-6xl mx-auto flex items-center justify-between h-16 px-6">
-    <a href="#hero" class="flex items-center gap-2 group">
-      <span class="text-xl transition-transform duration-300 group-hover:scale-110">🏝️</span>
+    <a href="#hero" class="flex items-center gap-2 group cursor-pointer">
+      <svg class="w-6 h-6 transition-transform duration-200 group-hover:scale-110" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="var(--accent-cyan)" opacity="0.2"/>
+        <circle cx="12" cy="9" r="2.5" fill="var(--accent-cyan)"/>
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="var(--accent-cyan)" stroke-width="1.5" fill="none"/>
+      </svg>
       <span class="font-semibold text-[0.95rem]" style="font-family: var(--font-heading); color: var(--text-primary);">小屿</span>
     </a>
 
@@ -20,7 +24,7 @@ const navItems = [
     <div class="hidden md:flex items-center gap-0.5 p-1 rounded-xl" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle);">
       {navItems.map(item => (
         <a href={item.href}
-          class="nav-link px-3.5 py-1.5 rounded-lg transition-all duration-200"
+          class="nav-link px-3.5 py-1.5 rounded-lg transition-all duration-200 cursor-pointer"
           style="font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono);"
           data-section={item.href.replace('#', '')}>
           {item.label}
@@ -39,7 +43,7 @@ const navItems = [
   <div id="mobile-menu" class="md:hidden overflow-hidden transition-all duration-300" style="max-height: 0; background: rgba(8, 11, 20, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle);">
     <div class="px-6 py-3 flex flex-col gap-1">
       {navItems.map(item => (
-        <a href={item.href} class="mobile-link px-4 py-2.5 rounded-lg transition-all duration-200" style="color: var(--text-muted); font-family: var(--font-mono); font-size: 0.85rem;">
+        <a href={item.href} class="mobile-link px-4 py-2.5 rounded-lg transition-all duration-200 cursor-pointer" style="color: var(--text-muted); font-family: var(--font-mono); font-size: 0.85rem;">
           {item.label}
         </a>
       ))}

@@ -38,9 +38,9 @@ const levelStyles = [
           {li === 0 ? (
             <div class="max-w-sm mx-auto">
               {level.agents.map(agent => (
-                <div class="card-spotlight gradient-border rounded-2xl p-6 group cursor-default" style="background: var(--bg-card);">
+                <div class="card-spotlight gradient-border rounded-2xl p-6 group cursor-pointer" style="background: var(--bg-card);">
                   <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-105 transition-transform duration-300" style={`background: linear-gradient(135deg, ${s.bg}, rgba(96,165,250,0.06)); border: 1px solid ${s.border};`}>
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl transition-all duration-200" style={`background: linear-gradient(135deg, ${s.bg}, rgba(96,165,250,0.06)); border: 1px solid ${s.border};`}>
                       {agent.emoji}
                     </div>
                     <div>
@@ -62,10 +62,10 @@ const levelStyles = [
           ) : (
             <div class={`grid gap-3 ${li === 2 ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}`}>
               {level.agents.map((agent, i) => (
-                <div class="card-spotlight rounded-xl p-4 group cursor-default transition-all duration-300" style={`background: var(--bg-card); border: 1px solid var(--border-subtle);`}
+                <div class="card-spotlight rounded-xl p-4 group cursor-pointer transition-all duration-200" style={`background: var(--bg-card); border: 1px solid var(--border-subtle);`}
                   data-hover-border={s.border}>
                   <div class="flex items-start gap-3">
-                    <div class={`flex items-center justify-center rounded-lg shrink-0 group-hover:scale-110 transition-transform duration-300 ${li === 2 ? 'w-8 h-8 text-base' : 'w-10 h-10 text-xl'}`} style={`background: ${s.bg};`}>
+                    <div class={`flex items-center justify-center rounded-lg shrink-0 transition-all duration-200 ${li === 2 ? 'w-8 h-8 text-base' : 'w-10 h-10 text-xl'}`} style={`background: ${s.bg};`}>
                       {agent.emoji}
                     </div>
                     <div class="flex-1 min-w-0">
@@ -104,7 +104,17 @@ const levelStyles = [
 <script>
   document.querySelectorAll<HTMLElement>('#team [data-hover-border]').forEach(card => {
     const c = card.dataset.hoverBorder!;
-    card.addEventListener('mouseenter', () => { card.style.borderColor = c; card.style.background = 'var(--bg-card-hover)'; card.style.transform = 'translateY(-2px)'; });
-    card.addEventListener('mouseleave', () => { card.style.borderColor = ''; card.style.background = ''; card.style.transform = ''; });
+    card.addEventListener('mouseenter', () => {
+      card.style.borderColor = c;
+      card.style.background = 'var(--bg-card-hover)';
+      card.style.transform = 'translateY(-2px)';
+      card.style.boxShadow = `0 8px 24px ${c}20`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.borderColor = '';
+      card.style.background = '';
+      card.style.transform = '';
+      card.style.boxShadow = '';
+    });
   });
 </script>

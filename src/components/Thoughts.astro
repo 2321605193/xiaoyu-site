@@ -6,8 +6,8 @@ const thoughts = [
 ];
 
 const typeMap: Record<string, { bg: string; color: string; label: string; icon: string }> = {
-  work: { bg: 'rgba(34,211,238,0.06)', color: '#22d3ee', label: '工作', icon: '⚡' },
-  life: { bg: 'rgba(251,191,36,0.06)', color: '#fbbf24', label: '随想', icon: '💭' },
+  work: { bg: 'rgba(34,211,238,0.06)', color: '#22d3ee', label: '工作', icon: 'zap' },
+  life: { bg: 'rgba(251,191,36,0.06)', color: '#fbbf24', label: '随想', icon: 'message-circle' },
 };
 
 function relDate(d: string): string {
@@ -49,28 +49,44 @@ function relDate(d: string): string {
             <div class="absolute left-[19px] top-[28px] w-[24px] h-px" style="background: rgba(251,191,36,0.15);"></div>
 
             {/* Card */}
-            <div class="thought-card rounded-xl p-5 transition-all duration-300 cursor-default group" style="background: var(--bg-card); border: 1px solid var(--border-subtle);">
+            <div class="thought-card rounded-xl p-5 transition-all duration-200 cursor-pointer group" style="background: var(--bg-card); border: 1px solid var(--border-subtle);">
               <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-full flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform duration-300" style="background: linear-gradient(135deg, rgba(251,191,36,0.1), rgba(167,139,250,0.06)); border: 1px solid rgba(251,191,36,0.15);">🏝️</div>
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-200" style="background: linear-gradient(135deg, rgba(251,191,36,0.1), rgba(167,139,250,0.06)); border: 1px solid rgba(251,191,36,0.15);">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="var(--accent-gold)" opacity="0.2"/>
+                      <circle cx="12" cy="9" r="2.5" fill="var(--accent-gold)"/>
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="var(--accent-gold)" stroke-width="1.5" fill="none"/>
+                    </svg>
+                  </div>
                   <div>
                     <span class="font-semibold block text-[0.88rem]" style="color: var(--text-primary); font-family: var(--font-heading);">小屿</span>
                     <span class="text-[0.68rem]" style="font-family: var(--font-mono); color: var(--text-muted);">{relDate(t.date)} · {t.date}</span>
                   </div>
                 </div>
-                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full" style={`font-size: 0.68rem; background: ${m.bg}; color: ${m.color}; font-family: var(--font-mono); border: 1px solid ${m.color}12;`}>
-                  <span class="text-[0.72rem]">{m.icon}</span> {m.label}
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full" style={`font-size: 0.68rem; background: ${m.bg}; color: ${m.color}; font-family: var(--font-mono); border: 1px solid ${m.color}12;`}>
+                  <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    {m.icon === 'zap' ? (
+                      <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"></path>
+                    ) : (
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    )}
+                  </svg>
+                  {m.label}
                 </span>
               </div>
 
               <p class="pl-[52px] text-[0.9rem] leading-[1.85]" style="color: var(--text-secondary); white-space: pre-line;">{t.content}</p>
 
               {/* Interaction */}
-              <div class="pl-[52px] mt-3 flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <button class="like-btn flex items-center gap-1 px-2 py-1 rounded-md transition-colors duration-200 text-[0.7rem] hover:bg-[rgba(251,191,36,0.06)]" style="color: var(--text-muted); font-family: var(--font-mono);" data-index={i}>
-                  <span class="like-icon">♡</span> <span class="like-count">0</span>
+              <div class="pl-[52px] mt-3 flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <button class="like-btn flex items-center gap-1.5 px-2 py-1 rounded-md transition-all duration-200 text-[0.7rem] hover:bg-[rgba(251,191,36,0.06)] cursor-pointer" style="color: var(--text-muted); font-family: var(--font-mono);" data-index={i}>
+                  <svg class="like-icon w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  <span class="like-count">0</span>
                 </button>
-                <span class="text-[0.65rem]" style="color: var(--text-muted); font-family: var(--font-mono);">💬 围观中...</span>
+                <span class="text-[0.65rem]" style="color: var(--text-muted); font-family: var(--font-mono);">围观中...</span>
               </div>
             </div>
           </div>
@@ -83,20 +99,40 @@ function relDate(d: string): string {
 <script>
   // Hover
   document.querySelectorAll<HTMLElement>('.thought-card').forEach(card => {
-    card.addEventListener('mouseenter', () => { card.style.borderColor = 'rgba(251,191,36,0.12)'; card.style.transform = 'translateX(4px)'; });
-    card.addEventListener('mouseleave', () => { card.style.borderColor = ''; card.style.transform = ''; });
+    card.addEventListener('mouseenter', () => {
+      card.style.borderColor = 'rgba(251,191,36,0.15)';
+      card.style.transform = 'translateX(4px)';
+      card.style.boxShadow = '0 4px 20px rgba(251,191,36,0.08)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.borderColor = '';
+      card.style.transform = '';
+      card.style.boxShadow = '';
+    });
   });
 
   // Like
   document.querySelectorAll<HTMLElement>('.like-btn').forEach(btn => {
     let liked = false, count = 0;
+    const icon = btn.querySelector('.like-icon') as SVGElement;
+    const countEl = btn.querySelector('.like-count')!;
+
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       liked = !liked;
       count += liked ? 1 : -1;
-      btn.querySelector('.like-icon')!.textContent = liked ? '♥' : '♡';
-      btn.querySelector('.like-count')!.textContent = String(Math.max(0, count));
-      if (liked) { btn.style.color = '#ef4444'; } else { btn.style.color = ''; }
+
+      if (liked) {
+        icon.style.fill = '#ef4444';
+        icon.style.stroke = '#ef4444';
+        btn.style.color = '#ef4444';
+      } else {
+        icon.style.fill = 'none';
+        icon.style.stroke = 'currentColor';
+        btn.style.color = '';
+      }
+
+      countEl.textContent = String(Math.max(0, count));
     });
   });
 </script>

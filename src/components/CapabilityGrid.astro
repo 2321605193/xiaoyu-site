@@ -1,14 +1,14 @@
 ---
 const capabilities = [
-  { icon: '📧', title: '邮件管理', desc: '监控收件箱，识别重要邮件，起草回复。凌晨3点的紧急邮件？我帮你盯着。' },
-  { icon: '💻', title: '代码开发', desc: '修Bug、写脚本、Review PR。从前端到后端，撸起袖子就能干。' },
-  { icon: '✍️', title: '内容创作', desc: '公众号文章、产品文案、社交媒体。理解你的语气，写出来像你亲手写的。' },
-  { icon: '📈', title: '增长营销', desc: '用户增长策略、数据分析、竞品调研。用数据说话。' },
-  { icon: '🛡️', title: '安全风控', desc: '安全审计、漏洞扫描、风险评估，全天候守护。' },
-  { icon: '⚙️', title: '运维部署', desc: 'CI/CD、服务器管理、监控告警。基础设施自动化。' },
-  { icon: '🎨', title: 'UI 设计', desc: 'UI/UX 设计、品牌视觉、设计系统搭建。' },
-  { icon: '🚀', title: '多平台发布', desc: '一份内容适配多平台格式和规范。一次搞定。' },
-  { icon: '💰', title: '财务管理', desc: '记账、报表、成本分析。钱的事我来管。' },
+  { icon: 'mail', title: '邮件管理', desc: '监控收件箱，识别重要邮件，起草回复。凌晨3点的紧急邮件？我帮你盯着。' },
+  { icon: 'code', title: '代码开发', desc: '修Bug、写脚本、Review PR。从前端到后端，撸起袖子就能干。' },
+  { icon: 'edit', title: '内容创作', desc: '公众号文章、产品文案、社交媒体。理解你的语气，写出来像你亲手写的。' },
+  { icon: 'trending-up', title: '增长营销', desc: '用户增长策略、数据分析、竞品调研。用数据说话。' },
+  { icon: 'shield', title: '安全风控', desc: '安全审计、漏洞扫描、风险评估，全天候守护。' },
+  { icon: 'settings', title: '运维部署', desc: 'CI/CD、服务器管理、监控告警。基础设施自动化。' },
+  { icon: 'palette', title: 'UI 设计', desc: 'UI/UX 设计、品牌视觉、设计系统搭建。' },
+  { icon: 'share-2', title: '多平台发布', desc: '一份内容适配多平台格式和规范。一次搞定。' },
+  { icon: 'dollar-sign', title: '财务管理', desc: '记账、报表、成本分析。钱的事我来管。' },
 ];
 
 const colors = ['#22d3ee','#a78bfa','#fbbf24','#f472b6','#34d399','#fb923c','#60a5fa','#38bdf8','#f87171'];
@@ -30,15 +30,28 @@ const colors = ['#22d3ee','#a78bfa','#fbbf24','#f472b6','#34d399','#fb923c','#60
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-12">
       {capabilities.map((cap, i) => {
         const c = colors[i];
+        const iconPaths: Record<string, string> = {
+          'mail': 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+          'code': 'M16 18l6-6-6-6M8 6l-6 6 6 6',
+          'edit': 'M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z',
+          'trending-up': 'M23 6l-9.5 9.5-5-5L1 18M23 6h-7M23 6v7',
+          'shield': 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+          'settings': 'M12 15a3 3 0 100-6 3 3 0 000 6zM19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z',
+          'palette': 'M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 011.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2zM7.5 12a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm3-4a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm3 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm3 4a1.5 1.5 0 110-3 1.5 1.5 0 010 3z',
+          'share-2': 'M18 8a3 3 0 100-6 3 3 0 000 6zM6 15a3 3 0 100-6 3 3 0 000 6zM18 22a3 3 0 100-6 3 3 0 000 6zM8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98',
+          'dollar-sign': 'M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6',
+        };
         return (
-          <div class="card-spotlight group reveal rounded-xl p-5 cursor-default transition-all duration-300"
+          <div class="card-spotlight group reveal rounded-xl p-5 cursor-pointer transition-all duration-200"
             style={`background: var(--bg-card); border: 1px solid var(--border-subtle); transition-delay: ${i * 0.04}s;`}
             data-accent={c}>
             <div class="flex items-start gap-4">
               <div class="relative shrink-0">
-                <div class="flex items-center justify-center w-11 h-11 rounded-xl group-hover:scale-105 transition-transform duration-300"
+                <div class="flex items-center justify-center w-11 h-11 rounded-xl transition-all duration-200"
                   style={`background: ${c}10; border: 1px solid ${c}20;`}>
-                  <span class="text-xl">{cap.icon}</span>
+                  <svg class="w-5 h-5" style={`color: ${c};`} fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d={iconPaths[cap.icon]}></path>
+                  </svg>
                 </div>
                 <span class="absolute -top-1.5 -right-1.5 flex items-center justify-center w-5 h-5 rounded-full text-[0.6rem] font-bold"
                   style={`background: var(--bg-deep); color: ${c}; border: 1px solid ${c}25; font-family: var(--font-mono);`}>
@@ -60,7 +73,17 @@ const colors = ['#22d3ee','#a78bfa','#fbbf24','#f472b6','#34d399','#fb923c','#60
 <script>
   document.querySelectorAll<HTMLElement>('#capabilities [data-accent]').forEach(card => {
     const c = card.dataset.accent!;
-    card.addEventListener('mouseenter', () => { card.style.borderColor = c + '30'; card.style.background = 'var(--bg-card-hover)'; card.style.transform = 'translateY(-2px)'; });
-    card.addEventListener('mouseleave', () => { card.style.borderColor = ''; card.style.background = ''; card.style.transform = ''; });
+    card.addEventListener('mouseenter', () => {
+      card.style.borderColor = c + '30';
+      card.style.background = 'var(--bg-card-hover)';
+      card.style.transform = 'translateY(-2px)';
+      card.style.boxShadow = `0 8px 24px ${c}15`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.borderColor = '';
+      card.style.background = '';
+      card.style.transform = '';
+      card.style.boxShadow = '';
+    });
   });
 </script>

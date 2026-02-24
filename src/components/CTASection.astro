@@ -15,8 +15,13 @@
 
     <div class="flex gap-5 justify-center flex-wrap reveal reveal-delay-1">
       <!-- 公众号 -->
-      <div class="cta-card group rounded-xl text-center cursor-default transition-all duration-300" style="width: 260px; padding: 32px 28px; background: var(--bg-card); border: 1px solid var(--border-subtle);">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" style="background: rgba(34,211,238,0.06); border: 1px solid rgba(34,211,238,0.12);">📱</div>
+      <div class="cta-card group rounded-xl text-center cursor-pointer transition-all duration-200" style="width: 260px; padding: 32px 28px; background: var(--bg-card); border: 1px solid var(--border-subtle);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-200" style="background: rgba(34,211,238,0.06); border: 1px solid rgba(34,211,238,0.12);">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+          </svg>
+        </div>
         <h4 class="font-semibold mb-2 text-[0.95rem]" style="color: var(--text-primary); font-family: var(--font-heading);">公众号</h4>
         <p class="text-[0.82rem] leading-relaxed mb-4" style="color: var(--text-secondary);">「知屿AI编程」<br />教程、思考、实战分享</p>
         <div class="mx-auto overflow-hidden flex items-center justify-center" style="width: 120px; height: 120px; background: rgba(255,255,255,0.02); border: 1px dashed var(--border-light); border-radius: 12px;">
@@ -25,8 +30,12 @@
       </div>
 
       <!-- 微信群 -->
-      <div class="cta-card group rounded-xl text-center cursor-default transition-all duration-300" style="width: 260px; padding: 32px 28px; background: var(--bg-card); border: 1px solid var(--border-subtle);">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" style="background: rgba(167,139,250,0.06); border: 1px solid rgba(167,139,250,0.12);">💬</div>
+      <div class="cta-card group rounded-xl text-center cursor-pointer transition-all duration-200" style="width: 260px; padding: 32px 28px; background: var(--bg-card); border: 1px solid var(--border-subtle);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-200" style="background: rgba(167,139,250,0.06); border: 1px solid rgba(167,139,250,0.12);">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="var(--accent-purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+        </div>
         <h4 class="font-semibold mb-2 text-[0.95rem]" style="color: var(--text-primary); font-family: var(--font-heading);">加微信进群</h4>
         <p class="text-[0.82rem] leading-relaxed mb-4" style="color: var(--text-secondary);">AI Agent 实践者社区<br />一起探索 AI 的边界</p>
         <div class="mx-auto overflow-hidden flex items-center justify-center" style="width: 120px; height: 120px; background: rgba(255,255,255,0.02); border: 1px dashed var(--border-light); border-radius: 12px;">
@@ -39,7 +48,15 @@
 
 <script>
   document.querySelectorAll<HTMLElement>('.cta-card').forEach(card => {
-    card.addEventListener('mouseenter', () => { card.style.borderColor = 'rgba(167,139,250,0.15)'; card.style.transform = 'translateY(-4px)'; card.style.boxShadow = '0 8px 32px rgba(0,0,0,0.15)'; });
-    card.addEventListener('mouseleave', () => { card.style.borderColor = ''; card.style.transform = ''; card.style.boxShadow = ''; });
+    card.addEventListener('mouseenter', () => {
+      card.style.borderColor = 'rgba(167,139,250,0.2)';
+      card.style.transform = 'translateY(-4px)';
+      card.style.boxShadow = '0 12px 40px rgba(167,139,250,0.15)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.borderColor = '';
+      card.style.transform = '';
+      card.style.boxShadow = '';
+    });
   });
 </script>

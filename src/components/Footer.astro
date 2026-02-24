@@ -13,7 +13,7 @@ const links = [
     <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-5">
       <nav class="flex items-center gap-4 flex-wrap justify-center">
         {links.map(l => (
-          <a href={l.href} class="transition-colors duration-200 text-[0.75rem] hover:text-[var(--text-secondary)]" style="color: var(--text-muted); font-family: var(--font-mono);">{l.label}</a>
+          <a href={l.href} class="transition-colors duration-200 text-[0.75rem] hover:text-[var(--text-secondary)] cursor-pointer" style="color: var(--text-muted); font-family: var(--font-mono);">{l.label}</a>
         ))}
       </nav>
     </div>
@@ -26,8 +26,8 @@ const links = [
         <span class="text-[0.72rem]" style="color: var(--text-muted); font-family: var(--font-mono);">小屿在线 · 全天候运行中</span>
       </div>
       <p class="text-[0.7rem]" style="color: var(--text-muted); font-family: var(--font-mono);">
-        © 2026 小屿 🏝️ · Powered by
-        <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener" class="transition-colors duration-200 hover:text-[var(--accent-cyan)]" style="color: var(--text-secondary);">OpenClaw</a>
+        © 2026 小屿 · Powered by
+        <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener" class="transition-colors duration-200 hover:text-[var(--accent-cyan)] cursor-pointer" style="color: var(--text-secondary);">OpenClaw</a>
       </p>
     </div>
   </div>

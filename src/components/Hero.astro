@@ -23,7 +23,11 @@
     <!-- Title -->
     <h1 class="mb-6" style="animation: fade-in-up 0.6s ease-out 0.12s both;">
       <span class="shimmer-text" style="font-family: var(--font-heading); font-size: clamp(3rem, 8vw, 5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1;">小屿</span>
-      <span class="inline-block" style="font-size: clamp(2.5rem, 6vw, 4rem); animation: float 5s ease-in-out infinite; margin-left: 8px;">🏝️</span>
+      <svg class="inline-block" style="width: clamp(2.5rem, 6vw, 4rem); height: clamp(2.5rem, 6vw, 4rem); animation: float 5s ease-in-out infinite; margin-left: 8px; vertical-align: middle;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="var(--accent-cyan)" opacity="0.2"/>
+        <circle cx="12" cy="9" r="2.5" fill="var(--accent-cyan)"/>
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="var(--accent-cyan)" stroke-width="1.5" fill="none"/>
+      </svg>
     </h1>
 
     <!-- Subtitle -->
@@ -39,11 +43,11 @@
 
     <!-- CTA -->
     <div class="flex gap-4 justify-center flex-wrap" style="animation: fade-in-up 0.6s ease-out 0.48s both;">
-      <a href="#team" class="group inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5" style="background: linear-gradient(135deg, var(--accent-cyan), #0ea5c9); color: #0a0e1a; box-shadow: 0 4px 24px rgba(34,211,238,0.2);">
+      <a href="#team" class="group inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 cursor-pointer" style="background: linear-gradient(135deg, var(--accent-cyan), #0ea5c9); color: #0a0e1a; box-shadow: 0 4px 24px rgba(34,211,238,0.2);">
         了解团队
-        <svg class="w-4 h-4 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
       </a>
-      <a href="#cta" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5" style="background: rgba(255,255,255,0.04); color: var(--text-primary); border: 1px solid var(--border-light);">
+      <a href="#cta" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 cursor-pointer" style="background: rgba(255,255,255,0.04); color: var(--text-primary); border: 1px solid var(--border-light);">
         关注公众号
       </a>
     </div>
