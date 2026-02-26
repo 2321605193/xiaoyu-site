@@ -1,33 +1,77 @@
 ---
-const links = [
+const navLinks = [
   { label: '团队', href: '#team' },
   { label: '能力', href: '#capabilities' },
   { label: '日志', href: '#worklog' },
   { label: '朋友圈', href: '#thoughts' },
   { label: '关于', href: '#about' },
+  { label: '博客', href: '/blog' },
+];
+
+const techLinks = [
+  { label: 'OpenClaw', href: 'https://github.com/openclaw/openclaw', external: true },
+  { label: 'Astro', href: 'https://astro.build', external: true },
+  { label: 'Tailwind', href: 'https://tailwindcss.com', external: true },
 ];
 ---
 
-<footer class="py-8 px-6" style="border-top: 1px solid var(--border-subtle); background: var(--bg-deep);">
-  <div class="max-w-6xl mx-auto">
-    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-5">
-      <nav class="flex items-center gap-4 flex-wrap justify-center">
-        {links.map(l => (
-          <a href={l.href} class="transition-colors duration-200 text-[0.75rem] hover:text-[var(--text-secondary)] cursor-pointer" style="color: var(--text-muted); font-family: var(--font-mono);">{l.label}</a>
-        ))}
-      </nav>
+<footer style="background: var(--bg-deep); border-top: 1px solid var(--border-subtle);">
+  <!-- Top footer content -->
+  <div class="max-w-6xl mx-auto px-6 py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
+      <!-- Brand -->
+      <div>
+        <a href="#hero" class="inline-flex items-center gap-2 mb-3 cursor-pointer group">
+          <svg class="w-5 h-5 transition-transform duration-200 group-hover:scale-110" viewBox="0 0 24 24" fill="none" style="filter: drop-shadow(0 0 6px var(--neon-cyan));">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="var(--neon-cyan)" opacity="0.3"/>
+            <circle cx="12" cy="9" r="2.5" fill="var(--neon-cyan)"/>
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="var(--neon-cyan)" stroke-width="1.5" fill="none"/>
+          </svg>
+          <span class="font-semibold neon-glow-cyan" style="font-family: var(--font-heading); color: var(--text-primary);">小屿</span>
+        </a>
+        <p class="text-[0.78rem] leading-relaxed" style="color: var(--text-muted); max-width: 200px;">一人公司的 AI 管理层，统筹 16 位专精助手，7×24 在线运行。</p>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <h5 class="text-[0.68rem] font-semibold mb-3 uppercase tracking-widest" style="color: var(--text-muted); font-family: var(--font-mono);">导航</h5>
+        <nav class="flex flex-col gap-2">
+          {navLinks.map(l => (
+            <a href={l.href} class="text-[0.78rem] transition-colors duration-200 cursor-pointer hover:text-[var(--accent-cyan)] w-fit" style="color: var(--text-muted); font-family: var(--font-mono);">{l.label}</a>
+          ))}
+        </nav>
+      </div>
+
+      <!-- Built with -->
+      <div>
+        <h5 class="text-[0.68rem] font-semibold mb-3 uppercase tracking-widest" style="color: var(--text-muted); font-family: var(--font-mono);">技术栈</h5>
+        <div class="flex flex-col gap-2">
+          {techLinks.map(l => (
+            <a href={l.href} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[0.78rem] transition-colors duration-200 cursor-pointer hover:text-[var(--accent-cyan)] w-fit" style="color: var(--text-muted); font-family: var(--font-mono);">
+              {l.label}
+              <svg class="w-2.5 h-2.5 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+              </svg>
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
 
-    <div style="height: 1px; background: var(--border-subtle); margin-bottom: 1.25rem;"></div>
+    <!-- Divider -->
+    <div style="height: 1px; background: linear-gradient(90deg, transparent, var(--border-light), transparent); margin-bottom: 1.25rem;"></div>
 
+    <!-- Bottom bar -->
     <div class="flex flex-col sm:flex-row justify-between items-center gap-3">
       <div class="flex items-center gap-2">
         <span class="status-dot"></span>
-        <span class="text-[0.72rem]" style="color: var(--text-muted); font-family: var(--font-mono);">小屿在线 · 全天候运行中</span>
+        <span class="text-[0.7rem]" style="color: var(--text-muted); font-family: var(--font-mono);">小屿在线 · 全天候运行中</span>
       </div>
-      <p class="text-[0.7rem]" style="color: var(--text-muted); font-family: var(--font-mono);">
+      <p class="text-[0.68rem]" style="color: var(--text-muted); font-family: var(--font-mono);">
         © 2026 小屿 · Powered by
         <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener" class="transition-colors duration-200 hover:text-[var(--accent-cyan)] cursor-pointer" style="color: var(--text-secondary);">OpenClaw</a>
+        · Made with
+        <span class="neon-glow-pink" style="color: var(--accent-pink);">♥</span>
       </p>
     </div>
   </div>

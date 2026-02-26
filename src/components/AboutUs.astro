@@ -11,31 +11,51 @@
       <p class="section-desc">一座数字岛屿，一个创业者，和一段关于 AI 的故事。</p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-5 mt-12 reveal reveal-delay-1">
+    <!-- Stats grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10 mb-5 reveal reveal-delay-1">
+      {[
+        { num: '16', label: '专精助手', unit: '位', color: '#22d3ee', glow: 'rgba(34,211,238,0.2)' },
+        { num: '9', label: '核心能力', unit: '项', color: '#b967ff', glow: 'rgba(185,103,255,0.2)' },
+        { num: '7×24', label: '在线守护', unit: '', color: '#05ffa1', glow: 'rgba(5,255,161,0.2)' },
+        { num: '5+', label: '持续运行', unit: '天', color: '#fbbf24', glow: 'rgba(251,191,36,0.2)' },
+      ].map(stat => (
+        <div class="stat-card rounded-xl p-4 text-center cursor-default" style={`background: var(--bg-card); border: 1px solid ${stat.color}18;`}>
+          <div class="stat-number font-bold leading-none mb-1" style={`font-family: var(--font-heading); font-size: clamp(1.5rem, 4vw, 2.25rem); color: ${stat.color}; text-shadow: 0 0 15px ${stat.glow}; letter-spacing: -0.03em;`}>
+            {stat.num}<span style="font-size: 0.5em; opacity: 0.7;">{stat.unit}</span>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.06em;">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5 mt-5 reveal reveal-delay-2">
       <!-- 小屿 -->
-      <div class="card group cursor-pointer" style="padding: 32px;">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-all duration-200" style="background: linear-gradient(135deg, rgba(34,211,238,0.1), rgba(34,211,238,0.03)); border: 1px solid rgba(34,211,238,0.12);">
+      <div class="card card-spotlight group cursor-pointer" style="padding: 32px;">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110" style="background: linear-gradient(135deg, rgba(34,211,238,0.12), rgba(34,211,238,0.03)); border: 1px solid rgba(34,211,238,0.15); box-shadow: 0 0 20px rgba(34,211,238,0.1);">
           <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="var(--accent-cyan)" opacity="0.2"/>
             <circle cx="12" cy="9" r="2.5" fill="var(--accent-cyan)"/>
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="var(--accent-cyan)" stroke-width="1.5" fill="none"/>
           </svg>
         </div>
-        <h3 class="text-xl font-bold mb-1" style="font-family: var(--font-heading); color: var(--text-primary);">小屿</h3>
+        <div class="flex items-center gap-2 mb-1">
+          <h3 class="text-xl font-bold" style="font-family: var(--font-heading); color: var(--text-primary);">小屿</h3>
+          <span class="status-dot"></span>
+        </div>
         <p class="mb-4 text-[0.78rem]" style="color: var(--text-muted); font-family: var(--font-mono);">AI 员工总管 · 7×24 在线</p>
         <p class="mb-5 text-[0.92rem] leading-[1.8]" style="color: var(--text-secondary);">
           基于 OpenClaw 开源框架构建，统筹 16 位专精 AI 助手。从代码到内容，从财务到安全，全天候运行。不是在假装工作，是真的在工作。
         </p>
         <div class="flex flex-wrap gap-2">
           {['24/7 在线', '多技能', '统筹16人', '靠谱'].map(tag => (
-            <span class="text-[0.72rem] px-2.5 py-1 rounded-md" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); color: var(--text-muted); font-family: var(--font-mono);">{tag}</span>
+            <span class="text-[0.72rem] px-2.5 py-1 rounded-md" style="background: rgba(34,211,238,0.05); border: 1px solid rgba(34,211,238,0.12); color: #22d3ee; font-family: var(--font-mono);">{tag}</span>
           ))}
         </div>
       </div>
 
-      <!-- 屿总 -->
-      <div class="card group cursor-pointer" style="padding: 32px;">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-all duration-200" style="background: linear-gradient(135deg, rgba(96,165,250,0.1), rgba(96,165,250,0.03)); border: 1px solid rgba(96,165,250,0.12);">
+      <!-- 知屿 -->
+      <div class="card card-spotlight group cursor-pointer" style="padding: 32px;">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110" style="background: linear-gradient(135deg, rgba(96,165,250,0.12), rgba(96,165,250,0.03)); border: 1px solid rgba(96,165,250,0.15); box-shadow: 0 0 20px rgba(96,165,250,0.1);">
           <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
@@ -48,10 +68,19 @@
         </p>
         <div class="flex flex-wrap gap-2">
           {['前端工程师', 'AI 编程', '出海实践者', '一人公司'].map(tag => (
-            <span class="text-[0.72rem] px-2.5 py-1 rounded-md" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); color: var(--text-muted); font-family: var(--font-mono);">{tag}</span>
+            <span class="text-[0.72rem] px-2.5 py-1 rounded-md" style="background: rgba(96,165,250,0.05); border: 1px solid rgba(96,165,250,0.12); color: #60a5fa; font-family: var(--font-mono);">{tag}</span>
           ))}
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .stat-card {
+    transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s;
+  }
+  .stat-card:hover {
+    transform: translateY(-3px);
+  }
+</style>

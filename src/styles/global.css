@@ -50,9 +50,9 @@
   --radius-xl: 20px;
 
   /* Fonts */
-  --font-sans: 'Fira Sans', 'Inter', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-sans: 'DM Sans', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
   --font-heading: 'Space Grotesk', 'PingFang SC', system-ui, sans-serif;
-  --font-mono: 'Fira Code', 'JetBrains Mono', 'Menlo', monospace;
+  --font-mono: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
 
   /* Easing */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -500,3 +500,59 @@
   background-clip: text;
 }
 
+
+/* ═══════════════════════════════════════════
+   Section Label Dot Enhancement
+   ═══════════════════════════════════════════ */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+.section-label::after {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  margin-left: 6px;
+  opacity: 0.6;
+  vertical-align: middle;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════
+   Enhanced Section Divider Dot
+   ═══════════════════════════════════════════ */
+.section-divider {
+  position: relative;
+}
+.section-divider::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  transform: translateX(-50%);
+  box-shadow: 0 0 6px var(--accent-cyan);
+}
+
+/* ═══════════════════════════════════════════
+   Mobile Optimizations
+   ═══════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .section-title { font-size: clamp(1.5rem, 6vw, 2.25rem); }
+  .section-desc { font-size: 0.9rem; }
+}
+
+/* ═══════════════════════════════════════════
+   Reduced Motion Extended
+   ═══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .holographic { animation: none; background-position: 0% 50%; }
+  .aurora-bg { animation: none; }
+  .section-label::after { animation: none; }
+}

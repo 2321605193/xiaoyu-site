@@ -3,18 +3,21 @@
 
 <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden scanlines" style="background: var(--bg-deep);">
 
+  <!-- Canvas Particle Background -->
+  <canvas id="hero-canvas" class="absolute inset-0 pointer-events-none" style="opacity: 0.5;"></canvas>
+
   <!-- Aurora Background -->
   <div class="aurora-bg absolute inset-0"></div>
 
   <!-- Neon Grid -->
-  <div class="absolute inset-0" style="background-image: linear-gradient(rgba(1,205,254,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(1,205,254,0.08) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 10%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 10%, transparent 70%);"></div>
+  <div class="absolute inset-0" style="background-image: linear-gradient(rgba(1,205,254,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(1,205,254,0.06) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 10%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 10%, transparent 70%);"></div>
 
   <!-- Neon Glow Orbs -->
   <div class="absolute pointer-events-none" style="width: 700px; height: 700px; background: radial-gradient(circle, rgba(1,205,254,0.15), transparent 70%); top: -250px; right: -200px; filter: blur(80px); animation: pulse-glow 4s ease-in-out infinite;"></div>
   <div class="absolute pointer-events-none" style="width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,0,110,0.12), transparent 70%); bottom: -200px; left: -150px; filter: blur(80px); animation: pulse-glow 5s ease-in-out infinite;"></div>
   <div class="absolute pointer-events-none" style="width: 400px; height: 400px; background: radial-gradient(circle, rgba(185,103,255,0.1), transparent 70%); top: 40%; left: 15%; filter: blur(60px); animation: pulse-glow 6s ease-in-out infinite;"></div>
 
-  <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
+  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
     <!-- Online badge with neon glow -->
     <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full mb-10 neon-border" style="background: rgba(1,205,254,0.08); animation: fade-in-up 0.6s ease-out both;">
       <span class="status-dot"></span>
@@ -40,9 +43,32 @@
     </p>
 
     <!-- Typing with neon cursor -->
-    <p class="mb-12" style="color: var(--text-muted); font-size: 0.95rem; animation: fade-in-up 0.6s ease-out 0.36s both;">
+    <p class="mb-10" style="color: var(--text-muted); font-size: 0.95rem; animation: fade-in-up 0.6s ease-out 0.36s both;">
       <span id="typing-text" class="neon-glow-cyan" style="border-right: 2px solid var(--neon-cyan); padding-right: 3px; animation: typing-cursor 0.8s step-end infinite;">7×24 守护</span>
     </p>
+
+    <!-- Key metrics bar -->
+    <div class="flex items-center justify-center gap-0 flex-wrap mb-10" style="animation: fade-in-up 0.6s ease-out 0.42s both;">
+      <div class="metric-item">
+        <span class="metric-number neon-glow-cyan">16</span>
+        <span class="metric-label">专精助手</span>
+      </div>
+      <div class="metric-divider"></div>
+      <div class="metric-item">
+        <span class="metric-number neon-glow-pink">9</span>
+        <span class="metric-label">核心能力</span>
+      </div>
+      <div class="metric-divider"></div>
+      <div class="metric-item">
+        <span class="metric-number" style="color: var(--neon-purple); text-shadow: 0 0 10px var(--neon-purple);">7×24</span>
+        <span class="metric-label">全天候</span>
+      </div>
+      <div class="metric-divider"></div>
+      <div class="metric-item">
+        <span class="metric-number" id="hero-days" style="color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green);">-</span>
+        <span class="metric-label">运行天数</span>
+      </div>
+    </div>
 
     <!-- CTA Buttons with neon effects -->
     <div class="flex gap-4 justify-center flex-wrap" style="animation: fade-in-up 0.6s ease-out 0.48s both;">
@@ -67,7 +93,43 @@
   </div>
 </section>
 
+<style>
+  .metric-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 10px 20px;
+  }
+  .metric-number {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .metric-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .metric-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--border-subtle);
+    align-self: center;
+  }
+  @media (max-width: 480px) {
+    .metric-item { padding: 8px 12px; }
+    .metric-number { font-size: 1.25rem; }
+    .metric-divider:nth-child(6) { display: none; }
+  }
+</style>
+
 <script>
+  // Typing effect
   const el = document.getElementById('typing-text');
   if (el) {
     const phrases = ['7×24 守护，从代码到内容', '从安全到运维，我都管', '一人公司的 AI 管理层', '16 位助手，各司其职'];
@@ -86,5 +148,72 @@
       }
     }
     setTimeout(tick, 1800);
+  }
+
+  // Running days counter
+  const daysEl = document.getElementById('hero-days');
+  if (daysEl) {
+    const days = Math.max(1, Math.floor((Date.now() - new Date('2026-02-21').getTime()) / 86400000));
+    daysEl.textContent = String(days);
+  }
+
+  // Canvas particle background
+  const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement;
+  if (canvas) {
+    const ctx = canvas.getContext('2d')!;
+    let W = 0, H = 0;
+    const particles: { x: number; y: number; r: number; vx: number; vy: number; a: number; va: number }[] = [];
+    const COUNT = 80;
+
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+
+    function init() {
+      particles.length = 0;
+      for (let i = 0; i < COUNT; i++) {
+        particles.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: Math.random() * 1.5 + 0.3,
+          vx: (Math.random() - 0.5) * 0.2,
+          vy: (Math.random() - 0.5) * 0.2,
+          a: Math.random(),
+          va: (Math.random() - 0.5) * 0.008,
+        });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.a += p.va;
+        if (p.a < 0.1) p.va = Math.abs(p.va);
+        if (p.a > 0.9) p.va = -Math.abs(p.va);
+        if (p.x < 0) p.x = W;
+        if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H;
+        if (p.y > H) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(1, 205, 254, ${p.a * 0.7})`;
+        ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    }
+
+    const ro = new ResizeObserver(() => { resize(); init(); });
+    ro.observe(canvas.parentElement!);
+    resize();
+    init();
+
+    // Respect reduced motion
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      draw();
+    }
   }
 </script>
