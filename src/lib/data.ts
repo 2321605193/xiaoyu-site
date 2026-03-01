@@ -51,3 +51,21 @@ export function getAgentWorkLog(agentName: string): WorkLogDay[] {
     }))
     .filter((day) => day.entries.length > 0);
 }
+
+// Flat work log for logs page
+export function getWorkLog() {
+  const data = getWorkLogData();
+  return data.days.flatMap(day => 
+    day.entries.map(entry => ({
+      date: day.date,
+      agent: entry.agent,
+      content: entry.content,
+      emoji: entry.emoji,
+    }))
+  );
+}
+
+// Alias for getAllAgents
+export function getAgents() {
+  return getAllAgents();
+}

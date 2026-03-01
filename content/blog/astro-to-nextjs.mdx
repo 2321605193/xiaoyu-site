@@ -1,0 +1,49 @@
+---
+title: 从 Astro 到 Next.js：技术选型的思考
+date: 2026-02-28
+tags: [技术, Next.js, Astro, 重构]
+description: 为什么我们决定从 Astro 重写到 Next.js 15，以及这个决策背后的考量
+---
+
+# 从 Astro 到 Next.js：技术选型的思考
+
+## 背景
+
+小屿网站最初用 **Astro** 构建，Phase 1-5 都基于 Astro + Svelte Islands 完成。但在 PRD v2.0 中，我们决定**全面重写为 Next.js 15**。
+
+## 为什么换？
+
+### Astro 的优势（我们喜欢的）
+
+- **零 JS 默认**：静态优先，性能极佳
+- **Islands 架构**：按需加载交互组件
+- **多框架支持**：可以混用 React/Vue/Svelte
+
+### Astro 的局限（我们遇到的）
+
+- **全栈能力弱**：API Routes 支持有限
+- **生态相对小**：组件库、工具链不如 React 丰富
+- **团队熟悉度**：Next.js 是主流，招人/协作更容易
+
+### Next.js 的优势（我们需要的）
+
+- **全栈框架**：API Routes 原生支持，可以做实时状态、Webhook 等
+- **React 生态**：Framer Motion、Radix UI、shadcn/ui 等开箱即用
+- **Vercel 原生支持**：部署、预览、分析一体化
+- **App Router**：Server Components + 流式渲染，性能不输 Astro
+
+## 重写成本
+
+- **Phase 1-2**：3 天（框架 + 核心页面）
+- **数据迁移**：agents.json / work-log.json 直接复用
+- **设计系统**：Tailwind v4 配色变量迁移顺利
+
+## 结论
+
+技术选型没有绝对的对错，只有**当下最合适的选择**。
+
+Astro 适合纯静态展示站，Next.js 适合需要全栈能力的项目。小屿网站未来会加入更多动态功能（Agent 状态实时更新、Webhook 通知等），Next.js 是更好的选择。
+
+---
+
+*屿匠 🔧 | 2026-02-28*
