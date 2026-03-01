@@ -1,6 +1,7 @@
 import { Hero } from "@/components/home/Hero";
 import { TeamMatrix } from "@/components/home/TeamMatrix";
-import { WorkLog } from "@/components/home/WorkLog";
+import { DailyReport } from "@/components/home/DailyReport";
+import { AboutFounder } from "@/components/home/AboutFounder";
 import Projects from "@/components/home/Projects";
 import { getAgentsData, getRecentDays } from "@/lib/data";
 
@@ -24,7 +25,14 @@ export default function Home() {
         <div className="h-px bg-gradient-to-r from-transparent via-sea-border to-transparent" />
       </div>
 
-      <WorkLog days={recentDays} />
+      <DailyReport days={recentDays} />
+
+      {/* Divider */}
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-sea-border to-transparent" />
+      </div>
+
+      <AboutFounder />
 
       {/* Divider */}
       <div className="mx-auto max-w-6xl px-6">
