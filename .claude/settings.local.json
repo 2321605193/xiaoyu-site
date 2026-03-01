@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(python3:*)",
-      "Bash(\"f:\\\\AIProject\\\\xiaoyu-site\\\\src\\\\components\\\\Hero.astro\":*)"
-    ]
-  }
-}

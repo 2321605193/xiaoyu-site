@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* ===== Deep Sea Island Theme - CSS Variables ===== */
+@theme {
+  /* Colors - Deep Sea Island Palette */
+  --color-sea-deep: #0F172A;
+  --color-sea-card: #1E293B;
+  --color-sea-border: #334155;
+  --color-brand-cyan: #22D3EE;
+  --color-brand-blue: #3B82F6;
+  --color-accent-gold: #F59E0B;
+  --color-accent-gold-light: #FBBF24;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #94A3B8;
+  --color-status-online: #22C55E;
+  --color-status-idle: #EAB308;
+  --color-status-offline: #6B7280;
+
+  /* Fonts */
+  --font-sans: "Inter", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Shadows */
+  --shadow-glow: 0 8px 32px rgba(34, 211, 238, 0.2);
+  --shadow-glow-sm: 0 4px 16px rgba(34, 211, 238, 0.15);
+
+  /* Transitions */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Base Styles ===== */
+body {
+  background-color: var(--color-sea-deep);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Selection ===== */
+::selection {
+  background-color: rgba(34, 211, 238, 0.3);
+  color: white;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-sea-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sea-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-cyan);
+}
