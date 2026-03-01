@@ -20,48 +20,6 @@ function isToday(dateStr: string): boolean {
   return dateStr === today;
 }
 
-// 总结每日工作（去重、分类、提炼关键信息）
-function summarizeDay(day: WorkLogDay): string[] {
-  const summaries: string[] = [];
-  const seen = new Set<string>();
-
-  // 按 Agent 分组
-  const byAgent = new Map<string, string[]>();
-  day.entries.forEach((entry) => {
-    if (!byAgent.has(entry.agent)) {
-      byAgent.set(entry.agent, []);
-    }
-    byAgent.get(entry.agent)!.push(entry.content);
-  });
-
-  // 为每个 Agent 生成总结
-  byAgent.forEach((contents, agent) => {
-    // 提取关键词（去掉重复的细节）
-    const keywords = new Set<string>();
-    contents.forEach((c) => {
-      // 提取关键动作词
-      if (c.includes("完成")) keywords.add("完成");
-      if (c.includes("修复")) keywords.add("修复");
-      if (c.includes("优化")) keywords.add("优化");
-      if (c.includes("部署")) keywords.add("部署");
-      if (c.includes("设计")) keywords.add("设计");
-      if (c.includes("编写")) keywords.add("编写");
-      if (c.includes("配置")) keywords.add("配置");
-    });
-
-    // 生成简洁总结
-    if (keywords.size > 0) {
-      const summary = `${agent}：${Array.from(keywords).join("、")}相关工作（${contents.length}项）`;
-      if (!seen.has(summary)) {
-        summaries.push(summary);
-        seen.add(summary);
-      }
-    }
-  });
-
-  return summaries.slice(0, 5); // 最多显示5条总结
-}
-
 function DayGroup({
   day,
   defaultOpen,
@@ -70,7 +28,18 @@ function DayGroup({
   defaultOpen: boolean;
 }) {
   const [open, setOpen] = useState(defaultOpen);
-  const summaries = summarizeDay(day);
+
+  // 按 Agent 分组统计
+  const agentStats = new Map<string, number>();
+  day.entries.forEach((entry) => {
+    agentStats.set(entry.agent, (agentStats.get(entry.agent) || 0) + 1);
+  });
+
+  const summary = Array.from(agentStats.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([agent, count]) => `${agent}(${count})`)
+    .join(" · ");
 
   return (
     <div className="relative">
@@ -96,6 +65,20 @@ function DayGroup({
         )}
       </button>
 
+      {/* 日报摘要 */}
+      <div className="mb-3 rounded-lg bg-sea-card/30 px-4 py-3">
+        <div className="mb-2 flex items-center gap-2 text-sm">
+          <span className="text-accent-gold">📋</span>
+          <span className="font-medium text-text-primary">团队日报</span>
+        </div>
+        <p className="text-sm text-text-secondary">
+          活跃 Agent: {agentStats.size} 位 · 完成任务: {day.entries.length} 项
+        </p>
+        <p className="mt-1 text-xs text-text-secondary/70">
+          {summary}
+        </p>
+      </div>
+
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
@@ -106,16 +89,26 @@ function DayGroup({
             className="overflow-hidden"
           >
             <div className="space-y-2 pb-6">
-              {summaries.map((summary, i) => (
+              {day.entries.map((entry, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.05 }}
-                  className="rounded-lg bg-sea-card/30 px-4 py-3 text-sm leading-relaxed text-text-secondary"
+                  transition={{ duration: 0.3, delay: i * 0.02 }}
+                  className="flex items-start gap-3 rounded-lg bg-sea-card/50 px-4 py-3 transition-colors hover:bg-sea-card"
                 >
-                  {summary}
+                  <span className="mt-0.5 shrink-0 text-base">
+                    {entry.emoji}
+                  </span>
+                  <div className="flex-1">
+                    <div className="mb-1 text-xs font-medium text-brand-cyan">
+                      {entry.agent}
+                    </div>
+                    <p className="text-sm leading-relaxed text-text-secondary">
+                      {entry.content}
+                    </p>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -144,7 +137,7 @@ export function DailyReport({ days }: { days: WorkLogDay[] }) {
             </span>
           </h2>
           <p className="text-text-secondary">
-            每日工作总结 · 自动生成
+            每日团队工作总结 · 自动生成
           </p>
         </motion.div>
 
