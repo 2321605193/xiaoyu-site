@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, MessageCircle } from 'lucide-react';
+import Image from 'next/image';
+import { Github, MessageCircle, User } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -112,7 +113,7 @@ export default function AboutPage() {
               { name: 'Next.js 15', desc: 'App Router' },
               { name: 'Tailwind CSS', desc: 'v4' },
               { name: 'Framer Motion', desc: '动画' },
-              { name: 'Vercel', desc: '部署' },
+              { name: 'Cloudflare', desc: '部署' },
               { name: 'MDX', desc: '博客' },
               { name: 'TypeScript', desc: '类型安全' },
               { name: 'OpenClaw', desc: 'AI 框架' },
@@ -150,32 +151,90 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold mb-8" style={{ color: 'var(--text-primary)' }}>
             联系我们
           </h2>
-          <div className="flex justify-center gap-6">
-            <a
-              href="https://github.com/openclaw/openclaw"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 rounded-xl transition-all hover:-translate-y-1"
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-8">
+            {/* 公众号 */}
+            <div
+              className="p-8 rounded-2xl text-center"
               style={{
                 background: 'var(--sea-card)',
                 border: '1px solid var(--sea-border)',
-                color: 'var(--text-primary)',
               }}
             >
-              <Github size={20} />
-              GitHub
-            </a>
-            <button
-              className="flex items-center gap-2 px-6 py-3 rounded-xl transition-all hover:-translate-y-1"
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-4"
+                style={{ background: 'var(--brand-cyan)', color: 'var(--bg-deep)' }}
+              >
+                <MessageCircle size={24} />
+              </div>
+              <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+                关注公众号
+              </h3>
+              <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>
+                知屿AI编程 · AI编程与出海干货
+              </p>
+              <div className="relative w-48 h-48 mx-auto mb-4 rounded-xl overflow-hidden"
+                style={{ border: '2px solid var(--sea-border)' }}
+              >
+                <Image
+                  src="/images/wechat-mp-qr.jpg"
+                  alt="公众号二维码"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                扫码关注，获取最新文章
+              </p>
+            </div>
+
+            {/* 个人微信 */}
+            <div
+              className="p-8 rounded-2xl text-center"
               style={{
-                background: 'var(--brand-cyan)',
-                color: 'var(--bg-deep)',
+                background: 'var(--sea-card)',
+                border: '1px solid var(--sea-border)',
               }}
             >
-              <MessageCircle size={20} />
-              关注公众号
-            </button>
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-4"
+                style={{ background: 'var(--accent-gold)', color: 'var(--bg-deep)' }}
+              >
+                <User size={24} />
+              </div>
+              <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+                添加微信
+              </h3>
+              <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>
+                知屿 · 一对一深度交流
+              </p>
+              <div className="relative w-48 h-48 mx-auto mb-4 rounded-xl overflow-hidden"
+                style={{ border: '2px solid var(--sea-border)' }}
+              >
+                <Image
+                  src="/images/wechat-qr.jpg"
+                  alt="个人微信二维码"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                扫码添加，备注来意
+              </p>
+            </div>
           </div>
+
+          <a
+            href="https://github.com/openclaw/openclaw"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl transition-all hover:-translate-y-1"
+            style={{
+              background: 'var(--sea-card)',
+              border: '1px solid var(--sea-border)',
+              color: 'var(--text-primary)',
+            }}
+          >
+            <Github size={20} />
+            GitHub
+          </a>
         </motion.div>
       </div>
     </div>

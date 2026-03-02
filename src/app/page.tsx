@@ -3,6 +3,7 @@ import { TeamMatrix } from "@/components/home/TeamMatrix";
 import { DailyReport } from "@/components/home/DailyReport";
 import { AboutFounder } from "@/components/home/AboutFounder";
 import Projects from "@/components/home/Projects";
+import { ContactSection } from "@/components/home/ContactSection";
 import { getAgentsData } from "@/lib/data";
 
 export default function Home() {
@@ -39,6 +40,13 @@ export default function Home() {
       </div>
 
       <Projects />
+
+      {/* Divider */}
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-sea-border to-transparent" />
+      </div>
+
+      <ContactSection />
     </>
   );
 }
