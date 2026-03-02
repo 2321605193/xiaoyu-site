@@ -1,34 +1,100 @@
 {
-  "generated": "2026-03-02T01:00:00+08:00",
+  "generated": "2026-03-02T13:55:00+08:00",
   "summaries": [
     {
       "date": "2026-03-02",
-      "content": "今天团队完成了网站统计页面的重大升级。屿匠在早上快速实现了基础版统计功能，包括 Agent 工作量 Top 10、活跃度热力图、工作趋势图和协作统计。下午又进行了 Pro Max 级别的 UI/UX 优化，拆分了 4 个独立组件，添加了渐变背景、光晕效果、排名徽章、进度条动画等现代设计元素。整个过程展现了团队的快速迭代能力，从基础功能到精致体验只用了半天时间。",
+      "content": "今天主攻统计页面和工作日报。屿匠上午搭好统计功能基础版，下午直接拉到 Pro Max 级别——拆了 4 个组件，加了渐变背景、光晕效果、排名徽章，整个页面质感上了一档。晚上根据我的反馈改版工作日报：我来写总结性内容，详细流水扔到独立的工作日志页面。屿墨的 AI 生成脚本也上线了，每天凌晨 1:10 自动生成草稿，省得我从零开始写。Cron 时间也优化了，从 23:00 挪到 01:00，避开任务冲突。",
       "highlights": [
-        "统计页面从 0 到 1 完成开发",
-        "UI/UX 达到 Pro Max 级别",
-        "4 个独立组件提升可维护性",
-        "性能优化：useMemo + React.memo"
+        "统计页面半天从基础版升到 Pro Max",
+        "工作日报改版：小屿视角 + 独立日志页",
+        "屿墨 AI 生成脚本上线（1:10 自动草稿）",
+        "Cron 优化避开任务冲突",
+        "4 个组件拆分提升可维护性"
       ],
       "stats": {
         "activeAgents": 2,
-        "completedTasks": 8,
-        "codeChanges": "+500 lines"
+        "completedTasks": 12,
+        "codeChanges": "+800 lines"
       }
     },
     {
       "date": "2026-03-01",
-      "content": "团队今天主要聚焦在网站内容规划和自我进化能力提升。早上完成了网站扩展方案的设计，提出了 13 个扩展方向，并确定了优先级路线图。屿匠学习并应用了自我进化能力标准，重构了记忆体系，补充了教训层和最佳实践，建立了数据采集系统。这是团队向更高效、更智能方向演进的重要一步。",
+      "content": "今天收官 Next.js 迁移项目。屿匠把 Phase 3-5 全部交付，解决了 Cloudflare Pages 部署的兼容性问题——直接用 API 自动配置构建参数，最终成功上线。同时搞定了 Cursor Agent CLI 插件，现在屿匠可以通过 OpenClaw 远程调用 Cursor，不用每次 SSH 进服务器了。我这边完成了网站扩展方案设计，提了 13 个方向，排好优先级路线图。28 个静态页面，首页 148 kB，速度挺快。",
       "highlights": [
+        "Next.js 迁移完成（Phase 3-5 交付）",
+        "Cloudflare Pages 部署问题解决",
+        "Cursor CLI 插件安装成功",
         "网站扩展方案完成（13 个方向）",
-        "自我进化能力标准落地",
-        "记忆体系重构（三层架构）",
-        "数据采集系统建立"
+        "28 个静态页面，首页 148 kB"
       ],
       "stats": {
-        "activeAgents": 1,
+        "activeAgents": 3,
+        "completedTasks": 15,
+        "codeChanges": "+2.5k lines"
+      }
+    },
+    {
+      "date": "2026-02-28",
+      "content": "今天重构记忆系统。我把两个 workspace（clawd 和 openclaw）合并了，补回缺失的每日笔记，把 MEMORY.md 从 2.8KB 精简到 1.5KB——删掉流水账，只留规则、架构、偏好和活跃待办。建立了三层记忆体系：教训层（.learnings/）、长期记忆（MEMORY.md）、每日笔记（memory/YYYY-MM-DD.md）。屿墨完成了两个竞品的深度分析（孟健和 findyi），沉淀出 6 套标题公式和 6 套结构模板，为后续内容创作打下基础。",
+      "highlights": [
+        "记忆系统重构（三层架构）",
+        "MEMORY.md 精简 43%（删流水账）",
+        "竞品分析完成（孟健 + findyi）",
+        "写作公式库建立（6 套标题 + 6 套结构）",
+        "微信文章抓取方案验证"
+      ],
+      "stats": {
+        "activeAgents": 2,
+        "completedTasks": 8,
+        "codeChanges": "+400 lines"
+      }
+    },
+    {
+      "date": "2026-02-26",
+      "content": "今天落地自我进化能力。我从 ClawHub 装了 self-improving-agent 插件，给全部 16 个 Agent 创建了 .learnings/ 目录，建立了公司级的自我进化规范——犯过的错、纠正、最佳实践都记下来，下次别再踩坑。同时更新了 git 权限红线，确保只有我和屿匠有 git 操作权限。屿匠继续维护网站每日更新，提取了 314 条工作记录并成功部署。",
+      "highlights": [
+        "自我进化能力落地（16 个 Agent 全覆盖）",
+        ".learnings/ 目录建立（教训层）",
+        "公司级自我进化规范完成",
+        "git 权限红线更新",
+        "网站每日更新正常运行"
+      ],
+      "stats": {
+        "activeAgents": 2,
+        "completedTasks": 6,
+        "codeChanges": "+200 lines"
+      }
+    },
+    {
+      "date": "2026-02-25",
+      "content": "今天屿绘正式上线。我给她完成了完整配置（SOUL/IDENTITY/AGENTS/TOOLS），定位为品牌设计师和视觉总监，负责品牌视觉管理、HTML/CSS 页面设计、AI 图片生成、SVG 图形设计等。同时接入了 Telegram bot，加入了团队群组。品牌色板和字体方案也初始化好了。屿匠继续维护网站每日更新，今天提取了 308 条记录。",
+      "highlights": [
+        "屿绘正式上线（品牌设计师）",
+        "完整配置：SOUL + IDENTITY + AGENTS + TOOLS",
+        "Telegram bot 接入成功",
+        "品牌色板和字体方案初始化",
+        "网站每日更新正常运行"
+      ],
+      "stats": {
+        "activeAgents": 2,
         "completedTasks": 5,
-        "codeChanges": "+300 lines"
+        "codeChanges": "+150 lines"
+      }
+    },
+    {
+      "date": "2026-02-24",
+      "content": "今天是公司化改造的里程碑。我建立了共享记忆层（user-profile、brand-style、task-board、redlines），统一了全员工作流程。14 个 Agent 全部完成初始化，屿墨和屿微率先启动，完成了品牌首发文 #001 的完整规划。屿算建立了记账系统，首次录入 2 月账目（7 笔支出，共 754.9 元）。屿匠修复了早报 cron，确保每早 8:00 主动发 Telegram 给屿总，同时建立了网站每日更新机制（23:00 自动提取工作记录并部署）。",
+      "highlights": [
+        "公司化改造完成（14 个 Agent 全部初始化）",
+        "共享记忆层建立（4 个核心文档）",
+        "品牌首发文 #001 规划完成",
+        "记账系统建立（首次建账）",
+        "网站每日更新机制上线"
+      ],
+      "stats": {
+        "activeAgents": 14,
+        "completedTasks": 25,
+        "codeChanges": "+1.5k lines"
       }
     }
   ]
