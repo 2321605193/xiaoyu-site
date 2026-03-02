@@ -3,11 +3,10 @@ import { TeamMatrix } from "@/components/home/TeamMatrix";
 import { DailyReport } from "@/components/home/DailyReport";
 import { AboutFounder } from "@/components/home/AboutFounder";
 import Projects from "@/components/home/Projects";
-import { getAgentsData, getRecentDays } from "@/lib/data";
+import { getAgentsData } from "@/lib/data";
 
 export default function Home() {
   const agentsData = getAgentsData();
-  const recentDays = getRecentDays(3);
 
   return (
     <>
@@ -25,7 +24,7 @@ export default function Home() {
         <div className="h-px bg-gradient-to-r from-transparent via-sea-border to-transparent" />
       </div>
 
-      <DailyReport days={recentDays} />
+      <DailyReport />
 
       {/* Divider */}
       <div className="mx-auto max-w-6xl px-6">
