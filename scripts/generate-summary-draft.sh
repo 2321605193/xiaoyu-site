@@ -1,6 +1,6 @@
 #!/bin/bash
-# 屿墨 - 生成每日工作总结草稿
-# 由 AI 自动生成，小屿审核修改后发布
+# 屿墨 - 生成每日工作总结草稿（AI 增强版）
+# 由 Claude Opus 4.6 自动生成草稿，小屿审核修改后发布
 
 set -e
 
@@ -40,11 +40,11 @@ COMPLETED_TASKS=$(jq -r --arg date "$YESTERDAY" '
   .days[] | select(.date == $date) | .entries | length
 ' "$WORK_LOG")
 
-# 生成草稿（使用 OpenClaw 的 AI 能力）
+# 生成草稿文件（包含原始数据）
 cat > "$DRAFT_FILE" <<EOF
 # $YESTERDAY 工作总结草稿
 
-**状态**: 待审核 ⏳
+**状态**: 待 AI 生成 🤖
 **生成时间**: $(date '+%Y-%m-%d %H:%M:%S')
 **生成者**: 屿墨 🎨
 
@@ -61,57 +61,43 @@ $YESTERDAY_DATA
 
 ---
 
-## AI 生成的总结（待小屿审核修改）
-
-> 📝 请小屿审核以下内容，修改后更新到 daily-summary.json
+## AI 生成区域（待屿墨填充）
 
 ### 总结内容
-[待 AI 生成 - 需要调用 OpenClaw API]
+[待生成]
 
 ### 亮点
-- [待补充]
-- [待补充]
-- [待补充]
+- [待生成]
+- [待生成]
+- [待生成]
 
-### 数据
+### 代码变更
+[待生成]
+
+---
+
+## 最终 JSON（待小屿审核后添加到 daily-summary.json）
+
 \`\`\`json
 {
   "date": "$YESTERDAY",
-  "content": "[待补充]",
+  "content": "[待生成]",
   "highlights": [
-    "[待补充]",
-    "[待补充]",
-    "[待补充]"
+    "[待生成]",
+    "[待生成]",
+    "[待生成]"
   ],
   "stats": {
     "activeAgents": $ACTIVE_AGENTS,
     "completedTasks": $COMPLETED_TASKS,
-    "codeChanges": "[待补充]"
+    "codeChanges": "[待生成]"
   }
 }
 \`\`\`
 
----
-
-## 审核指南
-
-1. 阅读原始数据，理解当天工作内容
-2. 修改 AI 生成的总结，确保：
-   - 语言自然流畅（小屿的口吻）
-   - 突出重点工作和成果
-   - 体现团队协作和进展
-3. 补充亮点（3-5 条）
-4. 补充代码变更量（如 +500 lines）
-5. 将最终 JSON 复制到 daily-summary.json 的 summaries 数组开头
-6. 删除此草稿文件
-
 EOF
 
-echo "✅ 草稿已生成: $DRAFT_FILE"
+echo "✅ 草稿框架已生成: $DRAFT_FILE"
 echo ""
-echo "📋 下一步："
-echo "1. 小屿审核并修改草稿"
-echo "2. 将最终 JSON 添加到 src/data/daily-summary.json"
-echo "3. 删除草稿文件"
-echo ""
-echo "💡 提示：可以让屿墨调用 AI API 自动生成总结内容"
+echo "📝 草稿文件路径: $DRAFT_FILE"
+echo "📊 统计: $ACTIVE_AGENTS 位 Agent，$COMPLETED_TASKS 项任务"
