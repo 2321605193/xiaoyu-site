@@ -8,6 +8,8 @@
   --color-sea-border: #334155;
   --color-brand-cyan: #22D3EE;
   --color-brand-blue: #3B82F6;
+  --color-brand-purple: #A855F7;
+  --color-brand-gold: #F59E0B;
   --color-accent-gold: #F59E0B;
   --color-accent-gold-light: #FBBF24;
   --color-text-primary: #FFFFFF;
@@ -23,6 +25,7 @@
   /* Shadows */
   --shadow-glow: 0 8px 32px rgba(34, 211, 238, 0.2);
   --shadow-glow-sm: 0 4px 16px rgba(34, 211, 238, 0.15);
+  --shadow-glow-md: 0 12px 24px rgba(34, 211, 238, 0.25);
 
   /* Transitions */
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
