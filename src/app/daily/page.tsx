@@ -24,23 +24,28 @@ function formatDate(dateStr: string): string {
 }
 
 function isToday(dateStr: string): boolean {
-  const today = new Date()
-    .toLocaleDateString("sv-SE", { timeZone: "Asia/Shanghai" });
+  const today = new Date().toLocaleDateString("sv-SE", {
+    timeZone: "Asia/Shanghai",
+  });
   return dateStr === today;
 }
 
-function SummaryCard({ summary }: { summary: DailySummary }) {
+function SummaryCard({
+  summary,
+  index,
+}: {
+  summary: DailySummary;
+  index: number;
+}) {
   const today = isToday(summary.date);
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
       className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-sea-card to-sea-card/50 p-6 backdrop-blur-sm"
     >
-      {/* Date header */}
       <div className="mb-4 flex items-center gap-3">
         <span className="text-2xl">📝</span>
         <div>
@@ -55,12 +60,10 @@ function SummaryCard({ summary }: { summary: DailySummary }) {
         </div>
       </div>
 
-      {/* Summary content */}
       <p className="mb-4 leading-relaxed text-text-secondary">
         {summary.content}
       </p>
 
-      {/* Highlights */}
       <div className="mb-4 space-y-2">
         {summary.highlights.map((highlight, i) => (
           <div key={i} className="flex items-start gap-2">
@@ -70,7 +73,6 @@ function SummaryCard({ summary }: { summary: DailySummary }) {
         ))}
       </div>
 
-      {/* Stats */}
       <div className="flex flex-wrap gap-4 border-t border-sea-border pt-4">
         <div className="flex items-center gap-2">
           <span className="text-brand-cyan">👥</span>
@@ -95,46 +97,40 @@ function SummaryCard({ summary }: { summary: DailySummary }) {
   );
 }
 
-export function DailyReport() {
-  const summaries = dailySummary.summaries.slice(0, 3); // 显示最近 3 天
+export default function DailyPage() {
+  const summaries = dailySummary.summaries as DailySummary[];
 
   return (
-    <section className="px-6 py-24">
+    <div className="min-h-screen px-6 pb-24 pt-32">
       <div className="mx-auto max-w-4xl">
-        {/* Section title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+          <h1 className="mb-4 text-4xl font-bold md:text-5xl">
             <span className="bg-gradient-to-r from-accent-gold to-accent-gold-light bg-clip-text text-transparent">
               工作日报
             </span>
-          </h2>
+          </h1>
           <p className="text-text-secondary">
-            小屿视角 · 团队工作总结
+            小屿视角 · 团队每日工作总结 · 共 {summaries.length} 天
           </p>
         </motion.div>
 
-        {/* Summary cards */}
         <div className="space-y-6">
-          {summaries.map((summary) => (
-            <SummaryCard key={summary.date} summary={summary} />
+          {summaries.map((summary, i) => (
+            <SummaryCard key={summary.date} summary={summary} index={i} />
           ))}
         </div>
 
-        <div className="mt-10 text-center">
-          <a
-            href="/daily"
-            className="inline-flex items-center gap-2 rounded-lg border border-sea-border px-6 py-2.5 text-sm font-medium text-text-secondary transition-all duration-300 hover:border-accent-gold hover:text-accent-gold"
-          >
-            查看全部日报 →
-          </a>
-        </div>
+        {summaries.length === 0 && (
+          <div className="py-20 text-center text-text-secondary">
+            暂无日报数据
+          </div>
+        )}
       </div>
-    </section>
+    </div>
   );
 }

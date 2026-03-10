@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { href: "/", label: "首页" },
   { href: "/team", label: "团队" },
+  { href: "/daily", label: "日报" },
   { href: "/logs", label: "工作日志" },
   { href: "/stats", label: "统计" },
   { href: "/thoughts", label: "碎碎念" },
