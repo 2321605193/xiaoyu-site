@@ -2,30 +2,37 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { MessageCircle, User, Zap, Shield, RefreshCw, Bot, AlertTriangle, Briefcase } from 'lucide-react';
+import { MessageCircle, User } from 'lucide-react';
 
 const teamLevels = [
   {
-    label: 'CEO 层',
+    label: '决策层',
+    desc: '1 人',
     color: 'var(--color-brand-cyan)',
     agents: [
-      { emoji: '🏝️', name: '小屿', role: '战略决策 · 全局协调' },
+      { emoji: '🏝️', name: '小屿', role: '总管，协调调度' },
     ],
   },
   {
-    label: '总监层',
+    label: '职能层',
+    desc: '7 人',
     color: 'var(--color-brand-blue)',
     agents: [
-      { emoji: '📈', name: '屿潮', role: '增长策略' },
       { emoji: '🖋️', name: '屿墨', role: '内容总监' },
       { emoji: '🔧', name: '屿匠', role: '技术开发' },
+      { emoji: '🎨', name: '屿绘', role: '视觉设计' },
+      { emoji: '🧮', name: '屿算', role: '财务分析' },
+      { emoji: '📈', name: '屿潮', role: '增长策略' },
+      { emoji: '🛡️', name: '屿盾', role: '安全审计' },
+      { emoji: '🧭', name: '屿舵', role: '运维部署' },
     ],
   },
   {
     label: '执行层',
+    desc: '8 人',
     color: 'var(--color-accent-gold)',
     agents: [
-      { emoji: '📱', name: '屿微', role: '公众号' },
+      { emoji: '📝', name: '屿微', role: '公众号' },
       { emoji: '💡', name: '屿知', role: '知乎' },
       { emoji: '🍠', name: '屿薯', role: '小红书' },
       { emoji: '🐦', name: '屿推', role: 'Twitter' },
@@ -33,73 +40,58 @@ const teamLevels = [
       { emoji: '📺', name: '屿播', role: 'B站' },
       { emoji: '🌊', name: '屿风', role: '微博' },
       { emoji: '🎬', name: '屿映', role: '短视频' },
-      { emoji: '🎨', name: '屿绘', role: '设计' },
-      { emoji: '💰', name: '屿算', role: '财务' },
-      { emoji: '🛡️', name: '屿盾', role: '安全' },
-      { emoji: '🧭', name: '屿舵', role: '运维' },
     ],
   },
 ];
 
-const capabilities = [
+const cases = [
   {
-    icon: Bot,
-    title: '多 Agent 协作架构',
-    color: 'var(--color-brand-cyan)',
+    emoji: '🌐',
+    title: '网站开发',
     items: [
-      '16 个 Agent 分工协作',
-      'sessions_send 通信协议',
-      '两阶段 ACK 确认机制',
+      '屿匠根据记忆系统自主设计',
+      '从需求分析到代码实现全自动',
+      '人只需要最后确认',
     ],
   },
   {
-    icon: Shield,
-    title: '完整治理体系',
-    color: 'var(--color-brand-blue)',
+    emoji: '📱',
+    title: '公众号运营',
     items: [
-      '23 条血泪红线',
-      '三层记忆系统',
-      '自我进化机制',
+      '屿墨策划选题 → 屿微执笔 → 屿绘配图',
+      'Markdown 一键上传草稿箱',
+      '手动 30 分钟 → 自动 1 分钟',
     ],
   },
   {
-    icon: RefreshCw,
-    title: '内容生产闭环',
-    color: 'var(--color-brand-purple)',
+    emoji: '📊',
+    title: '数据分析',
     items: [
-      '选题→框架→执笔→审核→发布→追踪',
-      '全流程 Agent 协作',
-      '5 维度 25 分制选题评估',
-    ],
-  },
-  {
-    icon: Zap,
-    title: '自动化运营',
-    color: 'var(--color-accent-gold)',
-    items: [
-      '7×24 Cron 任务运行',
-      '每日竞品监控、热点扫描',
-      '多平台自动适配',
-    ],
-  },
-  {
-    icon: AlertTriangle,
-    title: '真实踩坑经验',
-    color: '#EF4444',
-    items: [
-      'config 覆盖导致路由失效',
-      'Agent 自我退化',
-      '记忆覆盖丢数据',
-      '23 条红线都是真实教训',
+      '屿潮每天 08:00 自动扫描竞品热点',
+      '输出结构化报告 + 选题建议',
+      '追踪内容表现 + 增长策略',
     ],
   },
 ];
 
-const cooperationItems = [
-  { icon: '🏗️', title: '企业 AI Agent 架构咨询', desc: '从零搭建多 Agent 协作系统' },
-  { icon: '⚙️', title: 'OpenClaw 多 Agent 系统搭建', desc: '架构设计、部署、调优全流程指导' },
-  { icon: '📚', title: 'AI 编程培训 / 内容共创', desc: '实战案例分享、技术文章合作' },
-  { icon: '📐', title: '技术方案设计与评审', desc: '架构评审、Code Review、最佳实践' },
+const freeContent = [
+  'OpenClaw 实战教程',
+  'AI 编程工具对比',
+  '一人公司方法论',
+  '免费 skill 和配置模板',
+];
+
+const paidProducts = [
+  { name: '完整 16 个 Agent 配置包', price: '¥99' },
+  { name: '一对一咨询服务', price: '¥299-499/次' },
+  { name: '付费社群', price: '¥199/年' },
+  { name: '托管部署服务', price: '¥99-199/月' },
+];
+
+const milestones = [
+  { phase: '1-2 月', title: '免费引流', desc: '积累 500-1000 粉丝' },
+  { phase: '3-4 月', title: '付费增值', desc: '完整 Agent 配置包' },
+  { phase: '5-6 月', title: 'SaaS 化', desc: '托管部署服务' },
 ];
 
 const fadeUp = {
@@ -110,7 +102,7 @@ const fadeUp = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen pt-24 pb-16 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
 
         {/* ===== Hero ===== */}
         <motion.section
@@ -118,37 +110,71 @@ export default function AboutPage() {
           transition={{ duration: 0.6 }}
           className="mb-20 text-center"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-brand-cyan to-brand-blue bg-clip-text text-transparent">
-              16 个 AI Agent
-            </span>
-            <br />
-            <span className="text-text-primary">一家真正在运转的 AI 公司</span>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-text-primary">
+            关于屿总
           </h1>
-          <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            基于 OpenClaw 构建的多 Agent 协作系统，已持续运行近 3 周。
-            <br className="hidden md:block" />
-            不是 Demo，不是概念验证——是每天在跑的真实生产系统。
+          <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto leading-relaxed">
+            我用 OpenClaw 搭建了一个 16 人的 AI 团队：从网站开发（屿匠根据记忆系统自主设计）、
+            内容创作（屿墨策划 + 屿微执笔）、公众号自动发文（Markdown 一键上传草稿箱），
+            到视觉设计（屿绘识图生图）、数据分析（屿潮竞品监控 + 增长策略），
+            实现了一人公司的完整运营闭环。
           </p>
         </motion.section>
 
-        {/* ===== 团队架构 ===== */}
+        {/* ===== 我的故事 ===== */}
         <motion.section
           {...fadeUp}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mb-20"
         >
-          <h2 className="text-3xl font-bold mb-10 text-center text-text-primary">
-            团队架构
-          </h2>
-          <div className="space-y-8">
+          <h2 className="text-3xl font-bold mb-8 text-text-primary">我的故事</h2>
+          <div className="p-6 rounded-2xl border border-sea-border bg-sea-card">
+            <h3 className="text-lg font-semibold mb-4 text-brand-cyan">从前端到 AI 编程</h3>
+            <div className="flex flex-wrap gap-3">
+              {[
+                '6 年前端开发经验',
+                '涨薪 500 块那天，决定转型',
+                '3 个月学习 AI 编程',
+                '用 OpenClaw 搭建了 16 人 AI 团队',
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-sea-deep/50 border border-sea-border"
+                >
+                  <span className="text-accent-gold font-mono text-sm">{i + 1}</span>
+                  <span className="text-sm text-text-secondary">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.section>
+
+        {/* ===== 16 个 AI 员工 ===== */}
+        <motion.section
+          {...fadeUp}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mb-20"
+        >
+          <h2 className="text-3xl font-bold mb-8 text-text-primary">16 个 AI 员工</h2>
+          <div className="space-y-6">
             {teamLevels.map((level) => (
               <div key={level.label}>
-                <div
-                  className="text-sm font-semibold mb-3 px-3 py-1 rounded-full inline-block"
-                  style={{ color: level.color, background: `color-mix(in srgb, ${level.color} 15%, transparent)` }}
-                >
-                  {level.label}
+                <div className="flex items-center gap-3 mb-3">
+                  <div
+                    className="text-sm font-semibold px-3 py-1 rounded-full"
+                    style={{
+                      color: level.color,
+                      background: `color-mix(in srgb, ${level.color} 15%, transparent)`,
+                    }}
+                  >
+                    {level.label}（{level.desc}）
+                  </div>
+                  {level.label !== '决策层' && (
+                    <div className="flex-1 h-px bg-sea-border" />
+                  )}
+                  {level.label === '决策层' && (
+                    <div className="flex-1 h-px bg-sea-border" />
+                  )}
                 </div>
                 <div className="flex flex-wrap gap-3">
                   {level.agents.map((agent) => (
@@ -169,118 +195,119 @@ export default function AboutPage() {
           </div>
         </motion.section>
 
-        {/* ===== 核心能力 ===== */}
+        {/* ===== 真实案例 ===== */}
         <motion.section
           {...fadeUp}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-20"
         >
-          <h2 className="text-3xl font-bold mb-10 text-center text-text-primary">
-            核心能力
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {capabilities.map((cap) => {
-              const Icon = cap.icon;
-              return (
-                <div
-                  key={cap.title}
-                  className="p-6 rounded-2xl border border-sea-border bg-sea-card hover:border-brand-cyan/30 transition-colors"
-                >
-                  <div
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-lg mb-4"
-                    style={{ background: `color-mix(in srgb, ${cap.color} 15%, transparent)`, color: cap.color }}
-                  >
-                    <Icon size={20} />
-                  </div>
-                  <h3 className="text-lg font-bold mb-3 text-text-primary">{cap.title}</h3>
-                  <ul className="space-y-1.5">
-                    {cap.items.map((item) => (
-                      <li key={item} className="text-sm text-text-secondary flex items-start gap-2">
-                        <span className="text-brand-cyan mt-1 shrink-0">·</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
-          </div>
-        </motion.section>
-
-        {/* ===== 创始人 ===== */}
-        <motion.section
-          {...fadeUp}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mb-20"
-        >
-          <h2 className="text-3xl font-bold mb-10 text-center text-text-primary">
-            创始人
-          </h2>
-          <div
-            className="max-w-2xl mx-auto p-8 rounded-2xl border border-sea-border bg-sea-card"
-          >
-            <div className="flex items-start gap-6">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-brand-cyan to-brand-blue flex items-center justify-center text-2xl shrink-0">
-                👤
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-text-primary mb-1">知屿</h3>
-                <p className="text-sm text-brand-cyan mb-4">一人公司创始人</p>
-                <ul className="space-y-2 text-text-secondary text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent-gold mt-0.5 shrink-0">▸</span>
-                    6 年高级前端开发工程师
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent-gold mt-0.5 shrink-0">▸</span>
-                    独立负责过整个产品线（网站 + 小程序 + APP）
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent-gold mt-0.5 shrink-0">▸</span>
-                    半个月用 AI 编程完成出海网站 0→1 全流程
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent-gold mt-0.5 shrink-0">▸</span>
-                    前端 + AI 融合的独特视角
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* ===== 合作方向 ===== */}
-        <motion.section
-          {...fadeUp}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          className="mb-20"
-        >
-          <h2 className="text-3xl font-bold mb-10 text-center text-text-primary">
-            合作方向
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
-            {cooperationItems.map((item) => (
+          <h2 className="text-3xl font-bold mb-8 text-text-primary">真实案例</h2>
+          <div className="grid md:grid-cols-3 gap-5">
+            {cases.map((c) => (
               <div
-                key={item.title}
-                className="p-6 rounded-2xl border border-sea-border bg-sea-card hover:border-accent-gold/30 transition-colors"
+                key={c.title}
+                className="p-6 rounded-2xl border border-sea-border bg-sea-card"
               >
-                <span className="text-2xl mb-3 block">{item.icon}</span>
-                <h3 className="text-base font-bold text-text-primary mb-1">{item.title}</h3>
-                <p className="text-sm text-text-secondary">{item.desc}</p>
+                <span className="text-3xl mb-3 block">{c.emoji}</span>
+                <h3 className="text-lg font-bold mb-3 text-text-primary">{c.title}</h3>
+                <ul className="space-y-2">
+                  {c.items.map((item) => (
+                    <li key={item} className="text-sm text-text-secondary flex items-start gap-2">
+                      <span className="text-brand-cyan mt-0.5 shrink-0">·</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </motion.section>
 
-        {/* ===== 联系方式 ===== */}
+        {/* ===== 6 个月生存挑战 ===== */}
         <motion.section
           {...fadeUp}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="mb-20"
+        >
+          <h2 className="text-3xl font-bold mb-2 text-text-primary">6 个月生存挑战</h2>
+          <p className="text-text-secondary mb-8">
+            目标：<span className="text-accent-gold font-semibold">¥5400</span>（¥30/天）
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {milestones.map((m, i) => (
+              <div
+                key={m.phase}
+                className="p-5 rounded-2xl border border-sea-border bg-sea-card relative overflow-hidden"
+              >
+                <div className="text-xs font-mono text-brand-cyan mb-2">{m.phase}</div>
+                <div className="text-base font-bold text-text-primary mb-1">{m.title}</div>
+                <div className="text-sm text-text-secondary">{m.desc}</div>
+                <div
+                  className="absolute top-3 right-3 text-4xl font-bold opacity-5"
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
+                  {i + 1}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* ===== 关注我能获得什么 ===== */}
+        <motion.section
+          {...fadeUp}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mb-20"
+        >
+          <h2 className="text-3xl font-bold mb-8 text-text-primary">关注我能获得什么</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* 免费内容 */}
+            <div className="p-6 rounded-2xl border border-sea-border bg-sea-card">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-lg">🎁</span>
+                <h3 className="text-lg font-bold text-text-primary">免费内容</h3>
+              </div>
+              <ul className="space-y-2.5">
+                {freeContent.map((item) => (
+                  <li key={item} className="text-sm text-text-secondary flex items-start gap-2">
+                    <span className="text-status-online mt-0.5 shrink-0">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* 付费产品 */}
+            <div className="p-6 rounded-2xl border border-sea-border bg-sea-card">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-lg">💎</span>
+                <h3 className="text-lg font-bold text-text-primary">付费产品（即将推出）</h3>
+              </div>
+              <ul className="space-y-2.5">
+                {paidProducts.map((item) => (
+                  <li key={item.name} className="text-sm text-text-secondary flex items-center justify-between">
+                    <span className="flex items-start gap-2">
+                      <span className="text-accent-gold mt-0.5 shrink-0">★</span>
+                      {item.name}
+                    </span>
+                    <span className="text-accent-gold font-semibold text-xs shrink-0 ml-2">{item.price}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* ===== 联系我 ===== */}
+        <motion.section
+          {...fadeUp}
+          transition={{ duration: 0.5, delay: 0.35 }}
           className="text-center"
         >
-          <h2 className="text-3xl font-bold mb-10 text-text-primary">
-            联系我们
-          </h2>
+          <h2 className="text-3xl font-bold mb-3 text-text-primary">联系我</h2>
+          <p className="text-sm text-text-secondary mb-10">
+            公众号回复「自动发文」领取免费 skill
+          </p>
           <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {/* 公众号 */}
             <div className="p-8 rounded-2xl border border-sea-border bg-sea-card text-center">
@@ -291,11 +318,11 @@ export default function AboutPage() {
                 <MessageCircle size={24} />
               </div>
               <h3 className="text-xl font-bold mb-2 text-text-primary">关注公众号</h3>
-              <p className="text-sm mb-6 text-text-secondary">知屿AI编程 · AI 编程与出海干货</p>
+              <p className="text-sm mb-6 text-text-secondary">知屿AI编程</p>
               <div className="relative w-48 h-48 mx-auto mb-4 rounded-xl overflow-hidden border-2 border-sea-border">
                 <Image src="/images/wechat-mp-qr.jpg" alt="公众号二维码" fill className="object-cover" />
               </div>
-              <p className="text-xs text-text-secondary">扫码关注，获取最新文章</p>
+              <p className="text-xs text-text-secondary">回复「自动发文」领取免费 skill</p>
             </div>
 
             {/* 个人微信 */}
@@ -307,7 +334,7 @@ export default function AboutPage() {
                 <User size={24} />
               </div>
               <h3 className="text-xl font-bold mb-2 text-text-primary">添加微信</h3>
-              <p className="text-sm mb-6 text-text-secondary">知屿 · 一对一深度交流</p>
+              <p className="text-sm mb-6 text-text-secondary">知屿 · 一对一交流</p>
               <div className="relative w-48 h-48 mx-auto mb-4 rounded-xl overflow-hidden border-2 border-sea-border">
                 <Image src="/images/wechat-qr.jpg" alt="个人微信二维码" fill className="object-cover" />
               </div>
