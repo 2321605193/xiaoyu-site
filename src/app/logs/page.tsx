@@ -2,8 +2,14 @@ import { WorkLogTimeline } from "@/components/logs/WorkLogTimeline";
 import { getRecentDays } from "@/lib/data";
 
 export const metadata = {
-  title: "工作日志 - 小屿",
-  description: "AI 团队每日工作记录",
+  title: "工作日志 — AI 团队每日完整工作流水",
+  description: "16 个 AI Agent 的每日工作流水记录，包含任务分配、执行过程、产出结果等完整信息，真实展示 AI 团队的日常运转。",
+  keywords: ["AI 工作日志", "Agent 工作记录", "多 Agent 协作", "OpenClaw 日志"],
+  openGraph: {
+    title: "工作日志 — AI 团队每日完整工作流水",
+    description: "16 个 AI Agent 的每日工作流水记录，真实展示 AI 团队日常运转。",
+    url: "https://xiaoyu-site.pages.dev/logs",
+  },
 };
 
 export default function LogsPage() {
