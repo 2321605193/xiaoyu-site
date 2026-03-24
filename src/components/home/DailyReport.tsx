@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FileText, Users, CheckCircle2, Zap, ArrowRight } from "lucide-react";
 import dailySummary from "@/data/daily-summary.json";
 
 interface DailySummary {
@@ -38,11 +39,13 @@ function SummaryCard({ summary }: { summary: DailySummary }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-sea-card to-sea-card/50 p-6 backdrop-blur-sm"
+      className="relative overflow-hidden rounded-2xl border border-sea-border/60 bg-gradient-to-br from-sea-card to-sea-card/50 p-6 backdrop-blur-sm transition-colors duration-300 hover:border-sea-border"
     >
       {/* Date header */}
       <div className="mb-4 flex items-center gap-3">
-        <span className="text-2xl">📝</span>
+        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-gold/10">
+          <FileText size={16} className="text-accent-gold" />
+        </div>
         <div>
           <h3 className="font-semibold text-text-primary">
             {formatDate(summary.date)}
@@ -64,28 +67,28 @@ function SummaryCard({ summary }: { summary: DailySummary }) {
       <div className="mb-4 space-y-2">
         {summary.highlights.map((highlight, i) => (
           <div key={i} className="flex items-start gap-2">
-            <span className="mt-1 text-accent-gold">✦</span>
+            <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-accent-gold" />
             <span className="text-sm text-text-secondary">{highlight}</span>
           </div>
         ))}
       </div>
 
       {/* Stats */}
-      <div className="flex flex-wrap gap-4 border-t border-sea-border pt-4">
+      <div className="flex flex-wrap gap-4 border-t border-sea-border/60 pt-4">
         <div className="flex items-center gap-2">
-          <span className="text-brand-cyan">👥</span>
+          <Users size={14} className="text-brand-cyan" />
           <span className="text-sm text-text-secondary">
             {summary.stats.activeAgents} 位活跃
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-accent-gold">✓</span>
+          <CheckCircle2 size={14} className="text-accent-gold" />
           <span className="text-sm text-text-secondary">
             {summary.stats.completedTasks} 项完成
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-brand-purple">⚡</span>
+          <Zap size={14} className="text-brand-purple" />
           <span className="text-sm text-text-secondary">
             {summary.stats.codeChanges}
           </span>
@@ -96,7 +99,7 @@ function SummaryCard({ summary }: { summary: DailySummary }) {
 }
 
 export function DailyReport() {
-  const summaries = dailySummary.summaries.slice(0, 3); // 显示最近 3 天
+  const summaries = dailySummary.summaries.slice(0, 3);
 
   return (
     <section className="px-6 py-24">
@@ -114,9 +117,7 @@ export function DailyReport() {
               工作日报
             </span>
           </h2>
-          <p className="text-text-secondary">
-            小屿视角 · 团队工作总结
-          </p>
+          <p className="text-text-secondary">小屿视角 · 团队工作总结</p>
         </motion.div>
 
         {/* Summary cards */}
@@ -129,9 +130,10 @@ export function DailyReport() {
         <div className="mt-10 text-center">
           <a
             href="/daily"
-            className="inline-flex items-center gap-2 rounded-lg border border-sea-border px-6 py-2.5 text-sm font-medium text-text-secondary transition-all duration-300 hover:border-accent-gold hover:text-accent-gold"
+            className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-sea-border px-6 py-2.5 text-sm font-medium text-text-secondary transition-all duration-300 hover:border-accent-gold hover:text-accent-gold"
           >
-            查看全部日报 →
+            查看全部日报
+            <ArrowRight size={14} />
           </a>
         </div>
       </div>

@@ -7,6 +7,7 @@ import {
   Brain,
   Workflow,
   Clock,
+  AlertTriangle,
   ArrowRight,
 } from 'lucide-react';
 
@@ -15,31 +16,36 @@ const capabilities = [
     icon: Network,
     title: '多 Agent 架构',
     desc: '16 个 Agent 分工明确，覆盖开发、内容、运营、增长、设计、安全、运维全链路',
-    color: 'var(--brand-cyan)',
+    color: 'text-brand-cyan',
+    bg: 'bg-brand-cyan/10',
   },
   {
     icon: Shield,
     title: '完整治理体系',
     desc: '23 条实战红线、两阶段 ACK 协作协议、三层记忆系统，保障团队稳定运行',
-    color: 'var(--brand-blue)',
+    color: 'text-brand-blue',
+    bg: 'bg-brand-blue/10',
   },
   {
     icon: Brain,
     title: '自我进化机制',
     desc: 'Agent 从错误中学习，自动沉淀经验、更新规则，持续提升能力',
-    color: 'var(--brand-purple)',
+    color: 'text-brand-purple',
+    bg: 'bg-brand-purple/10',
   },
   {
     icon: Workflow,
     title: '内容生产闭环',
     desc: '选题→框架→执笔→审核→发布→数据追踪，全流程 Agent 协作完成',
-    color: 'var(--accent-gold)',
+    color: 'text-accent-gold',
+    bg: 'bg-accent-gold/10',
   },
   {
     icon: Clock,
     title: '7×24 自动化',
     desc: '竞品监控、热点扫描、数据追踪、每日更新，Cron 任务全天候运行',
-    color: 'var(--status-online)',
+    color: 'text-status-online',
+    bg: 'bg-status-online/10',
   },
 ];
 
@@ -128,10 +134,9 @@ export function Collaboration() {
                   className="group rounded-xl border border-sea-border bg-sea-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-sea-border/80"
                 >
                   <div
-                    className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg"
-                    style={{ background: `color-mix(in srgb, ${cap.color} 15%, transparent)` }}
+                    className={`mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg ${cap.bg}`}
                   >
-                    <Icon size={20} style={{ color: cap.color }} />
+                    <Icon size={20} className={cap.color} />
                   </div>
                   <h4 className="mb-2 font-semibold text-text-primary">
                     {cap.title}
@@ -151,11 +156,8 @@ export function Collaboration() {
               transition={{ delay: 0.15 + 5 * 0.06 }}
               className="rounded-xl border border-sea-border bg-sea-card p-6"
             >
-              <div
-                className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg"
-                style={{ background: 'rgba(239, 68, 68, 0.15)' }}
-              >
-                <span className="text-lg">🩸</span>
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-red-500/10">
+                <AlertTriangle size={20} className="text-red-400" />
               </div>
               <h4 className="mb-2 font-semibold text-text-primary">
                 真实踩坑经验
@@ -208,7 +210,7 @@ export function Collaboration() {
               </div>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-blue px-6 py-3 font-semibold text-sea-deep transition-all duration-300 hover:shadow-glow"
+                className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-blue px-6 py-3 font-semibold text-sea-deep transition-all duration-300 hover:shadow-glow"
               >
                 联系合作
                 <ArrowRight size={16} />

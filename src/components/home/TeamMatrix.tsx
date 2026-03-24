@@ -2,16 +2,22 @@
 
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, Crown, Wrench, Layers } from "lucide-react";
 import { AgentCard } from "@/components/team/AgentCard";
 import { StatusDot } from "@/components/ui/StatusDot";
 import { Tag } from "@/components/ui/Tag";
 import type { Agent, AgentLevel } from "@/lib/types";
 
-const levelLabels: Record<string, { label: string; color: string }> = {
-  总管层: { label: "🏝️ 总管层", color: "text-accent-gold" },
-  职能层: { label: "🔧 职能层", color: "text-brand-cyan" },
-  平台层: { label: "📱 平台层", color: "text-text-secondary" },
+type LevelMeta = {
+  label: string;
+  color: string;
+  Icon: React.ElementType;
+};
+
+const levelLabels: Record<string, LevelMeta> = {
+  总管层: { label: "总管层", color: "text-accent-gold", Icon: Crown },
+  职能层: { label: "职能层", color: "text-brand-cyan", Icon: Wrench },
+  平台层: { label: "平台层", color: "text-text-secondary", Icon: Layers },
 };
 
 export function TeamMatrix({ levels }: { levels: AgentLevel[] }) {
@@ -48,21 +54,24 @@ export function TeamMatrix({ levels }: { levels: AgentLevel[] }) {
 
         {/* Levels */}
         {levels.map((level, levelIdx) => {
-          const meta = levelLabels[level.name] || {
+          const meta: LevelMeta = levelLabels[level.name] ?? {
             label: level.name,
             color: "text-text-primary",
+            Icon: Layers,
           };
+          const LevelIcon = meta.Icon;
           return (
             <div key={level.name} className="mb-12 last:mb-0">
-              <motion.h3
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: levelIdx * 0.1 }}
-                className={`mb-6 text-lg font-semibold ${meta.color}`}
+                className={`mb-6 flex items-center gap-2 text-lg font-semibold ${meta.color}`}
               >
+                <LevelIcon size={18} />
                 {meta.label}
-              </motion.h3>
+              </motion.div>
 
               <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
                 {level.agents.map((agent, i) => (

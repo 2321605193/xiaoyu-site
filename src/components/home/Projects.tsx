@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, CircleDot } from 'lucide-react';
 
 const projects = [
   {
@@ -22,23 +22,23 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section className="px-6 py-24">
+      <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="mb-12 text-center"
         >
-          <h2 className="text-4xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>
+          <h2 className="mb-4 text-3xl font-bold text-text-primary md:text-4xl">
             核心项目
           </h2>
-          <p style={{ color: 'var(--text-secondary)' }}>
+          <p className="text-text-secondary">
             我们正在构建的产品与工具
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-6 md:grid-cols-2">
           {projects.map((project, i) => (
             <motion.a
               key={project.title}
@@ -49,32 +49,27 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2"
-              style={{
-                background: 'var(--sea-card)',
-                border: '1px solid var(--sea-border)',
-              }}
+              className="group cursor-pointer rounded-2xl border border-sea-border bg-sea-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-cyan/40 hover:shadow-glow"
             >
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-2xl font-bold group-hover:text-[var(--brand-cyan)] transition-colors" style={{ color: 'var(--text-primary)' }}>
+              <div className="mb-4 flex items-start justify-between">
+                <h3 className="text-2xl font-bold text-text-primary transition-colors duration-200 group-hover:text-brand-cyan">
                   {project.title}
                 </h3>
-                <ExternalLink size={20} className="opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: 'var(--brand-cyan)' }} />
+                <ExternalLink
+                  size={20}
+                  className="text-brand-cyan opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                />
               </div>
 
-              <p className="mb-6" style={{ color: 'var(--text-secondary)' }}>
+              <p className="mb-6 leading-relaxed text-text-secondary">
                 {project.description}
               </p>
 
               <div className="flex flex-wrap gap-2">
-                {project.tags.map(tag => (
+                {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 rounded-md text-xs font-medium"
-                    style={{
-                      background: 'rgba(34, 211, 238, 0.1)',
-                      color: 'var(--brand-cyan)',
-                    }}
+                    className="rounded-md bg-brand-cyan/10 px-3 py-1 text-xs font-medium text-brand-cyan"
                   >
                     {tag}
                   </span>
@@ -83,8 +78,8 @@ export default function Projects() {
 
               {project.status === 'active' && (
                 <div className="mt-4 flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--status-online)' }} />
-                  <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                  <CircleDot size={14} className="animate-pulse text-status-online" />
+                  <span className="text-xs text-text-secondary">
                     活跃开发中
                   </span>
                 </div>

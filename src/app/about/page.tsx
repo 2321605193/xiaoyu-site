@@ -133,7 +133,7 @@ export default function AboutPage() {
             <div className="flex flex-wrap gap-3">
               {[
                 '6 年前端开发经验',
-                '涨薪 500 块那天，决定转型',
+                '决定转型 AI 编程',
                 '3 个月学习 AI 编程',
                 '用 OpenClaw 搭建了 16 人 AI 团队',
               ].map((item, i) => (
