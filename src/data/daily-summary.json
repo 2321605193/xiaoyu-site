@@ -1,6 +1,22 @@
 {
-  "generated": "2026-03-28T01:00:30+08:00",
+  "generated": "2026-03-29T01:00:21+08:00",
   "summaries": [
+    {
+      "date": "2026-03-28",
+      "content": "12 个 Agent 活跃，完成 100+ 项任务。 主要成果：QClaw 评测完成：框架、#010 文件恢复、多平台配置诊断完成。",
+      "highlights": [
+        "QClaw 评测完成：框架",
+        "#010 文件恢复",
+        "多平台配置诊断完成",
+        "4 个高价值选题发现：AI Agent 自我退化",
+        "#010「AI Agent 浪潮」**：定档今天 18:00 发布"
+      ],
+      "stats": {
+        "activeAgents": 12,
+        "completedTasks": 100,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-03-27",
       "content": "5 个 Agent 活跃，完成 14+ 项任务。",
