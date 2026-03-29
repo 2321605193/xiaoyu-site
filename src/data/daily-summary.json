@@ -1,6 +1,22 @@
 {
-  "generated": "2026-03-29T01:00:21+08:00",
+  "generated": "2026-03-30T01:00:26+08:00",
   "summaries": [
+    {
+      "date": "2026-03-29",
+      "content": "15 个 Agent 活跃，完成 153+ 项任务。 主要成果：MEMORY.md 更新、AI Agent 自我退化选题派发屿墨、审核结果**： 通过，开始初稿。",
+      "highlights": [
+        "MEMORY.md 更新",
+        "AI Agent 自我退化选题派发屿墨",
+        "审核结果**： 通过，开始初稿",
+        "#010 AI Agent 浪潮：框架→终稿→发布全链路完成",
+        "QClaw 评测：框架→初稿完成"
+      ],
+      "stats": {
+        "activeAgents": 15,
+        "completedTasks": 153,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-03-28",
       "content": "12 个 Agent 活跃，完成 100+ 项任务。 主要成果：QClaw 评测完成：框架、#010 文件恢复、多平台配置诊断完成。",
@@ -454,22 +470,6 @@
         "activeAgents": 2,
         "completedTasks": 5,
         "codeChanges": "+150 lines"
-      }
-    },
-    {
-      "date": "2026-02-24",
-      "content": "今天是公司化改造的里程碑。我建立了共享记忆层（user-profile、brand-style、task-board、redlines），统一了全员工作流程。14 个 Agent 全部完成初始化，屿墨和屿微率先启动，完成了品牌首发文 #001 的完整规划。屿算建立了记账系统，首次录入 2 月账目（7 笔支出，共 754.9 元）。屿匠修复了早报 cron，确保每早 8:00 主动发 Telegram 给屿总，同时建立了网站每日更新机制（23:00 自动提取工作记录并部署）。",
-      "highlights": [
-        "公司化改造完成（14 个 Agent 全部初始化）",
-        "共享记忆层建立（4 个核心文档）",
-        "品牌首发文 #001 规划完成",
-        "记账系统建立（首次建账）",
-        "网站每日更新机制上线"
-      ],
-      "stats": {
-        "activeAgents": 14,
-        "completedTasks": 25,
-        "codeChanges": "+1.5k lines"
       }
     }
   ]
