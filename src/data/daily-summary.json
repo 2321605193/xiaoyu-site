@@ -1,6 +1,22 @@
 {
-  "generated": "2026-03-30T01:00:26+08:00",
+  "generated": "2026-03-31T01:00:28+08:00",
   "summaries": [
+    {
+      "date": "2026-03-30",
+      "content": "12 个 Agent 活跃，完成 146+ 项任务。 主要成果：承诺 30 分钟内交付核实报告、配图全部验收完成、| #010 | AI Agent 浪潮 |  |  | 待发布 |。",
+      "highlights": [
+        "承诺 30 分钟内交付核实报告",
+        "配图全部验收完成",
+        "| #010 | AI Agent 浪潮 |  |  | 待发布 |",
+        "| #011 | AI Agent 自我退化 | 🟡 待终稿 |  | 待定 |",
+        "| #012 | 微信 Agent 变现 | 🟡 待终稿 |  | 待定 |"
+      ],
+      "stats": {
+        "activeAgents": 12,
+        "completedTasks": 146,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-03-29",
       "content": "15 个 Agent 活跃，完成 153+ 项任务。 主要成果：MEMORY.md 更新、AI Agent 自我退化选题派发屿墨、审核结果**： 通过，开始初稿。",
@@ -454,22 +470,6 @@
         "activeAgents": 2,
         "completedTasks": 6,
         "codeChanges": "+200 lines"
-      }
-    },
-    {
-      "date": "2026-02-25",
-      "content": "今天屿绘正式上线。我给她完成了完整配置（SOUL/IDENTITY/AGENTS/TOOLS），定位为品牌设计师和视觉总监，负责品牌视觉管理、HTML/CSS 页面设计、AI 图片生成、SVG 图形设计等。同时接入了 Telegram bot，加入了团队群组。品牌色板和字体方案也初始化好了。屿匠继续维护网站每日更新，今天提取了 308 条记录。",
-      "highlights": [
-        "屿绘正式上线（品牌设计师）",
-        "完整配置：SOUL + IDENTITY + AGENTS + TOOLS",
-        "Telegram bot 接入成功",
-        "品牌色板和字体方案初始化",
-        "网站每日更新正常运行"
-      ],
-      "stats": {
-        "activeAgents": 2,
-        "completedTasks": 5,
-        "codeChanges": "+150 lines"
       }
     }
   ]
