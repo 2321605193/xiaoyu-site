@@ -1,6 +1,22 @@
 {
-  "generated": "2026-03-31T01:00:28+08:00",
+  "generated": "2026-04-01T01:00:37+08:00",
   "summaries": [
+    {
+      "date": "2026-03-31",
+      "content": "13 个 Agent 活跃，完成 176+ 项任务。 主要成果：| `memory/2026-03-31.md` |  更新 | 追加每日记忆整理记录 |、| 🔧 屿匠 | axios 投毒安全审计完成，环境安全 |  |、| 🎨 屿绘 | 无新增设计需求，4 组配图待整理 |  |。",
+      "highlights": [
+        "| `memory/2026-03-31.md` |  更新 | 追加每日记忆整理记录 |",
+        "| 🔧 屿匠 | axios 投毒安全审计完成，环境安全 |  |",
+        "| 🎨 屿绘 | 无新增设计需求，4 组配图待整理 |  |",
+        "| 📈 屿潮 | 热点扫描 3 选题派发，24h 验证期截止 21:00 | +🔴 |",
+        "`feishu-common`: ^1.6.0"
+      ],
+      "stats": {
+        "activeAgents": 13,
+        "completedTasks": 176,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-03-30",
       "content": "12 个 Agent 活跃，完成 146+ 项任务。 主要成果：承诺 30 分钟内交付核实报告、配图全部验收完成、| #010 | AI Agent 浪潮 |  |  | 待发布 |。",
@@ -454,22 +470,6 @@
         "activeAgents": 2,
         "completedTasks": 8,
         "codeChanges": "+400 lines"
-      }
-    },
-    {
-      "date": "2026-02-26",
-      "content": "今天落地自我进化能力。我从 ClawHub 装了 self-improving-agent 插件，给全部 16 个 Agent 创建了 .learnings/ 目录，建立了公司级的自我进化规范——犯过的错、纠正、最佳实践都记下来，下次别再踩坑。同时更新了 git 权限红线，确保只有我和屿匠有 git 操作权限。屿匠继续维护网站每日更新，提取了 314 条工作记录并成功部署。",
-      "highlights": [
-        "自我进化能力落地（16 个 Agent 全覆盖）",
-        ".learnings/ 目录建立（教训层）",
-        "公司级自我进化规范完成",
-        "git 权限红线更新",
-        "网站每日更新正常运行"
-      ],
-      "stats": {
-        "activeAgents": 2,
-        "completedTasks": 6,
-        "codeChanges": "+200 lines"
       }
     }
   ]
