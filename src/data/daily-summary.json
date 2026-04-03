@@ -1,6 +1,22 @@
 {
-  "generated": "2026-04-03T01:00:42+08:00",
+  "generated": "2026-04-04T01:01:27+08:00",
   "summaries": [
+    {
+      "date": "2026-04-03",
+      "content": "14 个 Agent 活跃，完成 199+ 项任务。 主要成果：#013 AI Agent 自主化配图 8 张  已交付、| 10 | Agentic AI 自主化爆发 | AI 从自动化→自主决策 |  #013 已排期 4/5 |、\"Agentic AI 实战：搭建 AI 员工团队\" →  #013 已在排期。",
+      "highlights": [
+        "#013 AI Agent 自主化配图 8 张  已交付",
+        "| 10 | Agentic AI 自主化爆发 | AI 从自动化→自主决策 |  #013 已排期 4/5 |",
+        "\"Agentic AI 实战：搭建 AI 员工团队\" →  #013 已在排期",
+        "#012 QClaw 公测评测发布",
+        "#013 AI Agent 自主化初稿完成"
+      ],
+      "stats": {
+        "activeAgents": 14,
+        "completedTasks": 199,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-04-02",
       "content": "15 个 Agent 活跃，完成 192+ 项任务。 主要成果：| 🎨 屿绘 | #013 配图 8 张交付、| 🧮 屿算 | 4 月支出¥80、| 🛡️ 屿盾 | SSH 攻击 105 次。",
@@ -454,22 +470,6 @@
         "activeAgents": 7,
         "completedTasks": 25,
         "codeChanges": "13"
-      }
-    },
-    {
-      "date": "2026-03-02",
-      "content": "6 个 Agent 活跃，完成 20+ 项任务。 主要成果：能力退化问题诊断与修复、征文项目完整交付、Agent 间通信突破。",
-      "highlights": [
-        "能力退化问题诊断与修复",
-        "征文项目完整交付",
-        "Agent 间通信突破",
-        "小屿网站重大升级",
-        "自我进化能力全员落地"
-      ],
-      "stats": {
-        "activeAgents": 6,
-        "completedTasks": 20,
-        "codeChanges": "10+"
       }
     }
   ]
