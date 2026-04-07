@@ -1,6 +1,22 @@
 {
-  "generated": "2026-04-07T01:01:08+08:00",
+  "generated": "2026-04-08T01:00:57+08:00",
   "summaries": [
+    {
+      "date": "2026-04-07",
+      "content": "14 个 Agent 活跃，完成 235+ 项任务。 主要成果：06:00 更新 MEMORY.md 活跃待办、06:02 生成 P0 状态报告 `tasks/P0-escalation-2026-04-07.md`、06:05 Telegram escalation 发送成功。",
+      "highlights": [
+        "06:00 更新 MEMORY.md 活跃待办",
+        "06:02 生成 P0 状态报告 `tasks/P0-escalation-2026-04-07.md`",
+        "06:05 Telegram escalation 发送成功",
+        "12:34 第二次 escalation 发送",
+        "14:34 第三次 escalation 发送"
+      ],
+      "stats": {
+        "activeAgents": 14,
+        "completedTasks": 235,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-04-06",
       "content": "16 个 Agent 活跃，完成 258+ 项任务。 主要成果：| 活跃 Agent |  14/16 | 小屿/屿绘无今日文件 |、脚本执行成功、| 每日汇报 | 工作汇报 | 05:50 |  完成 |。",
@@ -453,22 +469,6 @@
       "stats": {
         "activeAgents": 7,
         "completedTasks": 39,
-        "codeChanges": "N/A"
-      }
-    },
-    {
-      "date": "2026-03-06",
-      "content": "9 个 Agent 活跃，完成 127+ 项任务。 主要成果：输出完整技术方案、设计文章框架、3/10-3/12：屿墨设计框架。",
-      "highlights": [
-        "输出完整技术方案",
-        "设计文章框架",
-        "3/10-3/12：屿墨设计框架",
-        "工具可用，但名字不对**",
-        "自动化批量处理"
-      ],
-      "stats": {
-        "activeAgents": 9,
-        "completedTasks": 127,
         "codeChanges": "N/A"
       }
     }
