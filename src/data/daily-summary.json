@@ -1,6 +1,16 @@
 {
-  "generated": "2026-04-14T01:00:29+08:00",
+  "generated": "2026-04-15T01:00:09+08:00",
   "summaries": [
+    {
+      "date": "2026-04-14",
+      "content": "无活跃记录。",
+      "highlights": [],
+      "stats": {
+        "activeAgents": 0,
+        "completedTasks": 0,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-04-13",
       "content": "无活跃记录。",
@@ -429,22 +439,6 @@
       "stats": {
         "activeAgents": 10,
         "completedTasks": 103,
-        "codeChanges": "N/A"
-      }
-    },
-    {
-      "date": "2026-03-13",
-      "content": "10 个 Agent 活跃，完成 72+ 项任务。 主要成果：#005 完成并发布、训练营 Day 1 打卡文案完成、#001 小红书版：8.5/10  可发布。",
-      "highlights": [
-        "#005 完成并发布",
-        "训练营 Day 1 打卡文案完成",
-        "#001 小红书版：8.5/10  可发布",
-        "#002 小红书版：8.5/10  可发布",
-        "| #001 | 16天16个AI员工 |  已发布(3/6) | 多平台版本待发 |"
-      ],
-      "stats": {
-        "activeAgents": 10,
-        "completedTasks": 72,
         "codeChanges": "N/A"
       }
     }
