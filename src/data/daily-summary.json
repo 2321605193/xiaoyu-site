@@ -1,6 +1,16 @@
 {
-  "generated": "2026-04-16T01:00:31+08:00",
+  "generated": "2026-04-17T01:00:53+08:00",
   "summaries": [
+    {
+      "date": "2026-04-16",
+      "content": "无活跃记录。",
+      "highlights": [],
+      "stats": {
+        "activeAgents": 0,
+        "completedTasks": 0,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-04-15",
       "content": "无活跃记录。",
@@ -417,22 +427,6 @@
       "stats": {
         "activeAgents": 11,
         "completedTasks": 73,
-        "codeChanges": "N/A"
-      }
-    },
-    {
-      "date": "2026-03-15",
-      "content": "10 个 Agent 活跃，完成 76+ 项任务。 主要成果：生成每日总结：新增 2026-03-14 日报、Qwen-Image-2.0-Pro 可用、HTML/CSS + Puppeteer 截图可用。",
-      "highlights": [
-        "生成每日总结：新增 2026-03-14 日报",
-        "Qwen-Image-2.0-Pro 可用",
-        "HTML/CSS + Puppeteer 截图可用",
-        "屿墨事实核查完成",
-        "#006 框架审核通过"
-      ],
-      "stats": {
-        "activeAgents": 10,
-        "completedTasks": 76,
         "codeChanges": "N/A"
       }
     }
