@@ -1,6 +1,16 @@
 {
-  "generated": "2026-04-18T01:00:12+08:00",
+  "generated": "2026-04-19T01:00:06+08:00",
   "summaries": [
+    {
+      "date": "2026-04-18",
+      "content": "无活跃记录。",
+      "highlights": [],
+      "stats": {
+        "activeAgents": 0,
+        "completedTasks": 0,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-04-17",
       "content": "无活跃记录。",
@@ -405,22 +415,6 @@
       "stats": {
         "activeAgents": 10,
         "completedTasks": 61,
-        "codeChanges": "N/A"
-      }
-    },
-    {
-      "date": "2026-03-17",
-      "content": "12 个 Agent 活跃，完成 152+ 项任务。 主要成果：GitHub仓库上线、#006配图完成、配图中：** #006完成，#007-#009进行中。",
-      "highlights": [
-        "GitHub仓库上线",
-        "#006配图完成",
-        "配图中：** #006完成，#007-#009进行中",
-        "教程#001框架",
-        "5 个 Agent 完整配置：小屿(总管)/屿墨(内容)/屿匠(技术)/屿潮(增长)/屿微(公众号)"
-      ],
-      "stats": {
-        "activeAgents": 12,
-        "completedTasks": 152,
         "codeChanges": "N/A"
       }
     }
