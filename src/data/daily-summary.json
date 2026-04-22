@@ -1,6 +1,16 @@
 {
-  "generated": "2026-04-22T01:00:10+08:00",
+  "generated": "2026-04-23T01:00:12+08:00",
   "summaries": [
+    {
+      "date": "2026-04-22",
+      "content": "无活跃记录。",
+      "highlights": [],
+      "stats": {
+        "activeAgents": 0,
+        "completedTasks": 0,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-04-21",
       "content": "无活跃记录。",
@@ -382,21 +392,6 @@
       "stats": {
         "activeAgents": 15,
         "completedTasks": 79,
-        "codeChanges": "N/A"
-      }
-    },
-    {
-      "date": "2026-03-21",
-      "content": "12 个 Agent 活跃，完成 41+ 项任务。 主要成果：技术栈选型评估、系统架构设计、数据模型优化。",
-      "highlights": [
-        "技术栈选型评估",
-        "系统架构设计",
-        "数据模型优化",
-        "API 接口设计"
-      ],
-      "stats": {
-        "activeAgents": 12,
-        "completedTasks": 41,
         "codeChanges": "N/A"
       }
     }
