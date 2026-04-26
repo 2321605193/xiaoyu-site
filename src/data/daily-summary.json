@@ -1,6 +1,16 @@
 {
-  "generated": "2026-04-26T01:00:13+08:00",
+  "generated": "2026-04-27T01:00:10+08:00",
   "summaries": [
+    {
+      "date": "2026-04-26",
+      "content": "无活跃记录。",
+      "highlights": [],
+      "stats": {
+        "activeAgents": 0,
+        "completedTasks": 0,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-04-25",
       "content": "无活跃记录。",
@@ -366,16 +376,6 @@
       "stats": {
         "activeAgents": 12,
         "completedTasks": 100,
-        "codeChanges": "N/A"
-      }
-    },
-    {
-      "date": "2026-03-27",
-      "content": "5 个 Agent 活跃，完成 14+ 项任务。",
-      "highlights": [],
-      "stats": {
-        "activeAgents": 5,
-        "completedTasks": 14,
         "codeChanges": "N/A"
       }
     }
