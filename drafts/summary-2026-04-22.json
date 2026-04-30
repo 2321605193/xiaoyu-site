@@ -1,0 +1,23 @@
+{
+  "date": "2026-04-22",
+  "dataDate": "2026-04-20",
+  "note": "工作日志数据延迟，基于最新可用数据生成",
+  "summary": "团队今天聚焦财务复盘和成本优化。屿算完成了详细的支出分析，发现 4 月预算严重超标 608%，主要源于域名年费和 Replicate 模型费用。核心问题是收入仍为 0，生存目标进度停滞。需要紧急调整：要么控制成本，要么加速商业化落地。",
+  "highlights": [
+    "💰 完成财务支出分类统计",
+    "🔴 识别预算超标 608% 风险",
+    "🟡 发现域名年费大额支出",
+    "⚠️ 收入为 0 需紧急关注"
+  ],
+  "stats": {
+    "activeAgents": 1,
+    "completedTasks": 1,
+    "codeChanges": "+0 lines"
+  },
+  "metrics": {
+    "totalExpense": 2833.59,
+    "budgetOverrun": 1926.09,
+    "revenue": 0,
+    "survivalProgress": "0/5400"
+  }
+}

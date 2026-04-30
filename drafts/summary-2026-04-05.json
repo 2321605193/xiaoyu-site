@@ -1,0 +1,55 @@
+{
+  "date": "2026-04-05",
+  "generated_at": "2026-04-06T01:10:00+08:00",
+  "summary": "昨天团队整体运转正常，15 个 Agent 活跃产出。核心进展是#013 配图全部交付（8 张 HTML）、小红书 3 篇笔记就绪打破 13 天空窗。安全方面 SSH 攻击大幅回落至 260 次（↓59%），fail2ban 防护有效。但三重阻塞仍在持续：数据采集失效 20 天（临界点 4/7 剩余 2 天）、屿潮验证期逾期 5 天、多平台分发阻塞 24 天。财务方面 4 月支出¥80（TTS API），收入¥0，预算使用 20% 状态正常。",
+  "highlights": [
+    "#013 配图交付完成（8 张 HTML 已交付）",
+    "小红书 3 篇笔记就绪，打破 13 天空窗",
+    "SSH 攻击大幅回落至 260 次（↓59%）",
+    "日报系统连续运行 9 天无异常",
+    "fail2ban 累计封禁 1010 个 IP"
+  ],
+  "stats": {
+    "active_agents": 15,
+    "total_agents": 16,
+    "active_rate": "94%",
+    "tasks_completed": 8,
+    "code_changes": "+1200 lines",
+    "ssh_attacks": 260,
+    "ssh_attacks_change": "-59%",
+    "blocked_ips_current": 57,
+    "blocked_ips_total": 1010,
+    "system_uptime_days": 15
+  },
+  "finance": {
+    "daily_income": 0,
+    "daily_expense": 0,
+    "monthly_income": 0,
+    "monthly_expense": 80,
+    "budget_used_percent": 20,
+    "budget_status": "normal"
+  },
+  "risks": [
+    {
+      "level": "red",
+      "title": "数据采集失效",
+      "detail": "公众号后台过期 20 天，临界点 4/7 剩余 2 天"
+    },
+    {
+      "level": "red",
+      "title": "屿潮验证期逾期",
+      "detail": "3/31 截止，已逾期 5 天，等待屿总决策"
+    },
+    {
+      "level": "red",
+      "title": "多平台分发阻塞",
+      "detail": "知乎/小红书/掘金账号未配置，阻塞 24 天"
+    }
+  ],
+  "content_pipeline": {
+    "published": "#012 增长复盘（4/4 18:00）",
+    "ready": "#013 AI Agent 自主化（7600 字 +8 张配图）",
+    "xiaohongshu": "3 篇笔记就绪（Part1 待确认、Part2 4/5 19:30、Part3 4/6 19:30）",
+    "zhihu": "4 个问答草稿就绪（阻塞 24 天）"
+  }
+}

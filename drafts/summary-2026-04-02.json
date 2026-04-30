@@ -1,0 +1,42 @@
+{
+  "date": "2026-04-02",
+  "generatedAt": "2026-04-03T01:10:00+08:00",
+  "summary": "4 月开局第二天，团队打破 10 天空窗期发布#012 QClaw 评测，#013 AI Agent 自主化 7600 字初稿 +8 张配图完成待发布。系统健康度持续改善：Cron 超时减半（4→2），SSH 攻击连续三日下降。核心阻塞仍待解：数据采集失效 17 天、多平台分发阻塞 22 天、屿潮验证期决策超 48 小时。15/16 Agent 活跃（94%），配图交付 14 张，预算使用 20% 正常。",
+  "highlights": [
+    "#012 QClaw 评测发布，打破 10 天空窗期",
+    "#013 AI Agent 自主化 7600 字 +8 张配图完成",
+    "Cron 超时减少 50%（4→2），系统更稳",
+    "SSH 攻击连续三日下降（239→105）",
+    "Gateway 持续运行 9 天无异常"
+  ],
+  "stats": {
+    "activeAgents": 15,
+    "totalAgents": 16,
+    "activeRate": "94%",
+    "tasksCompleted": 175,
+    "contentPublished": 1,
+    "imagesDelivered": 14,
+    "codeChanges": "+2200 lines",
+    "cronTimeouts": 2,
+    "sshAttacks": 105,
+    "sshAttacksTrend": "↓18%"
+  },
+  "finance": {
+    "monthlyExpense": 80,
+    "monthlyIncome": 0,
+    "budget": 400,
+    "budgetUsed": "20%",
+    "survivalTarget": "0/5400 (0%)"
+  },
+  "blockers": [
+    "数据采集失效 17 天（公众号后台过期）",
+    "多平台分发阻塞 22 天（知乎/小红书/掘金账号未配置）",
+    "屿潮验证期决策等待超 48 小时"
+  ],
+  "systemHealth": {
+    "gatewayUptime": "9 days",
+    "diskUsage": "56%",
+    "fail2banBlockedIPs": 13,
+    "cumulativeBlockedIPs": 864
+  }
+}

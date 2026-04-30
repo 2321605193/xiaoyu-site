@@ -1,0 +1,55 @@
+{
+  "date": "2026-04-04",
+  "generated_at": "2026-04-05T01:10:00+08:00",
+  "summary": "周六团队整体运转正常，内容管线有突破但核心阻塞仍未解。#012 增长复盘顺利发布，小红书 3 篇笔记完成改编打破 13 天空窗，屿绘提前交付 8 张配图。安全侧 SSH 攻击量异常暴增 397%（631 次），fail2ban 有效拦截并新增封禁 74 个 IP。但公众号后台过期进入第 19 天，4/7 将满 23 天临界点（剩 3 天窗口），屿潮验证期逾期 4 天，多平台分发阻塞 23 天导致零收入持续。16 个 Agent 中 10 个正常产出，活跃率 62.5%。",
+  "highlights": [
+    "#012 增长复盘发布，4200 字干货 +8 张配图",
+    "小红书 3 篇笔记完成，打破 13 天空窗期",
+    "SSH 攻击暴增 397%，fail2ban 封禁 74 个新 IP",
+    "Git 备份完成（commit 232445d9），数据完整归档",
+    "热点扫描发现 2 个≥20 分选题，储备充足"
+  ],
+  "stats": {
+    "active_agents": 10,
+    "total_agents": 16,
+    "active_rate": "62.5%",
+    "tasks_completed": "175+",
+    "articles_published": 1,
+    "notes_ready": 3,
+    "images_delivered": 8,
+    "ssh_attacks": 631,
+    "ssh_attacks_change": "+397%",
+    "ips_banned_today": 74,
+    "ips_banned_total": 956,
+    "data_collection_offline_days": 19,
+    "multi_platform_blocked_days": 23,
+    "yuchao_verification_overdue_days": 4
+  },
+  "code_changes": {
+    "articles": "+4200 words (#012)",
+    "xiaohongshu_notes": "+3000 words (3 篇)",
+    "images": "+8 files (HTML 配图)",
+    "git_commit": "232445d9"
+  },
+  "critical_blockers": [
+    {
+      "issue": "公众号后台数据过期",
+      "days": 19,
+      "deadline": "2026-04-07",
+      "remaining_days": 3,
+      "severity": "🔴 红色"
+    },
+    {
+      "issue": "屿潮验证期决策",
+      "days": 4,
+      "deadline": "2026-03-31",
+      "severity": "🔴 红色"
+    },
+    {
+      "issue": "多平台分发阻塞",
+      "days": 23,
+      "severity": "🔴 红色",
+      "impact": "零收入核心原因"
+    }
+  ]
+}
