@@ -1,6 +1,16 @@
 {
-  "generated": "2026-05-01T01:00:14+08:00",
+  "generated": "2026-05-02T01:00:48+08:00",
   "summaries": [
+    {
+      "date": "2026-05-01",
+      "content": "无活跃记录。",
+      "highlights": [],
+      "stats": {
+        "activeAgents": 0,
+        "completedTasks": 0,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-04-30",
       "content": "无活跃记录。",
@@ -336,22 +346,6 @@
       "stats": {
         "activeAgents": 15,
         "completedTasks": 192,
-        "codeChanges": "N/A"
-      }
-    },
-    {
-      "date": "2026-04-01",
-      "content": "15 个 Agent 活跃，完成 175+ 项任务。 主要成果：| 月收入 | ¥0 | ¥0 |  |、| #1 AI Agent 变现实战 | 24 分 | 24/25 |  本周优先 | 4/2-4/4 |、###  已完成。",
-      "highlights": [
-        "| 月收入 | ¥0 | ¥0 |  |",
-        "| #1 AI Agent 变现实战 | 24 分 | 24/25 |  本周优先 | 4/2-4/4 |",
-        "###  已完成",
-        "QClaw 评测上传草稿箱",
-        "状态**： 正常运行"
-      ],
-      "stats": {
-        "activeAgents": 15,
-        "completedTasks": 175,
         "codeChanges": "N/A"
       }
     }
