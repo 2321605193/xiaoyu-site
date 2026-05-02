@@ -1,6 +1,16 @@
 {
-  "generated": "2026-05-02T01:00:48+08:00",
+  "generated": "2026-05-03T01:00:07+08:00",
   "summaries": [
+    {
+      "date": "2026-05-02",
+      "content": "无活跃记录。",
+      "highlights": [],
+      "stats": {
+        "activeAgents": 0,
+        "completedTasks": 0,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-05-01",
       "content": "无活跃记录。",
@@ -330,22 +340,6 @@
       "stats": {
         "activeAgents": 14,
         "completedTasks": 199,
-        "codeChanges": "N/A"
-      }
-    },
-    {
-      "date": "2026-04-02",
-      "content": "15 个 Agent 活跃，完成 192+ 项任务。 主要成果：| 🎨 屿绘 | #013 配图 8 张交付、| 🧮 屿算 | 4 月支出¥80、| 🛡️ 屿盾 | SSH 攻击 105 次。",
-      "highlights": [
-        "| 🎨 屿绘 | #013 配图 8 张交付",
-        "| 🧮 屿算 | 4 月支出¥80",
-        "| 🛡️ 屿盾 | SSH 攻击 105 次",
-        "每日总结：daily-summary.json 已更新",
-        "框架**： 完成"
-      ],
-      "stats": {
-        "activeAgents": 15,
-        "completedTasks": 192,
         "codeChanges": "N/A"
       }
     }
