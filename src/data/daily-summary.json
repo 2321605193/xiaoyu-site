@@ -1,6 +1,16 @@
 {
-  "generated": "2026-05-03T01:00:07+08:00",
+  "generated": "2026-05-04T01:00:49+08:00",
   "summaries": [
+    {
+      "date": "2026-05-03",
+      "content": "无活跃记录。",
+      "highlights": [],
+      "stats": {
+        "activeAgents": 0,
+        "completedTasks": 0,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-05-02",
       "content": "无活跃记录。",
@@ -324,22 +334,6 @@
       "stats": {
         "activeAgents": 16,
         "completedTasks": 239,
-        "codeChanges": "N/A"
-      }
-    },
-    {
-      "date": "2026-04-03",
-      "content": "14 个 Agent 活跃，完成 199+ 项任务。 主要成果：#013 AI Agent 自主化配图 8 张  已交付、| 10 | Agentic AI 自主化爆发 | AI 从自动化→自主决策 |  #013 已排期 4/5 |、\"Agentic AI 实战：搭建 AI 员工团队\" →  #013 已在排期。",
-      "highlights": [
-        "#013 AI Agent 自主化配图 8 张  已交付",
-        "| 10 | Agentic AI 自主化爆发 | AI 从自动化→自主决策 |  #013 已排期 4/5 |",
-        "\"Agentic AI 实战：搭建 AI 员工团队\" →  #013 已在排期",
-        "#012 QClaw 公测评测发布",
-        "#013 AI Agent 自主化初稿完成"
-      ],
-      "stats": {
-        "activeAgents": 14,
-        "completedTasks": 199,
         "codeChanges": "N/A"
       }
     }
