@@ -1,6 +1,16 @@
 {
-  "generated": "2026-05-05T01:00:27+08:00",
+  "generated": "2026-05-06T01:00:27+08:00",
   "summaries": [
+    {
+      "date": "2026-05-05",
+      "content": "无活跃记录。",
+      "highlights": [],
+      "stats": {
+        "activeAgents": 0,
+        "completedTasks": 0,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-05-04",
       "content": "无活跃记录。",
@@ -312,22 +322,6 @@
       "stats": {
         "activeAgents": 16,
         "completedTasks": 258,
-        "codeChanges": "N/A"
-      }
-    },
-    {
-      "date": "2026-04-05",
-      "content": "15 个 Agent 活跃，完成 202+ 项任务。 主要成果：| 🧮 屿算 | 财务复盘：4 月支出¥80、| 🧭 屿舵 | 运维复盘：系统稳定 15 天、SSH 攻击 260 次、| 🛡️ 屿盾 | 安全复盘：SSH 攻击~260 次、累计封禁 1010 IP、gateway 服务需确认 |  |。",
-      "highlights": [
-        "| 🧮 屿算 | 财务复盘：4 月支出¥80",
-        "| 🧭 屿舵 | 运维复盘：系统稳定 15 天、SSH 攻击 260 次",
-        "| 🛡️ 屿盾 | 安全复盘：SSH 攻击~260 次、累计封禁 1010 IP、gateway 服务需确认 |  |",
-        "| 🖋️ 屿墨 | writer 复盘：#012 发布确认、小红书 3 篇完成、数据申请清单准备 |  |",
-        "每日总结：daily-summary.json 已更新"
-      ],
-      "stats": {
-        "activeAgents": 15,
-        "completedTasks": 202,
         "codeChanges": "N/A"
       }
     }
