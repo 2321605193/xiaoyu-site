@@ -1,6 +1,16 @@
 {
-  "generated": "2026-05-07T01:00:05+08:00",
+  "generated": "2026-05-08T01:00:08+08:00",
   "summaries": [
+    {
+      "date": "2026-05-07",
+      "content": "无活跃记录。",
+      "highlights": [],
+      "stats": {
+        "activeAgents": 0,
+        "completedTasks": 0,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-05-06",
       "content": "无活跃记录。",
@@ -300,22 +310,6 @@
       "stats": {
         "activeAgents": 16,
         "completedTasks": 251,
-        "codeChanges": "N/A"
-      }
-    },
-    {
-      "date": "2026-04-07",
-      "content": "14 个 Agent 活跃，完成 235+ 项任务。 主要成果：06:00 更新 MEMORY.md 活跃待办、06:02 生成 P0 状态报告 `tasks/P0-escalation-2026-04-07.md`、06:05 Telegram escalation 发送成功。",
-      "highlights": [
-        "06:00 更新 MEMORY.md 活跃待办",
-        "06:02 生成 P0 状态报告 `tasks/P0-escalation-2026-04-07.md`",
-        "06:05 Telegram escalation 发送成功",
-        "12:34 第二次 escalation 发送",
-        "14:34 第三次 escalation 发送"
-      ],
-      "stats": {
-        "activeAgents": 14,
-        "completedTasks": 235,
         "codeChanges": "N/A"
       }
     }
