@@ -1,6 +1,16 @@
 {
-  "generated": "2026-05-08T01:00:08+08:00",
+  "generated": "2026-05-09T01:00:08+08:00",
   "summaries": [
+    {
+      "date": "2026-05-08",
+      "content": "无活跃记录。",
+      "highlights": [],
+      "stats": {
+        "activeAgents": 0,
+        "completedTasks": 0,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-05-07",
       "content": "无活跃记录。",
@@ -294,22 +304,6 @@
       "stats": {
         "activeAgents": 5,
         "completedTasks": 132,
-        "codeChanges": "N/A"
-      }
-    },
-    {
-      "date": "2026-04-08",
-      "content": "16 个 Agent 活跃，完成 251+ 项任务。 主要成果：05:30 读取共享记忆核心文件、05:35 读取 4/7 每日笔记，确认状态、| 06:00 | 屿匠/屿墨/屿绘/屿微 日报 |  | 4 个 Agent 日报完成 |。",
-      "highlights": [
-        "05:30 读取共享记忆核心文件",
-        "05:35 读取 4/7 每日笔记，确认状态",
-        "| 06:00 | 屿匠/屿墨/屿绘/屿微 日报 |  | 4 个 Agent 日报完成 |",
-        "##  今日完成工作",
-        "状态**： 正常"
-      ],
-      "stats": {
-        "activeAgents": 16,
-        "completedTasks": 251,
         "codeChanges": "N/A"
       }
     }
