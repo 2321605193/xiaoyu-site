@@ -1,6 +1,16 @@
 {
-  "generated": "2026-05-22T01:00:49+08:00",
+  "generated": "2026-05-23T01:00:26+08:00",
   "summaries": [
+    {
+      "date": "2026-05-22",
+      "content": "无活跃记录。",
+      "highlights": [],
+      "stats": {
+        "activeAgents": 0,
+        "completedTasks": 0,
+        "codeChanges": "N/A"
+      }
+    },
     {
       "date": "2026-05-21",
       "content": "无活跃记录。",
@@ -283,16 +293,6 @@
     },
     {
       "date": "2026-04-22",
-      "content": "无活跃记录。",
-      "highlights": [],
-      "stats": {
-        "activeAgents": 0,
-        "completedTasks": 0,
-        "codeChanges": "N/A"
-      }
-    },
-    {
-      "date": "2026-04-21",
       "content": "无活跃记录。",
       "highlights": [],
       "stats": {
