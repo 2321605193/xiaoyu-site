@@ -1,0 +1,26 @@
+{
+  "date": "2026-06-07",
+  "generatedAt": "2026-06-08T00:40:00+08:00",
+  "generatedBy": "屿墨（内容总监）",
+  "summary": "昨天团队整体处于静默状态，无活跃工作记录。work-log 未采集到任何 Agent 产出，各平台无新内容发布，代码仓库无变更。可能是节假日或系统采集节点未触发。建议今天重点关注：1）确认各 Agent 是否正常运行；2）检查 cron 调度是否正常；3）积压内容（公众号3篇草稿、知乎4个问答）择机发布。",
+  "highlights": [
+    "团队静默，无活跃工作记录",
+    "各平台无新内容发布",
+    "代码仓库无变更",
+    "建议检查 Agent 运行状态",
+    "积压内容待择机发布"
+  ],
+  "stats": {
+    "activeAgents": 0,
+    "totalAgents": 16,
+    "completedTasks": 0,
+    "codeChanges": "N/A",
+    "articlesPublished": 0,
+    "articlesPending": 7
+  },
+  "pendingItems": [
+    "公众号 3 篇草稿待发布",
+    "知乎 4 个问答草稿就绪",
+    "小红书内容积压待分发"
+  ]
+}
