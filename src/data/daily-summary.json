@@ -2,6 +2,16 @@
   "generated": "2026-06-17T01:00:05+08:00",
   "summaries": [
     {
+      "date": "2026-06-17",
+      "content": "无活跃记录。待命休整第13天。",
+      "highlights": [],
+      "stats": {
+        "activeAgents": 0,
+        "completedTasks": 0,
+        "codeChanges": "N/A"
+      }
+    },
+    {
       "date": "2026-06-16",
       "content": "无活跃记录。",
       "highlights": [],
