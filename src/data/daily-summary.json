@@ -1,9 +1,9 @@
 {
-  "generated": "2026-06-19T01:10:00+08:00",
+  "generated": "2026-06-19T01:00:15+08:00",
   "summaries": [
     {
       "date": "2026-06-18",
-      "content": "无活跃记录。待命休整第14天，work-log持续空白，仅有cron自动维护任务运行。",
+      "content": "无活跃记录。",
       "highlights": [],
       "stats": {
         "activeAgents": 0,
@@ -293,16 +293,6 @@
     },
     {
       "date": "2026-05-18",
-      "content": "无活跃记录。",
-      "highlights": [],
-      "stats": {
-        "activeAgents": 0,
-        "completedTasks": 0,
-        "codeChanges": "N/A"
-      }
-    },
-    {
-      "date": "2026-05-16",
       "content": "无活跃记录。",
       "highlights": [],
       "stats": {
